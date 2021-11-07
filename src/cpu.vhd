@@ -8,24 +8,24 @@ generic(
 );
 port(
 	SCL: in std_logic; --clock
-	RST: in std_logic --reset
+	RST: in std_logic := '1' --reset
 );
 end entity cpu;
 
 architecture Behavioral of cpu is
 
 --inner signals for registers
-signal R0: std_logic_vector(N-1 DOWNTO 0) := x"00000000";
-signal R1: std_logic_vector(N-1 DOWNTO 0) := x"00000000";
-signal R2: std_logic_vector(N-1 DOWNTO 0) := x"00000000";
-signal R3: std_logic_vector(N-1 DOWNTO 0) := x"00000000";
-signal R4: std_logic_vector(N-1 DOWNTO 0) := x"00000000";
-signal R5: std_logic_vector(N-1 DOWNTO 0) := x"00000000";
-signal R6: std_logic_vector(N-1 DOWNTO 0) := x"00000000";
-signal R7: std_logic_vector(N-1 DOWNTO 0) := x"00000000";
-signal R8: std_logic_vector(N-1 DOWNTO 0) := x"00000000";
-signal SP: std_logic_vector(N-1 DOWNTO 0) := x"00000000";
-signal IP: std_logic_vector(N-1 DOWNTO 0) := x"00000000";
+signal R0: std_logic_vector(N-1 DOWNTO 0);-- := x"00000000";
+signal R1: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
+signal R2: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
+signal R3: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
+signal R4: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
+signal R5: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
+signal R6: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
+signal R7: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
+signal R8: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
+signal SP: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
+signal IP: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
 
 begin
 
