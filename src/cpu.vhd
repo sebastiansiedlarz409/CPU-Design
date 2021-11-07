@@ -34,7 +34,7 @@ signal RAM_ADDR: std_logic_vector(N-1 DOWNTO 0);
 signal RAM_RW: std_logic;
 
 --RAM
-entity ram is
+component ram is
 port(
 	SCL: in std_logic; 				--clock
 	RST: in std_logic := '1'; 			--reset
@@ -43,13 +43,13 @@ port(
 	RAM_ADDR: in std_logic_vector(N-1 DOWNTO 0);
 	RAM_RW: in std_logic 				--1 means read, 0 means write
 );
-end entity ram
+end component ram;
 --RAM END
 
 begin
 
 --RAM MAP
-RAM: ram port map (
+RAM_C: ram port map (
 	SCL => SCL,
 	RST => RST,
 	RAM_IN => RAM_DATA,
