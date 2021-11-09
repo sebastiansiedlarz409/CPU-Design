@@ -29,7 +29,8 @@ signal SP: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
 signal IP: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
 
 --signals for ram
-signal RAM_DATA: std_logic_vector(M-1 DOWNTO 0);
+signal RAM_IN: std_logic_vector(M-1 DOWNTO 0);
+signal RAM_OUT: std_logic_vector(M-1 DOWNTO 0);
 signal RAM_ADDR: std_logic_vector(N-1 DOWNTO 0);
 signal RAM_RW: std_logic;
 
@@ -52,8 +53,8 @@ begin
 RAM_C: ram port map (
 	SCL => SCL,
 	RST => RST,
-	RAM_IN => RAM_DATA,
-	RAM_OUT => RAM_DATA,
+	RAM_IN => RAM_IN,
+	RAM_OUT => RAM_OUT,
 	RAM_ADDR => RAM_ADDR,
 	RAM_RW => RAM_RW
 );
@@ -66,7 +67,7 @@ begin
 if RST='0' then
 	RAM_RW <= '1';
 	RAM_ADDR <= x"00000000";
-	RAM_DATA <= x"00000000";
+	RAM_IN <= x"00";
 	R0 <= x"00000000";
 	R1 <= x"00000000";
 	R2 <= x"00000000";
