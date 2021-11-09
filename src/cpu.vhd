@@ -47,6 +47,20 @@ port(
 end component ram;
 --RAM END
 
+signal ROM_OUT: std_logic_vector(M-1 DOWNTO 0);
+signal ROM_ADDR: std_logic_vector(N-1 DOWNTO 0);
+
+--ROM
+component rom is
+port(
+	SCL: in std_logic; 								--clock
+	RST: in std_logic := '1'; 						--reset
+	ROM_OUT: out std_logic_vector(M-1 DOWNTO 0);
+	ROM_ADDR: in std_logic_vector(N-1 DOWNTO 0)
+);
+end component rom;
+--ROM END
+
 begin
 
 --RAM MAP
@@ -60,6 +74,15 @@ RAM_C: ram port map (
 );
 --RAM MAP END
 
+--ROM MAP
+ROM_C: rom port map (
+	SCL => SCL,
+	RST => RST,
+	ROM_OUT => ROM_OUT,
+	ROM_ADDR => ROM_ADDR
+);
+--ROM MAP END
+
 process(SCL)
 begin
 
@@ -68,6 +91,7 @@ if RST='0' then
 	RAM_RW <= '1';
 	RAM_ADDR <= x"00000000";
 	RAM_IN <= x"00";
+	ROM_ADDR <= x"00000000";
 	R0 <= x"00000000";
 	R1 <= x"00000000";
 	R2 <= x"00000000";
