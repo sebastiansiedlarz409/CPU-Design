@@ -36,10 +36,10 @@ if rising_edge(SCL) then
 		RAM_OUT <= RAM(to_integer(unsigned(RAM_ADDR)));
 	end if;
 
-end if;
+	if RST='0' then
+		RAM_OUT <= x"00";
+	end if;
 
-if RST='0' then
-	RAM_OUT <= x"00";
 end if;
 
 end process;

@@ -4,11 +4,11 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity cpu is
 generic(
-	N: integer := 32; 		--how many bits width
-	M: integer := 8			--how many bits width element is
+	N: integer := 32; 			--how many bits width
+	M: integer := 8				--how many bits width element is
 );
 port(
-	SCL: in std_logic; 		--clock
+	SCL: in std_logic; 			--clock
 	RST: in std_logic := '1' 	--reset
 );
 end entity cpu;
@@ -86,23 +86,27 @@ ROM_C: rom port map (
 process(SCL)
 begin
 
---reset whole cpu	
-if RST='0' then
-	RAM_RW <= '1';
-	RAM_ADDR <= x"00000000";
-	RAM_IN <= x"00";
-	ROM_ADDR <= x"00000000";
-	R0 <= x"00000000";
-	R1 <= x"00000000";
-	R2 <= x"00000000";
-	R3 <= x"00000000";
-	R4 <= x"00000000";
-	R5 <= x"00000000";
-	R6 <= x"00000000";
-	R7 <= x"00000000";
-	R8 <= x"00000000";
-	SP <= x"00000000";
-	IP <= x"00000000";
+if rising_edge(SCL) then
+	
+	--reset whole cpu	
+	if RST='0' then
+		RAM_RW <= '1';
+		RAM_ADDR <= x"00000000";
+		RAM_IN <= x"00";
+		ROM_ADDR <= x"00000000";
+		R0 <= x"00000000";
+		R1 <= x"00000000";
+		R2 <= x"00000000";
+		R3 <= x"00000000";
+		R4 <= x"00000000";
+		R5 <= x"00000000";
+		R6 <= x"00000000";
+		R7 <= x"00000000";
+		R8 <= x"00000000";
+		SP <= x"00000000";
+		IP <= x"00000000";
+	end if;
+
 end if;
 
 end process;
