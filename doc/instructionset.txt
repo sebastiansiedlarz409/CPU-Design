@@ -1,0 +1,67 @@
+mov rX, imm32
+B0 [X]F, 00 00 00 00 //litte endian
+
+mov rX, rX //32 bits registers
+B1 [X][X]
+
+mov rXd, imm16
+B2 [X]F, 00 00 //litte endian
+
+mov rXd, rXd //16 bits registers
+B3 [X][X]
+
+---------------------------------
+
+add rX, imm32
+10 [X]F, 00 00 00 00
+
+add rX, rX
+11 [X][X]
+
+add rXd, imm16
+12 [X]F, 00 00
+
+add rXd, rXd
+13 [X][X]
+
+---------------------------------
+
+sub rX, imm32
+15 [X]F, 00 00 00 00
+
+sub rX, rX
+16 [X][X]
+
+sub rXd, imm16
+17 [X]F, 00 00
+
+sub rXd, rXd
+18 [X][X]
+
+---------------------------------
+
+mul rX, imm32
+20 [X]F, 00 00 00 00
+
+mul rX, rX
+21 [X][X]
+
+mul rXd, imm16
+22 [X]F, 00 00
+
+mul rXd, rXd
+23 [X][X]
+
+----------------------------------
+
+div rX, imm32
+25 [X]F, 00 00 00 00
+
+div rX, rX
+26 [X][X]
+
+div rXd, imm16
+27 [X]F, 00 00
+
+div rXd, rXd
+28 [X][X]
