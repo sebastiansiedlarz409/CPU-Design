@@ -16,27 +16,20 @@ end entity cpu;
 architecture Behavioral of cpu is
 
 --inner signals for registers
-signal R0: std_logic_vector(N-1 DOWNTO 0);-- := x"00000000";
-signal R0d: std_logic_vector(N/2-1 DOWNTO 0);-- := x"00000000";
-signal R1: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R1d: std_logic_vector(N/2-1 DOWNTO 0);--  := x"00000000";
-signal R2: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R2d: std_logic_vector(N/2-1 DOWNTO 0);--  := x"00000000";
-signal R3: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R3d: std_logic_vector(N/2-1 DOWNTO 0);--  := x"00000000";
-signal R4: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R5: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R6: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R7: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R8: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R9: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R10: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R11: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R12: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R13: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal R14: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal SP: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
-signal IP: std_logic_vector(N-1 DOWNTO 0);--  := x"00000000";
+signal R0: std_logic_vector(N-1 DOWNTO 0);
+signal R0d: std_logic_vector(N/2-1 DOWNTO 0);
+signal R1: std_logic_vector(N-1 DOWNTO 0);
+signal R1d: std_logic_vector(N/2-1 DOWNTO 0);
+signal R2: std_logic_vector(N-1 DOWNTO 0);
+signal R2d: std_logic_vector(N/2-1 DOWNTO 0);
+signal R3: std_logic_vector(N-1 DOWNTO 0);
+signal R3d: std_logic_vector(N/2-1 DOWNTO 0);
+signal R4: std_logic_vector(N-1 DOWNTO 0);
+signal R5: std_logic_vector(N-1 DOWNTO 0);
+signal R6: std_logic_vector(N-1 DOWNTO 0);
+signal R7: std_logic_vector(N-1 DOWNTO 0);
+signal SP: std_logic_vector(N-1 DOWNTO 0);
+signal IP: std_logic_vector(N-1 DOWNTO 0);
 
 --signals for ram
 signal RAM_IN: std_logic_vector(M-1 DOWNTO 0);
@@ -112,13 +105,6 @@ if rising_edge(SCL) then
 		R5 <= x"00000000";
 		R6 <= x"00000000";
 		R7 <= x"00000000";
-		R8 <= x"00000000";
-		R9 <= x"00000000";
-		R10 <= x"00000000";
-		R11 <= x"00000000";
-		R12 <= x"00000000";
-		R13 <= x"00000000";
-		R14 <= x"00000000";
 		SP <= x"00000000";
 		IP <= x"00000000";
 	end if;
