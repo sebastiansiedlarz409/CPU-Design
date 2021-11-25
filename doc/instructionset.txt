@@ -12,56 +12,12 @@ B3 [X][X]
 
 ---------------------------------
 
-add rX, imm32
-10 [X]F, 00 00 00 00
+add r0, r1
+sub r0, r1
+mul r0, r1
+div r0, r1, //reszta r2
 
-add rX, rX
-11 [X][X]
-
-add rXd, imm16
-12 [X]F, 00 00
-
-add rXd, rXd
-13 [X][X]
-
----------------------------------
-
-sub rX, imm32
-15 [X]F, 00 00 00 00
-
-sub rX, rX
-16 [X][X]
-
-sub rXd, imm16
-17 [X]F, 00 00
-
-sub rXd, rXd
-18 [X][X]
-
----------------------------------
-
-mul rX, imm32
-20 [X]F, 00 00 00 00
-
-mul rX, rX
-21 [X][X]
-
-mul rXd, imm16
-22 [X]F, 00 00
-
-mul rXd, rXd
-23 [X][X]
-
-----------------------------------
-
-div rX, imm32
-25 [X]F, 00 00 00 00
-
-div rX, rX
-26 [X][X]
-
-div rXd, imm16
-27 [X]F, 00 00
-
-div rXd, rXd
-28 [X][X]
+add r0d, r1d
+sub r0d, r1d
+mul r0d, r1d
+div r0d, r1d, //reszta r2
