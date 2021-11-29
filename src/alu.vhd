@@ -54,6 +54,8 @@ begin
             --mov rX, rX //32bits registers
             when x"B1" =>
                 case INS(39 DOWNTO 32) is
+                    when x"00" =>
+                        r0 <= r0;
                     when x"01" =>
                         r0 <= r1;
                     when x"02" =>
@@ -71,6 +73,8 @@ begin
 
                     when x"10" =>
                         r1 <= r0;
+                    when x"11" =>
+                        r1 <= r1;
                     when x"12" =>
                         r1 <= r2;
                     when x"13" =>
@@ -88,6 +92,8 @@ begin
                         r2 <= r0;
                     when x"21" =>
                         r2 <= r1;
+                    when x"22" =>
+                        r2 <= r2;
                     when x"23" =>
                         r2 <= r3;
                     when x"24" =>
@@ -105,6 +111,8 @@ begin
                         r3 <= r1;
                     when x"32" =>
                         r3 <= r2;
+                    when x"33" =>
+                        r3 <= r3;
                     when x"34" =>
                         r3 <= r4;
                     when x"35" =>
@@ -122,6 +130,8 @@ begin
                         r4 <= r2;
                     when x"43" =>
                         r4 <= r3;
+                    when x"44" =>
+                        r4 <= r4;
                     when x"45" =>
                         r4 <= r5;
                     when x"46" =>
@@ -139,6 +149,8 @@ begin
                         r5 <= r3;
                     when x"54" =>
                         r5 <= r4;
+                    when x"55" =>
+                        r5 <= r5;
                     when x"56" =>
                         r5 <= r6;
                     when x"57" =>
@@ -156,6 +168,10 @@ begin
                         r6 <= r4;
                     when x"65" =>
                         r6 <= r5;
+                    when x"66" =>
+                        r6 <= r6;
+                    when x"67" =>
+                        r6 <= r7;
                     when x"67" =>
                         r6 <= r7;
 
@@ -174,6 +190,51 @@ begin
                         r7 <= r5;
                     when x"76" =>
                         r7 <= r6;
+                    when x"77" =>
+                        r7 <= r7;
+
+                    when others =>
+
+                end case;
+            
+            when x"B3" =>
+                case INS(39 DOWNTO 32) is
+                    when x"00" =>
+                        r0d <= r0d;
+                    when x"01" =>
+                        r0d <= r1d;
+                    when x"02" =>
+                        r0d <= r2d;
+                    when x"03" =>
+                        r0d <= r3d;
+                        
+                    when x"10" =>
+                        r1d <= r0d;
+                    when x"11" =>
+                        r1d <= r1d;
+                    when x"12" =>
+                        r1d <= r2d;
+                    when x"13" =>
+                        r1d <= r3d;
+                        
+                    when x"20" =>
+                        r2d <= r0d;
+                    when x"21" =>
+                        r2d <= r1d;
+                    when x"22" =>
+                        r2d <= r2d;
+                    when x"23" =>
+                        r2d <= r3d;
+
+                    when x"30" =>
+                        r3d <= r0d;
+                    when x"31" =>
+                        r3d <= r1d;
+                    when x"32" =>
+                        r3d <= r2d;
+                    when x"33" =>
+                        r3d <= r3d;
+                        
                     when others =>
 
                 end case;
