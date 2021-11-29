@@ -28,7 +28,11 @@ begin
 
 if rising_edge(SCL) then
 
-    ROM_OUT <= ROM(to_integer(unsigned(ROM_ADDR)));
+	if RST='0' then
+		ROM_OUT <= x"00";
+	else
+		ROM_OUT <= ROM(to_integer(unsigned(ROM_ADDR)));
+	end if;
 
 	if RST='0' then
 		ROM_OUT <= x"00";

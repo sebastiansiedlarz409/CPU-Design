@@ -172,7 +172,10 @@ begin
                         r6 <= r6;
                     when x"67" =>
                         r6 <= r7;
+                    when x"67" =>
+                        r6 <= r7;
 
+                        
                     when x"70" =>
                         r7 <= r0;
                     when x"71" =>
