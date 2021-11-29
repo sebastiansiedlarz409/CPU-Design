@@ -13,11 +13,25 @@ B3 [X][X]
 ---------------------------------
 
 add r0, r1
+A0
+
 sub r0, r1
+A2
+
 mul r0, r1
+A4
+
 div r0, r1, //reszta r2
+A6
 
 add r0d, r1d
+A1
+
 sub r0d, r1d
+A3
+
 mul r0d, r1d
+A5
+
 div r0d, r1d, //reszta r2
+A7

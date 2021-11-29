@@ -172,8 +172,6 @@ begin
                         r6 <= r6;
                     when x"67" =>
                         r6 <= r7;
-                    when x"67" =>
-                        r6 <= r7;
 
                         
                     when x"70" =>
@@ -238,6 +236,24 @@ begin
                     when others =>
 
                 end case;
+            
+            when x"A0" =>
+                r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) + to_integer(unsigned(r1)),32));
+            when x"A2" =>
+                r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) - to_integer(unsigned(r1)),32));
+            when x"A4" =>
+                r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) * to_integer(unsigned(r1)),32));
+            --when x"A6" =>
+                --r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) + to_integer(unsigned(r1)),32));
+            
+            when x"A1" =>
+                r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) + to_integer(unsigned(r1d)),16));
+            when x"A3" =>
+                r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) - to_integer(unsigned(r1d)),16));
+            when x"A5" =>
+                r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) * to_integer(unsigned(r1d)),16));
+            --when x"A7" =>
+                --r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) + to_integer(unsigned(r1)),32));
 
             when others =>
 
