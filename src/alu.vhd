@@ -243,8 +243,9 @@ begin
                 r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) - to_integer(unsigned(r1)),32));
             when x"A4" =>
                 r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) * to_integer(unsigned(r1)),32));
-            --when x"A6" =>
-                --r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) + to_integer(unsigned(r1)),32));
+            when x"A6" =>
+                r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) / to_integer(unsigned(r1)),32));
+                r2 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) mod to_integer(unsigned(r1)),32));
             
             when x"A1" =>
                 r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) + to_integer(unsigned(r1d)),16));
@@ -252,8 +253,9 @@ begin
                 r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) - to_integer(unsigned(r1d)),16));
             when x"A5" =>
                 r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) * to_integer(unsigned(r1d)),16));
-            --when x"A7" =>
-                --r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) + to_integer(unsigned(r1)),32));
+            when x"A7" =>
+                r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) / to_integer(unsigned(r1d)),32));
+                r2d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) mod to_integer(unsigned(r1d)),32));
 
             when others =>
 
