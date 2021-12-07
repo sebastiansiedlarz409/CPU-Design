@@ -254,8 +254,8 @@ begin
             when x"A5" =>
                 r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) * to_integer(unsigned(r1d)),16));
             when x"A7" =>
-                r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) / to_integer(unsigned(r1d)),32));
-                r2d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) mod to_integer(unsigned(r1d)),32));
+                r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) / to_integer(unsigned(r1d)),16));
+                r2d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) mod to_integer(unsigned(r1d)),16));
 
             when others =>
 
