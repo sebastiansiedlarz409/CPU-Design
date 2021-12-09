@@ -256,6 +256,24 @@ begin
             when x"A7" =>
                 r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) / to_integer(unsigned(r1d)),16));
                 r2d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) mod to_integer(unsigned(r1d)),16));
+            
+            when x"A8" =>
+                r0 <= r0 and r1;
+            when x"AA" =>
+                r0 <= r0 or r1;
+            when x"AC" =>
+                r0 <= r0 xor r1;
+            when x"AE" =>
+                r0 <= not r0;
+
+            when x"A9" =>
+                r0d <= r0d and r1d;
+            when x"AB" =>
+                r0d <= r0d or r1d;
+            when x"AD" =>
+                r0d <= r0d xor r1d;
+            when x"AF" =>
+                r0d <= not r0d;
 
             when others =>
 
