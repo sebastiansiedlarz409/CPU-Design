@@ -35,3 +35,29 @@ A5
 
 div r0d, r1d, //reszta r2
 A7
+
+----------------------------------
+
+and r0, r1
+A8
+
+or r0, r1
+AA
+
+xor r0, r1
+AC
+
+not r0
+AE
+
+and r0d, r1d
+A9
+
+or r0d, r1d
+AB
+
+xor r0d, r1d
+AD
+
+not r0d
+AF
