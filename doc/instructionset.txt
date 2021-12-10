@@ -61,3 +61,17 @@ AD
 
 not r0d
 AF
+
+----------------------------------
+
+push rX
+D0 0X
+
+push rXd
+D1 0X
+
+pop rX
+D2 X0
+
+pop rXd
+D3 X0
