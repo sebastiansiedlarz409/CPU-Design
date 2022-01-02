@@ -70,6 +70,10 @@ begin
                         r0 <= r6;
                     when x"07" =>
                         r0 <= r7;
+                    when x"08" =>
+                        r0 <= sp;
+                    when x"09" =>
+                        r0 <= ip;
 
                     when x"10" =>
                         r1 <= r0;
@@ -87,6 +91,10 @@ begin
                         r1 <= r6;
                     when x"17" =>
                         r1 <= r7;
+                    when x"18" =>
+                        r1 <= sp;
+                    when x"19" =>
+                        r1 <= ip;
                         
                     when x"20" =>
                         r2 <= r0;
@@ -104,6 +112,10 @@ begin
                         r2 <= r6;
                     when x"27" =>
                         r2 <= r7;
+                    when x"28" =>
+                        r2 <= sp;
+                    when x"29" =>
+                        r2 <= ip;
 
                     when x"30" =>
                         r3 <= r0;
@@ -121,6 +133,10 @@ begin
                         r3 <= r6;
                     when x"37" =>
                         r3 <= r7;
+                    when x"38" =>
+                        r3 <= sp;
+                    when x"39" =>
+                        r3 <= ip;
 
                     when x"40" =>
                         r4 <= r0;
@@ -138,6 +154,10 @@ begin
                         r4 <= r6;
                     when x"47" =>
                         r4 <= r7;
+                    when x"48" =>
+                        r4 <= sp;
+                    when x"49" =>
+                        r4 <= ip;
                         
                     when x"50" =>
                         r5 <= r0;
@@ -155,6 +175,10 @@ begin
                         r5 <= r6;
                     when x"57" =>
                         r5 <= r7;
+                    when x"58" =>
+                        r5 <= sp;
+                    when x"59" =>
+                        r5 <= ip;
 
                     when x"60" =>
                         r6 <= r0;
@@ -172,7 +196,10 @@ begin
                         r6 <= r6;
                     when x"67" =>
                         r6 <= r7;
-
+                    when x"68" =>
+                        r6 <= sp;
+                    when x"69" =>
+                        r6 <= ip;
                         
                     when x"70" =>
                         r7 <= r0;
@@ -190,6 +217,52 @@ begin
                         r7 <= r6;
                     when x"77" =>
                         r7 <= r7;
+                    when x"78" =>
+                        r7 <= sp;
+                    when x"79" =>
+                        r7 <= ip;
+
+                    when x"80" =>
+                        sp <= r0;
+                    when x"81" =>
+                        sp <= r1;
+                    when x"82" =>
+                        sp <= r2;
+                    when x"83" =>
+                        sp <= r3;
+                    when x"84" =>
+                        sp <= r4;
+                    when x"85" =>
+                        sp <= r5;
+                    when x"86" =>
+                        sp <= r6;
+                    when x"87" =>
+                        sp <= r7;
+                    when x"88" =>
+                        sp <= sp;
+                    when x"89" =>
+                        sp <= ip;
+                    
+                    when x"90" =>
+                        ip <= r0;
+                    when x"91" =>
+                        ip <= r1;
+                    when x"92" =>
+                        ip <= r2;
+                    when x"93" =>
+                        ip <= r3;
+                    when x"94" =>
+                        ip <= r4;
+                    when x"95" =>
+                        ip <= r5;
+                    when x"96" =>
+                        ip <= r6;
+                    when x"97" =>
+                        ip <= r7;
+                    when x"98" =>
+                        ip <= sp;
+                    when x"99" =>
+                        ip <= ip;
 
                     when others =>
 
@@ -274,6 +347,18 @@ begin
                 r0d <= r0d xor r1d;
             when x"AF" =>
                 r0d <= not r0d;
+
+            --stack push
+            when x"D0" =>
+                --SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - to_integer(unsigned(4)),32));
+            when x"D1" =>
+                SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 4,32));
+            
+            --stack pop
+            when x"D2" =>
+                SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) + 4,32));
+            when x"D3" =>
+                SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) + 4,32));
 
             when others =>
 
