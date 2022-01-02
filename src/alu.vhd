@@ -33,11 +33,18 @@ entity alu is
         SP: inout std_logic_vector(N-1 DOWNTO 0);
         IP: inout std_logic_vector(N-1 DOWNTO 0);
         --instruction
-        INS: in std_logic_vector(47 DOWNTO 0)
+        INS: in std_logic_vector(47 DOWNTO 0);
+        --ram
+        RAM_IN: out std_logic_vector(M-1 DOWNTO 0);
+        RAM_OUT: in std_logic_vector(M-1 DOWNTO 0);
+        RAM_ADDR: out std_logic_vector(N-1 DOWNTO 0);
+        RAM_RW: out std_logic
     );
 end entity alu;
 
 architecture Behavioral of alu is
+
+signal cycles: integer := 0;
 
 begin
 
@@ -350,9 +357,66 @@ begin
 
             --stack push
             when x"D0" =>
-                --SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - to_integer(unsigned(4)),32));
+                if cycles < 4 then
+                    RAM_RW <= '0';
+                    RAM_ADDR <= SP;
+                    case INS(39 DOWNTO 32) is
+                        when x"0F" =>
+                        RAM_IN <= R0(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when x"1F" =>
+                        RAM_IN <= R1(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when x"2F" =>
+                        RAM_IN <= R2(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when x"3F" =>
+                        RAM_IN <= R3(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when x"4F" =>
+                        RAM_IN <= R4(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when x"5F" =>
+                        RAM_IN <= R5(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when x"6F" =>
+                        RAM_IN <= R6(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when x"7F" =>
+                        RAM_IN <= R7(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when x"8F" =>
+                        RAM_IN <= SP(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when x"9F" =>
+                        RAM_IN <= IP(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when others =>
+                    end case;
+                    --decrement stack
+                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
             when x"D1" =>
-                SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 4,32));
+                if cycles < 2 then
+                    RAM_RW <= '0';
+                    RAM_ADDR <= SP;
+                    case INS(39 DOWNTO 32) is
+                        when x"0F" =>
+                        RAM_IN <= R0d(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when x"1F" =>
+                        RAM_IN <= R1d(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when x"2F" =>
+                        RAM_IN <= R2d(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when x"3F" =>
+                        RAM_IN <= R3d(7+(cycles*8) DOWNTO 0+(cycles*8));
+                        when others =>
+                    end case;
+                    --decrement stack
+                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
+                    cycles <= cycles + 1;
+                elsif cycles < 4 then
+                    RAM_RW <= '0';
+                    RAM_ADDR <= SP;
+                    RAM_IN <= x"00";
+                    --decrement stack
+                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
             
             --stack pop
             when x"D2" =>

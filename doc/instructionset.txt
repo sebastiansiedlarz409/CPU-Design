@@ -75,3 +75,17 @@ D2 [X]F
 
 pop rXd
 D3 [X]F
+
+---------------------------------
+
+ldr r2, r3
+E0
+
+ldr r2d, r3d
+E1
+
+str r2, r3
+E2
+
+str r2, r3
+E4
