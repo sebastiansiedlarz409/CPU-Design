@@ -23,13 +23,6 @@ entity alu is
         R5: inout std_logic_vector(N-1 DOWNTO 0);
         R6: inout std_logic_vector(N-1 DOWNTO 0);
         R7: inout std_logic_vector(N-1 DOWNTO 0);
-        R8: inout std_logic_vector(N-1 DOWNTO 0);
-        R9: inout std_logic_vector(N-1 DOWNTO 0);
-        R10: inout std_logic_vector(N-1 DOWNTO 0);
-        R11: inout std_logic_vector(N-1 DOWNTO 0);
-        R12: inout std_logic_vector(N-1 DOWNTO 0);
-        R13: inout std_logic_vector(N-1 DOWNTO 0);
-        R14: inout std_logic_vector(N-1 DOWNTO 0);
         SP: inout std_logic_vector(N-1 DOWNTO 0);
         IP: inout std_logic_vector(N-1 DOWNTO 0);
         --instruction
@@ -420,9 +413,63 @@ begin
             
             --stack pop
             when x"D2" =>
-                SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) + 4,32));
+                if cycles < 4 then
+                    --increment stac
+                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
+                    RAM_RW <= '1';
+                    RAM_ADDR <= SP;
+                    case INS(39 DOWNTO 32) is
+                        when x"0F" =>
+                        R0(31-(cycles*8) DOWNTO 24-(cycles*8)) <= RAM_OUT;
+                        when x"1F" =>
+                        R1(31-(cycles*8) DOWNTO 24-(cycles*8)) <= RAM_OUT;
+                        when x"2F" =>
+                        R2(31-(cycles*8) DOWNTO 24-(cycles*8)) <= RAM_OUT;
+                        when x"3F" =>
+                        R3(31-(cycles*8) DOWNTO 24-(cycles*8)) <= RAM_OUT;
+                        when x"4F" =>
+                        R4(31-(cycles*8) DOWNTO 24-(cycles*8)) <= RAM_OUT;
+                        when x"5F" =>
+                        R5(31-(cycles*8) DOWNTO 24-(cycles*8)) <= RAM_OUT;
+                        when x"6F" =>
+                        R6(31-(cycles*8) DOWNTO 24-(cycles*8)) <= RAM_OUT;
+                        when x"7F" =>
+                        R7(31-(cycles*8) DOWNTO 24-(cycles*8)) <= RAM_OUT;
+                        when x"8F" =>
+                        SP(31-(cycles*8) DOWNTO 24-(cycles*8)) <= RAM_OUT;
+                        when x"9F" =>
+                        IP(31-(cycles*8) DOWNTO 24-(cycles*8)) <= RAM_OUT;
+                        when others =>
+                    end case;
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
             when x"D3" =>
-                SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) + 4,32));
+                if cycles < 2 then
+                    --increment stac
+                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
+                    cycles <= cycles + 1;
+                elsif cycles < 4 then
+                    --increment stac
+                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
+                    RAM_RW <= '1';
+                    RAM_ADDR <= SP;
+                    case INS(39 DOWNTO 32) is
+                        when x"0F" =>
+                        R0d(15-((cycles-2)*8) DOWNTO 8-((cycles-2)*8)) <= RAM_OUT;
+                        when x"1F" =>
+                        R1d(15-((cycles-2)*8) DOWNTO 8-((cycles-2)*8)) <= RAM_OUT;
+                        when x"2F" =>
+                        R2d(15-((cycles-2)*8) DOWNTO 8-((cycles-2)*8)) <= RAM_OUT;
+                        when x"3F" =>
+                        R3d(15-((cycles-2)*8) DOWNTO 8-((cycles-2)*8)) <= RAM_OUT;
+                        when others =>
+                    end case;
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
 
             when others =>
 
