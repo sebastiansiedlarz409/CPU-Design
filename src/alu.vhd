@@ -345,33 +345,53 @@ begin
             
             --arithmetic
             when x"A0" =>
-                r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) + to_integer(unsigned(r1)),32));
-                if std_logic_vector(to_unsigned(to_integer(unsigned(r0)) + to_integer(unsigned(r1)),32)) = x"00000000" then
+                r0 <= std_logic_vector(unsigned(r0) + unsigned(r1));
+                if std_logic_vector(unsigned(r0) + unsigned(r1)) = x"00000000" then
                     Z <= '1';
                 else
                     Z <= '0';
+                end if;
+                if (( std_logic_vector(unsigned(r0) + unsigned(r1)) ) and x"80000000") = x"80000000" then
+                    S <= '1';
+                else
+                    S <= '0';
                 end if;
             when x"A2" =>
-                r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) - to_integer(unsigned(r1)),32));
-                if std_logic_vector(to_unsigned(to_integer(unsigned(r0)) - to_integer(unsigned(r1)),32)) = x"00000000" then
+                r0 <= std_logic_vector(unsigned(r0) - unsigned(r1));
+                if std_logic_vector(unsigned(r0) - unsigned(r1)) = x"00000000" then
                     Z <= '1';
                 else
                     Z <= '0';
+                end if;
+                if (( std_logic_vector(unsigned(r0) - unsigned(r1)) ) and x"80000000") = x"80000000" then
+                    S <= '1';
+                else
+                    S <= '0';
                 end if;
             when x"A4" =>
-                r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) * to_integer(unsigned(r1)),32));
-                if std_logic_vector(to_unsigned(to_integer(unsigned(r0)) * to_integer(unsigned(r1)),32)) = x"00000000" then
+                r0 <= std_logic_vector(unsigned(r0) * unsigned(r1));
+                if std_logic_vector(unsigned(r0) * unsigned(r1)) = x"00000000" then
                     Z <= '1';
                 else
                     Z <= '0';
                 end if;
+                if (( std_logic_vector(unsigned(r0) * unsigned(r1)) ) and x"80000000") = x"80000000" then
+                    S <= '1';
+                else
+                    S <= '0';
+                end if;
             when x"A6" =>
-                r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) / to_integer(unsigned(r1)),32));
-                r2 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) mod to_integer(unsigned(r1)),32));
-                if std_logic_vector(to_unsigned(to_integer(unsigned(r0)) / to_integer(unsigned(r1)),32)) = x"00000000" then
+                r0 <= std_logic_vector(unsigned(r0) / unsigned(r1));
+                r2 <= std_logic_vector(unsigned(r0) mod unsigned(r1));
+                if std_logic_vector(unsigned(r0) + unsigned(r1)) = x"00000000" then
                     Z <= '1';
                 else
                     Z <= '0';
+                end if;
+                if (( std_logic_vector(unsigned(r0) + unsigned(r1)) ) and x"80000000") = x"80000000" then
+                    S <= '1';
+                else
+                    S <= '0';
                 end if;
                         
             when x"A8" =>
@@ -381,12 +401,22 @@ begin
                 else
                     Z <= '0';
                 end if;
+                if (( r0 and r1 ) and x"80000000") = x"80000000" then
+                    S <= '1';
+                else
+                    S <= '0';
+                end if;
             when x"AA" =>
                 r0 <= r0 or r1;
                 if (r0 or r1) = x"00000000" then
                     Z <= '1';
                 else
                     Z <= '0';
+                end if;
+                if (( r0 or r1 ) and x"80000000") = x"80000000" then
+                    S <= '1';
+                else
+                    S <= '0';
                 end if;
             when x"AC" =>
                 r0 <= r0 xor r1;
@@ -395,12 +425,22 @@ begin
                 else
                     Z <= '0';
                 end if;
+                if (( r0 xor r1 ) and x"80000000") = x"80000000" then
+                    S <= '1';
+                else
+                    S <= '0';
+                end if;
             when x"AE" =>
                 r0 <= not r0;
                 if (not r0) = x"00000000" then
                     Z <= '1';
                 else
                     Z <= '0';
+                end if;
+                if (( not r0 ) and x"80000000") = x"80000000" then
+                    S <= '1';
+                else
+                    S <= '0';
                 end if;
 
             --shifts unsigned
@@ -425,6 +465,18 @@ begin
                 else
                     Z <= '0';
                 end if;
+                if ((std_logic_vector(
+                    shift_left(
+                        unsigned(
+                            r0
+                        ),
+                        to_integer(unsigned(r1))
+                    )
+                )) and x"80000000") = x"80000000" then
+                    S <= '1';
+                else
+                    S <= '0';
+                end if;
             when x"C1" =>
                 r0 <= std_logic_vector(
                     shift_right(
@@ -445,6 +497,18 @@ begin
                     Z <= '1';
                 else
                     Z <= '0';
+                end if;
+                if ((std_logic_vector(
+                    shift_right(
+                        unsigned(
+                            r0
+                        ),
+                        to_integer(unsigned(r1))
+                    )
+                )) and x"80000000") = x"80000000" then
+                    S <= '1';
+                else
+                    S <= '0';
                 end if;
 
             --shifts signed
@@ -469,6 +533,18 @@ begin
                 else
                     Z <= '0';
                 end if;
+                if ((std_logic_vector(
+                    shift_left(
+                        signed(
+                            r0
+                        ),
+                        to_integer(unsigned(r1))
+                    )
+                )) and x"80000000") = x"80000000" then
+                    S <= '1';
+                else
+                    S <= '0';
+                end if;
             when x"C3" =>
                 r0 <= std_logic_vector(
                     shift_right(
@@ -489,6 +565,18 @@ begin
                     Z <= '1';
                 else
                     Z <= '0';
+                end if;
+                if ((std_logic_vector(
+                    shift_right(
+                        signed(
+                            r0
+                        ),
+                        to_integer(unsigned(r1))
+                    )
+                )) and x"80000000") = x"80000000" then
+                    S <= '1';
+                else
+                    S <= '0';
                 end if;
 
             --rotate unsigned
