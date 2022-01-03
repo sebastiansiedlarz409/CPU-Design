@@ -17,13 +17,9 @@ architecture Behavioral of cpu is
 
 --inner signals for registers
 signal R0: std_logic_vector(N-1 DOWNTO 0);
-signal R0d: std_logic_vector(N/2-1 DOWNTO 0);
 signal R1: std_logic_vector(N-1 DOWNTO 0);
-signal R1d: std_logic_vector(N/2-1 DOWNTO 0);
 signal R2: std_logic_vector(N-1 DOWNTO 0);
-signal R2d: std_logic_vector(N/2-1 DOWNTO 0);
 signal R3: std_logic_vector(N-1 DOWNTO 0);
-signal R3d: std_logic_vector(N/2-1 DOWNTO 0);
 signal R4: std_logic_vector(N-1 DOWNTO 0);
 signal R5: std_logic_vector(N-1 DOWNTO 0);
 signal R6: std_logic_vector(N-1 DOWNTO 0);
@@ -41,34 +37,30 @@ signal RAM_RW: std_logic;
 signal INS: std_logic_vector(47 DOWNTO 0);
 
 --ALU
---component alu is
---    port(
---        SCL: in std_logic; 								--clock
---        RST: in std_logic := '1'; 						--reset
---        --all registers
---        R0: inout std_logic_vector(N-1 DOWNTO 0);
---        R0d: inout std_logic_vector(N/2-1 DOWNTO 0);
---        R1: inout std_logic_vector(N-1 DOWNTO 0);
---        R1d: inout std_logic_vector(N/2-1 DOWNTO 0);
---        R2: inout std_logic_vector(N-1 DOWNTO 0);
---        R2d: inout std_logic_vector(N/2-1 DOWNTO 0);
---        R3: inout std_logic_vector(N-1 DOWNTO 0);
---        R3d: inout std_logic_vector(N/2-1 DOWNTO 0);
---        R4: inout std_logic_vector(N-1 DOWNTO 0);
---        R5: inout std_logic_vector(N-1 DOWNTO 0);
---        R6: inout std_logic_vector(N-1 DOWNTO 0);
---        R7: inout std_logic_vector(N-1 DOWNTO 0);
---        SP: inout std_logic_vector(N-1 DOWNTO 0);
---        IP: inout std_logic_vector(N-1 DOWNTO 0);
---        --instruction
---        INS: in std_logic_vector(47 DOWNTO 0);
---        --ram
---        RAM_IN: out std_logic_vector(M-1 DOWNTO 0);
---        RAM_OUT: in std_logic_vector(M-1 DOWNTO 0);
---        RAM_ADDR: out std_logic_vector(N-1 DOWNTO 0);
---        RAM_RW: out std_logic
---    );
---end component alu;
+component alu is
+    port(
+        SCL: in std_logic; 								--clock
+        RST: in std_logic := '1'; 						--reset
+        --all registers
+        R0: inout std_logic_vector(N-1 DOWNTO 0);
+        R1: inout std_logic_vector(N-1 DOWNTO 0);
+        R2: inout std_logic_vector(N-1 DOWNTO 0);
+        R3: inout std_logic_vector(N-1 DOWNTO 0);
+        R4: inout std_logic_vector(N-1 DOWNTO 0);
+        R5: inout std_logic_vector(N-1 DOWNTO 0);
+        R6: inout std_logic_vector(N-1 DOWNTO 0);
+        R7: inout std_logic_vector(N-1 DOWNTO 0);
+        SP: inout std_logic_vector(N-1 DOWNTO 0);
+        IP: inout std_logic_vector(N-1 DOWNTO 0);
+        --instruction
+        INS: in std_logic_vector(47 DOWNTO 0);
+        --ram
+        RAM_IN: out std_logic_vector(M-1 DOWNTO 0);
+        RAM_OUT: in std_logic_vector(M-1 DOWNTO 0);
+        RAM_ADDR: out std_logic_vector(N-1 DOWNTO 0);
+        RAM_RW: out std_logic
+    );
+end component alu;
 
 --RAM
 component ram is
@@ -100,29 +92,25 @@ end component rom;
 begin
 
 --ALU MAP
---ALU_C: alu port map(
---	SCL => SCL,
---	RST => RST,
---	RAM_IN => RAM_IN,
---	RAM_OUT => RAM_OUT,
---	RAM_ADDR => RAM_ADDR,
---	RAM_RW => RAM_RW,
---	R0 => R0,
---	R0d => R0d,
---	R1 => R1,
---	R1d => R1d,
---	R2 => R2,
---	R2d => R2d,
---	R3 => R3,
---	R3d => R3d,
---	R4 => R4,
---	R5 => R5,
---	R6 => R6,
---	R7 => R7,
---	SP => SP,
---	IP => IP,
---	INS => INS
---);
+ALU_C: alu port map(
+	SCL => SCL,
+	RST => RST,
+	RAM_IN => RAM_IN,
+	RAM_OUT => RAM_OUT,
+	RAM_ADDR => RAM_ADDR,
+	RAM_RW => RAM_RW,
+	R0 => R0,
+	R1 => R1,
+	R2 => R2,
+	R3 => R3,
+	R4 => R4,
+	R5 => R5,
+	R6 => R6,
+	R7 => R7,
+	SP => SP,
+	IP => IP,
+	INS => INS
+);
 --ALU MAP
 
 --RAM MAP
@@ -167,15 +155,6 @@ if rising_edge(SCL) then
 		SP <= x"00000000";
 		IP <= x"00000000";
 	end if;
-
-	r0d <= r0(N/2-1 DOWNTO 0);
-	r1d <= r1(N/2-1 DOWNTO 0);
-	r2d <= r2(N/2-1 DOWNTO 0);
-	r3d <= r3(N/2-1 DOWNTO 0);
-	r0(N/2-1 DOWNTO 0) <= r0d;
-	r1(N/2-1 DOWNTO 0) <= r1d;
-	r2(N/2-1 DOWNTO 0) <= r2d;
-	r3(N/2-1 DOWNTO 0) <= r3d;
 
 end if;
 

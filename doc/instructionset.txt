@@ -4,12 +4,6 @@ B0 [X]F, 00 00 00 00 //litte endian
 mov rX, rX //32 bits registers
 B1 [X][X]
 
-mov rXd, imm16
-B2 [X]F, 00 00 //litte endian
-
-mov rXd, rXd //16 bits registers
-B3 [X][X]
-
 ---------------------------------
 
 add r0, r1
@@ -23,18 +17,6 @@ A4
 
 div r0, r1, //reszta r2
 A6
-
-add r0d, r1d
-A1
-
-sub r0d, r1d
-A3
-
-mul r0d, r1d
-A5
-
-div r0d, r1d, //reszta r2
-A7
 
 ----------------------------------
 
@@ -50,42 +32,18 @@ AC
 not r0
 AE
 
-and r0d, r1d
-A9
-
-or r0d, r1d
-AB
-
-xor r0d, r1d
-AD
-
-not r0d
-AF
-
 ----------------------------------
 
 push rX
 D0 [X]F
 
-push rXd
-D1 [X]F
-
 pop rX
 D2 [X]F
-
-pop rXd
-D3 [X]F
 
 ---------------------------------
 
 ldr r2, r3
 E0
 
-ldr r2, r3d
-E1
-
 str r2, r3
 E2
-
-str r2, r3d
-E4

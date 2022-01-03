@@ -12,13 +12,9 @@ entity alu is
         RST: in std_logic := '1'; 						--reset
         --all registers
         R0: inout std_logic_vector(N-1 DOWNTO 0);
-        R0d: inout std_logic_vector(N/2-1 DOWNTO 0);
         R1: inout std_logic_vector(N-1 DOWNTO 0);
-        R1d: inout std_logic_vector(N/2-1 DOWNTO 0);
         R2: inout std_logic_vector(N-1 DOWNTO 0);
-        R2d: inout std_logic_vector(N/2-1 DOWNTO 0);
         R3: inout std_logic_vector(N-1 DOWNTO 0);
-        R3d: inout std_logic_vector(N/2-1 DOWNTO 0);
         R4: inout std_logic_vector(N-1 DOWNTO 0);
         R5: inout std_logic_vector(N-1 DOWNTO 0);
         R6: inout std_logic_vector(N-1 DOWNTO 0);
@@ -268,48 +264,6 @@ begin
 
                 end case;
             
-            when x"B3" =>
-                case INS(39 DOWNTO 32) is
-                    when x"00" =>
-                        r0d <= r0d;
-                    when x"01" =>
-                        r0d <= r1d;
-                    when x"02" =>
-                        r0d <= r2d;
-                    when x"03" =>
-                        r0d <= r3d;
-                        
-                    when x"10" =>
-                        r1d <= r0d;
-                    when x"11" =>
-                        r1d <= r1d;
-                    when x"12" =>
-                        r1d <= r2d;
-                    when x"13" =>
-                        r1d <= r3d;
-                        
-                    when x"20" =>
-                        r2d <= r0d;
-                    when x"21" =>
-                        r2d <= r1d;
-                    when x"22" =>
-                        r2d <= r2d;
-                    when x"23" =>
-                        r2d <= r3d;
-
-                    when x"30" =>
-                        r3d <= r0d;
-                    when x"31" =>
-                        r3d <= r1d;
-                    when x"32" =>
-                        r3d <= r2d;
-                    when x"33" =>
-                        r3d <= r3d;
-                        
-                    when others =>
-
-                end case;
-            
             when x"A0" =>
                 r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) + to_integer(unsigned(r1)),32));
             when x"A2" =>
@@ -319,17 +273,7 @@ begin
             when x"A6" =>
                 r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) / to_integer(unsigned(r1)),32));
                 r2 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) mod to_integer(unsigned(r1)),32));
-            
-            when x"A1" =>
-                r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) + to_integer(unsigned(r1d)),16));
-            when x"A3" =>
-                r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) - to_integer(unsigned(r1d)),16));
-            when x"A5" =>
-                r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) * to_integer(unsigned(r1d)),16));
-            when x"A7" =>
-                r0d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) / to_integer(unsigned(r1d)),16));
-                r2d <= std_logic_vector(to_unsigned(to_integer(unsigned(r0d)) mod to_integer(unsigned(r1d)),16));
-            
+                        
             when x"A8" =>
                 r0 <= r0 and r1;
             when x"AA" =>
@@ -338,15 +282,6 @@ begin
                 r0 <= r0 xor r1;
             when x"AE" =>
                 r0 <= not r0;
-
-            when x"A9" =>
-                r0d <= r0d and r1d;
-            when x"AB" =>
-                r0d <= r0d or r1d;
-            when x"AD" =>
-                r0d <= r0d xor r1d;
-            when x"AF" =>
-                r0d <= not r0d;
 
             --stack push
             when x"D0" =>
@@ -376,34 +311,6 @@ begin
                         RAM_IN <= IP(7+(cycles*8) DOWNTO 0+(cycles*8));
                         when others =>
                     end case;
-                    --decrement stack
-                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
-                    cycles <= cycles + 1;
-                else
-                    cycles <= 0;
-                end if;
-            when x"D1" =>
-                if cycles < 2 then
-                    RAM_RW <= '0';
-                    RAM_ADDR <= SP;
-                    case INS(39 DOWNTO 32) is
-                        when x"0F" =>
-                        RAM_IN <= R0d(7+(cycles*8) DOWNTO 0+(cycles*8));
-                        when x"1F" =>
-                        RAM_IN <= R1d(7+(cycles*8) DOWNTO 0+(cycles*8));
-                        when x"2F" =>
-                        RAM_IN <= R2d(7+(cycles*8) DOWNTO 0+(cycles*8));
-                        when x"3F" =>
-                        RAM_IN <= R3d(7+(cycles*8) DOWNTO 0+(cycles*8));
-                        when others =>
-                    end case;
-                    --decrement stack
-                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
-                    cycles <= cycles + 1;
-                elsif cycles < 4 then
-                    RAM_RW <= '0';
-                    RAM_ADDR <= SP;
-                    RAM_IN <= x"00";
                     --decrement stack
                     SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
                     cycles <= cycles + 1;
@@ -445,32 +352,7 @@ begin
                 else
                     cycles <= 0;
                 end if;
-            when x"D3" =>
-                if cycles < 2 then
-                    --increment stac
-                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
-                    cycles <= cycles + 1;
-                elsif cycles < 4 then
-                    --increment stac
-                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
-                    RAM_RW <= '1';
-                    RAM_ADDR <= SP;
-                    case INS(39 DOWNTO 32) is
-                        when x"0F" =>
-                        R0d(15-((cycles-2)*8) DOWNTO 8-((cycles-2)*8)) <= RAM_OUT;
-                        when x"1F" =>
-                        R1d(15-((cycles-2)*8) DOWNTO 8-((cycles-2)*8)) <= RAM_OUT;
-                        when x"2F" =>
-                        R2d(15-((cycles-2)*8) DOWNTO 8-((cycles-2)*8)) <= RAM_OUT;
-                        when x"3F" =>
-                        R3d(15-((cycles-2)*8) DOWNTO 8-((cycles-2)*8)) <= RAM_OUT;
-                        when others =>
-                    end case;
-                    cycles <= cycles + 1;
-                else
-                    cycles <= 0;
-                end if;
-
+            
             when x"E0" => --ldr 32
                 if cycles < 4 then
                     RAM_RW <= '0';
@@ -524,50 +406,9 @@ begin
                 else
                     cycles <= 0;
                 end if;
-            when x"E1" => --ldr 16
-                if cycles < 2 then
-                    RAM_RW <= '0';
-                    case INS(39 DOWNTO 36) is
-                        when x"0" =>
-                        RAM_ADDR <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) + cycles,32));
-                        when x"1" =>
-                        RAM_ADDR <= std_logic_vector(to_unsigned(to_integer(unsigned(r1)) + cycles,32));
-                        when x"2" =>
-                        RAM_ADDR <= std_logic_vector(to_unsigned(to_integer(unsigned(r2)) + cycles,32));
-                        when x"3" =>
-                        RAM_ADDR <= std_logic_vector(to_unsigned(to_integer(unsigned(r3)) + cycles,32));
-                        when x"4" =>
-                        RAM_ADDR <= std_logic_vector(to_unsigned(to_integer(unsigned(r4)) + cycles,32));
-                        when x"5" =>
-                        RAM_ADDR <= std_logic_vector(to_unsigned(to_integer(unsigned(r5)) + cycles,32));
-                        when x"6" =>
-                        RAM_ADDR <= std_logic_vector(to_unsigned(to_integer(unsigned(r6)) + cycles,32));
-                        when x"7" =>
-                        RAM_ADDR <= std_logic_vector(to_unsigned(to_integer(unsigned(r7)) + cycles,32));
-                        when x"8" =>
-                        RAM_ADDR <= std_logic_vector(to_unsigned(to_integer(unsigned(sp)) + cycles,32));
-                        when x"9" =>
-                        RAM_ADDR <= std_logic_vector(to_unsigned(to_integer(unsigned(ip)) + cycles,32));
-                        when others =>
-                    end case;
-                    case INS(35 DOWNTO 32) is
-                        when x"0" =>
-                        RAM_IN <= R0d(15-(cycles*8) DOWNTO 8-(cycles*8));
-                        when x"1" =>
-                        RAM_IN <= R1d(15-(cycles*8) DOWNTO 8-(cycles*8));
-                        when x"2" =>
-                        RAM_IN <= R2d(15-(cycles*8) DOWNTO 8-(cycles*8));
-                        when x"3" =>
-                        RAM_IN <= R3d(15-(cycles*8) DOWNTO 8-(cycles*8));
-                        when others =>
-                    end case;
-                    cycles <= cycles + 1;
-                else
-                    cycles <= 0;
-                end if;
+            
             when x"E2" =>
-            when x"E3" =>
-
+            
             when others =>
 
         end case;
