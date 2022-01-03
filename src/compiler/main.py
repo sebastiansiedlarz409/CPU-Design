@@ -10,7 +10,6 @@ lines = []
 output = bytearray()
 
 regs32 = ["r0", "r1", "r2", "r3", "r4", "r5", "r6", "r7", "sp", "ip"]
-regs16 = ["r0d", "r1d", "r2d", "r3d"]
 
 def openSourceFile():
     global source_filename, lines
@@ -97,8 +96,6 @@ def getTokenTypes(tokens):
         at = [tokens[i]]
         if tokens[i].lower() in regs32:
             at.append("rX")
-        elif tokens[i].lower() in regs16:
-            at.append("rXd")
         else:
             at.append("imm")
         t.append(at)
@@ -111,7 +108,7 @@ def addToOutput(tokens, opcode):
     #add instruction opcode
     output.append(opcode[len(opcode)-1])
 
-    if opcode[len(opcode)-1] in [0xB0, 0xB1, 0xB2, 0xB3]:
+    if opcode[len(opcode)-1] in [0xB0, 0xB1, 0xD0, 0xD2, 0xDA, 0xE0, 0xE2, 0xF0, 0xF2, 0xF3, 0xF6, 0xF7]:
         modrm = 0
         if opcode[1].startswith("r") and tokens[2][0].startswith("r"): #when r0, r1 itp
             modrm |= (int(tokens[2][0][1])<<4)
@@ -122,12 +119,16 @@ def addToOutput(tokens, opcode):
         if opcode[1].startswith("r") and tokens[2][0].startswith("i"): #ip
             modrm |= 0x90
         
-        if opcode[2].startswith("r") and tokens[3][0].startswith("r"):
-            modrm |= (int(tokens[3][0][1]))
-        elif opcode[2].startswith("r") and tokens[3][0].startswith("s"): #sp
-            modrm |= 0x8
-        elif opcode[2].startswith("r") and tokens[3][0].startswith("i"): #ip
-            modrm |= 0x9
+
+        if len(opcode) > 3:
+            if opcode[2].startswith("r") and tokens[3][0].startswith("r"):
+                modrm |= (int(tokens[3][0][1]))
+            elif opcode[2].startswith("r") and tokens[3][0].startswith("s"): #sp
+                modrm |= 0x8
+            elif opcode[2].startswith("r") and tokens[3][0].startswith("i"): #ip
+                modrm |= 0x9
+            else:
+                modrm |= 0xF
         else:
             modrm |= 0xF
 
@@ -137,8 +138,6 @@ def addToOutput(tokens, opcode):
     for el in tokens[2:]:
         if opcode[arg+1] == "imm32":
             output += struct.pack(">I", int(el[0]))
-        if opcode[arg+1] == "imm16":
-            output += struct.pack(">H", int(el[0]))
         arg+=1
 
 def generateOutput():
