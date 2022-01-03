@@ -32,6 +32,23 @@ AC
 not r0
 AE
 
+//unsigned shift left
+sul r0, r1
+C0
+
+//unsigned shift right
+sur r0, r1
+C1
+
+//signed shift left
+ssl r0, r1
+C2
+
+//signed shift right
+ssr r0, r1
+C3
+
+
 ----------------------------------
 
 push rX

@@ -110,7 +110,7 @@ begin
                 else
                     cycles <= 0;
                 end if;
-                when x"0" =>
+                when x"9" =>
                 if cycles < 4 then
                     ip(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(31-(cycles*8) DOWNTO 24-(cycles*8));
                     cycles <= cycles + 1;
@@ -355,6 +355,26 @@ begin
                 r0 <= r0 xor r1;
             when x"AE" =>
                 r0 <= not r0;
+
+            --shifts
+            when x"C0" =>
+                r0 <= std_logic_vector(
+                    shift_left(
+                        unsigned(
+                            r0
+                        ),
+                        to_integer(unsigned(r1))
+                    )
+                );
+            when x"C1" =>
+                r0 <= std_logic_vector(
+                    shift_right(
+                        unsigned(
+                            r0
+                        ),
+                        to_integer(unsigned(r1))
+                    )
+                );
 
             --stack push
             when x"D0" =>
