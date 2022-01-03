@@ -356,7 +356,7 @@ begin
             when x"AE" =>
                 r0 <= not r0;
 
-            --shifts
+            --shifts unsigned
             when x"C0" =>
                 r0 <= std_logic_vector(
                     shift_left(
@@ -370,6 +370,26 @@ begin
                 r0 <= std_logic_vector(
                     shift_right(
                         unsigned(
+                            r0
+                        ),
+                        to_integer(unsigned(r1))
+                    )
+                );
+
+            --shifts signed
+            when x"C2" =>
+                r0 <= std_logic_vector(
+                    shift_left(
+                        signed(
+                            r0
+                        ),
+                        to_integer(unsigned(r1))
+                    )
+                );
+            when x"C3" =>
+                r0 <= std_logic_vector(
+                    shift_right(
+                        signed(
                             r0
                         ),
                         to_integer(unsigned(r1))
