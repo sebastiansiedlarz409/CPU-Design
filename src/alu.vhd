@@ -800,6 +800,15 @@ begin
                     when others =>
                 end case;
             
+            --jmp imm32
+            when x"F1" =>
+                if cycles < 4 then
+                        IP(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(39-(cycles*8) DOWNTO 32-(cycles*8));                        
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
+            
             when others =>
 
         end case;

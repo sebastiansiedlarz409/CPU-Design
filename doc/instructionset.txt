@@ -76,3 +76,7 @@ E2 [X][X]
 //IP == rX
 jmp rX
 F0 [X]F
+
+//IP == imm32
+jmp imm32
+F1 00 00 00 00
