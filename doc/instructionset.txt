@@ -48,6 +48,13 @@ C2
 ssr r0, r1
 C3
 
+//rotate unsigned left
+rul r0, r1
+C4
+
+//rotate unsigned right
+rul r0, r1
+C5
 
 ----------------------------------
 

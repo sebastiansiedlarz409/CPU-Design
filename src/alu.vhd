@@ -396,6 +396,13 @@ begin
                     )
                 );
 
+            --rotate unsigned
+            when x"C4" =>        
+                r0 <= r0(31-to_integer(unsigned(r1)) DOWNTO 0) & r0(31 DOWNTO 31-to_integer(unsigned(r1))+1);
+
+            when x"C5" =>
+                r0 <= r0(0+to_integer(unsigned(r1))-1 DOWNTO 0) & r0(31 DOWNTO 0+to_integer(unsigned(r1)));
+
             --stack push
             when x"D0" =>
                 if cycles < 4 then
