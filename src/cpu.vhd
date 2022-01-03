@@ -26,6 +26,7 @@ signal R6: std_logic_vector(N-1 DOWNTO 0);
 signal R7: std_logic_vector(N-1 DOWNTO 0);
 signal SP: std_logic_vector(N-1 DOWNTO 0);
 signal IP: std_logic_vector(N-1 DOWNTO 0);
+signal STATUS: std_logic_vector(3 DOWNTO 0);
 
 --signals for ram
 signal RAM_IN: std_logic_vector(M-1 DOWNTO 0);
@@ -52,6 +53,7 @@ component alu is
         R7: inout std_logic_vector(N-1 DOWNTO 0);
         SP: inout std_logic_vector(N-1 DOWNTO 0);
         IP: inout std_logic_vector(N-1 DOWNTO 0);
+        STATUS: inout std_logic_vector(3 DOWNTO 0);
         --instruction
         INS: in std_logic_vector(47 DOWNTO 0);
         --ram
@@ -109,6 +111,7 @@ ALU_C: alu port map(
 	R7 => R7,
 	SP => SP,
 	IP => IP,
+	STATUS => STATUS,
 	INS => INS
 );
 --ALU MAP
@@ -154,6 +157,7 @@ if rising_edge(SCL) then
 		R7 <= x"00000000";
 		SP <= x"00000000";
 		IP <= x"00000000";
+		STATUS <= b"0000";
 	end if;
 
 end if;

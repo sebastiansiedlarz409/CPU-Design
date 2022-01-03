@@ -21,6 +21,7 @@ entity alu is
         R7: inout std_logic_vector(N-1 DOWNTO 0);
         SP: inout std_logic_vector(N-1 DOWNTO 0);
         IP: inout std_logic_vector(N-1 DOWNTO 0);
+        STATUS: inout std_logic_vector(3 DOWNTO 0);
         --instruction
         INS: in std_logic_vector(47 DOWNTO 0);
         --ram
@@ -34,6 +35,11 @@ end entity alu;
 architecture Behavioral of alu is
 
 signal cycles: integer := 0;
+
+alias Z: std_logic is STATUS(0);
+alias S: std_logic is STATUS(1);
+alias C: std_logic is STATUS(2);
+alias O: std_logic is STATUS(3);
 
 begin
 
@@ -337,24 +343,65 @@ begin
 
                 end case;
             
+            --arithmetic
             when x"A0" =>
                 r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) + to_integer(unsigned(r1)),32));
+                if std_logic_vector(to_unsigned(to_integer(unsigned(r0)) + to_integer(unsigned(r1)),32)) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
             when x"A2" =>
                 r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) - to_integer(unsigned(r1)),32));
+                if std_logic_vector(to_unsigned(to_integer(unsigned(r0)) - to_integer(unsigned(r1)),32)) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
             when x"A4" =>
                 r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) * to_integer(unsigned(r1)),32));
+                if std_logic_vector(to_unsigned(to_integer(unsigned(r0)) * to_integer(unsigned(r1)),32)) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
             when x"A6" =>
                 r0 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) / to_integer(unsigned(r1)),32));
                 r2 <= std_logic_vector(to_unsigned(to_integer(unsigned(r0)) mod to_integer(unsigned(r1)),32));
+                if std_logic_vector(to_unsigned(to_integer(unsigned(r0)) / to_integer(unsigned(r1)),32)) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
                         
             when x"A8" =>
                 r0 <= r0 and r1;
+                if (r0 and r1) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
             when x"AA" =>
                 r0 <= r0 or r1;
+                if (r0 or r1) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
             when x"AC" =>
                 r0 <= r0 xor r1;
+                if (r0 xor r1) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
             when x"AE" =>
                 r0 <= not r0;
+                if (not r0) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
 
             --shifts unsigned
             when x"C0" =>
@@ -366,6 +413,18 @@ begin
                         to_integer(unsigned(r1))
                     )
                 );
+                if std_logic_vector(
+                    shift_left(
+                        unsigned(
+                            r0
+                        ),
+                        to_integer(unsigned(r1))
+                    )
+                ) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
             when x"C1" =>
                 r0 <= std_logic_vector(
                     shift_right(
@@ -375,6 +434,18 @@ begin
                         to_integer(unsigned(r1))
                     )
                 );
+                if std_logic_vector(
+                    shift_right(
+                        unsigned(
+                            r0
+                        ),
+                        to_integer(unsigned(r1))
+                    )
+                ) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
 
             --shifts signed
             when x"C2" =>
@@ -386,6 +457,18 @@ begin
                         to_integer(unsigned(r1))
                     )
                 );
+                if std_logic_vector(
+                    shift_left(
+                        signed(
+                            r0
+                        ),
+                        to_integer(unsigned(r1))
+                    )
+                ) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
             when x"C3" =>
                 r0 <= std_logic_vector(
                     shift_right(
@@ -395,13 +478,35 @@ begin
                         to_integer(unsigned(r1))
                     )
                 );
+                if std_logic_vector(
+                    shift_right(
+                        signed(
+                            r0
+                        ),
+                        to_integer(unsigned(r1))
+                    )
+                ) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
 
             --rotate unsigned
             when x"C4" =>        
                 r0 <= r0(31-to_integer(unsigned(r1)) DOWNTO 0) & r0(31 DOWNTO 31-to_integer(unsigned(r1))+1);
+                if r0(31-to_integer(unsigned(r1)) DOWNTO 0) & r0(31 DOWNTO 31-to_integer(unsigned(r1))+1) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
 
             when x"C5" =>
                 r0 <= r0(0+to_integer(unsigned(r1))-1 DOWNTO 0) & r0(31 DOWNTO 0+to_integer(unsigned(r1)));
+                if r0(0+to_integer(unsigned(r1))-1 DOWNTO 0) & r0(31 DOWNTO 0+to_integer(unsigned(r1))) = x"00000000" then
+                    Z <= '1';
+                else
+                    Z <= '0';
+                end if;
 
             --stack push
             when x"D0" =>
