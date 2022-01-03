@@ -66,8 +66,8 @@ D2 [X]F
 
 ---------------------------------
 
-ldr r2, r3
-E0
+ldr rX, rX //address, value
+E0 [X][X]
 
-str r2, r3
-E2
+str rX, rX
+E2 [X][X]
