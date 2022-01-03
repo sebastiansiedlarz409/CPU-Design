@@ -882,6 +882,161 @@ begin
                 else
                     cycles <= 0;
                 end if;
+
+            --jz rX
+            when x"F2" =>
+                if Z = '1' then    
+                    case INS(39 DOWNTO 36) is
+                        when x"0" =>
+                        IP <= r0;
+                        when x"1" =>
+                        IP <= r1;
+                        when x"2" =>
+                        IP <= r2;
+                        when x"3" =>
+                        IP <= r3;
+                        when x"4" =>
+                        IP <= r4;
+                        when x"5" =>
+                        IP <= r5;
+                        when x"6" =>
+                        IP <= r6;
+                        when x"7" =>
+                        IP <= r7;
+                        when x"8" =>
+                        IP <= SP;
+                        when x"9" =>
+                        IP <= IP;
+                        when others =>
+                    end case;
+                end if;
+
+            --jnz rX
+            when x"F3" =>
+                if Z = '0' then    
+                    case INS(39 DOWNTO 36) is
+                        when x"0" =>
+                        IP <= r0;
+                        when x"1" =>
+                        IP <= r1;
+                        when x"2" =>
+                        IP <= r2;
+                        when x"3" =>
+                        IP <= r3;
+                        when x"4" =>
+                        IP <= r4;
+                        when x"5" =>
+                        IP <= r5;
+                        when x"6" =>
+                        IP <= r6;
+                        when x"7" =>
+                        IP <= r7;
+                        when x"8" =>
+                        IP <= SP;
+                        when x"9" =>
+                        IP <= IP;
+                        when others =>
+                    end case;
+                end if;
+            
+            --jz imm32
+            when x"F4" =>
+                if Z = '1' then
+                    if cycles < 4 then
+                            IP(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(39-(cycles*8) DOWNTO 32-(cycles*8));                        
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                end if;
+            --jnz imm32
+            when x"F5" =>
+                if Z = '0' then
+                    if cycles < 4 then
+                            IP(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(39-(cycles*8) DOWNTO 32-(cycles*8));                        
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                end if;
+
+            --js rX
+            when x"F6" =>
+                if S = '1' then    
+                    case INS(39 DOWNTO 36) is
+                        when x"0" =>
+                        IP <= r0;
+                        when x"1" =>
+                        IP <= r1;
+                        when x"2" =>
+                        IP <= r2;
+                        when x"3" =>
+                        IP <= r3;
+                        when x"4" =>
+                        IP <= r4;
+                        when x"5" =>
+                        IP <= r5;
+                        when x"6" =>
+                        IP <= r6;
+                        when x"7" =>
+                        IP <= r7;
+                        when x"8" =>
+                        IP <= SP;
+                        when x"9" =>
+                        IP <= IP;
+                        when others =>
+                    end case;
+                end if;
+
+            --jns rX
+            when x"F7" =>
+                if S = '0' then    
+                    case INS(39 DOWNTO 36) is
+                        when x"0" =>
+                        IP <= r0;
+                        when x"1" =>
+                        IP <= r1;
+                        when x"2" =>
+                        IP <= r2;
+                        when x"3" =>
+                        IP <= r3;
+                        when x"4" =>
+                        IP <= r4;
+                        when x"5" =>
+                        IP <= r5;
+                        when x"6" =>
+                        IP <= r6;
+                        when x"7" =>
+                        IP <= r7;
+                        when x"8" =>
+                        IP <= SP;
+                        when x"9" =>
+                        IP <= IP;
+                        when others =>
+                    end case;
+                end if;
+
+            --js imm32
+            when x"F8" =>
+                if S = '1' then
+                    if cycles < 4 then
+                            IP(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(39-(cycles*8) DOWNTO 32-(cycles*8));                        
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                end if;
+
+            --jns imm32
+            when x"F9" =>
+                if S = '0' then
+                    if cycles < 4 then
+                            IP(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(39-(cycles*8) DOWNTO 32-(cycles*8));                        
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                end if;
             
             when others =>
 

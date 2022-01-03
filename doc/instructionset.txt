@@ -88,3 +88,29 @@ F0 [X]F
 //IP == imm32
 jmp imm32
 F1 00 00 00 00
+
+---------------------------------
+
+jz rX
+F2 [X]F
+
+jnz rX
+F3 [X]F
+
+jz imm32
+F4 00 00 00 00
+
+jnz imm32
+F5 00 00 00 00
+
+js rX
+F6 [X]F
+
+jns rX
+F7 [X]F
+
+js imm32
+F8 00 00 00 00
+
+jns imm32
+F9 00 00 00 00
