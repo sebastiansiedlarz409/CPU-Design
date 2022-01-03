@@ -46,6 +46,79 @@ begin
 
             --mov rX, imm32
             when x"B0" =>
+                case INS(39 DOWNTO 36) is
+                when x"0" =>
+                if cycles < 4 then
+                    r0(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(31-(cycles*8) DOWNTO 24-(cycles*8));
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
+                when x"1" =>
+                if cycles < 4 then
+                    r1(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(31-(cycles*8) DOWNTO 24-(cycles*8));
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
+                when x"2" =>
+                if cycles < 4 then
+                    r2(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(31-(cycles*8) DOWNTO 24-(cycles*8));
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
+                when x"3" =>
+                if cycles < 4 then
+                    r3(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(31-(cycles*8) DOWNTO 24-(cycles*8));
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
+                when x"4" =>
+                if cycles < 4 then
+                    r4(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(31-(cycles*8) DOWNTO 24-(cycles*8));
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
+                when x"5" =>
+                if cycles < 4 then
+                    r5(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(31-(cycles*8) DOWNTO 24-(cycles*8));
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
+                when x"6" =>
+                if cycles < 4 then
+                    r6(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(31-(cycles*8) DOWNTO 24-(cycles*8));
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
+                when x"7" =>
+                if cycles < 4 then
+                    r7(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(31-(cycles*8) DOWNTO 24-(cycles*8));
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
+                when x"8" =>
+                if cycles < 4 then
+                    sp(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(31-(cycles*8) DOWNTO 24-(cycles*8));
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
+                when x"0" =>
+                if cycles < 4 then
+                    ip(31-(cycles*8) DOWNTO 24-(cycles*8)) <= INS(31-(cycles*8) DOWNTO 24-(cycles*8));
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
+                when others =>
+                end case;
 
             --mov rX, rX //32bits registers
             when x"B1" =>
