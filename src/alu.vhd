@@ -580,6 +580,32 @@ begin
                 else
                     cycles <= 0;
                 end if;
+
+            --jmp
+            when x"F0" =>
+                case INS(39 DOWNTO 36) is
+                    when x"0" =>
+                    IP <= r0;
+                    when x"1" =>
+                    IP <= r1;
+                    when x"2" =>
+                    IP <= r2;
+                    when x"3" =>
+                    IP <= r3;
+                    when x"4" =>
+                    IP <= r4;
+                    when x"5" =>
+                    IP <= r5;
+                    when x"6" =>
+                    IP <= r6;
+                    when x"7" =>
+                    IP <= r7;
+                    when x"8" =>
+                    IP <= SP;
+                    when x"9" =>
+                    IP <= IP;
+                    when others =>
+                end case;
             
             when others =>
 
