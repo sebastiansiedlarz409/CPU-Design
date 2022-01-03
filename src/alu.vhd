@@ -808,6 +808,80 @@ begin
                 else
                     cycles <= 0;
                 end if;
+
+            --nop rX
+            when x"DA" =>
+                case INS(39 DOWNTO 36) is
+                    when x"0" =>
+                    if cycles < to_integer(unsigned(r0)) then
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                    when x"1" =>
+                    if cycles < to_integer(unsigned(r1)) then
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                    when x"2" =>
+                    if cycles < to_integer(unsigned(r2)) then
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                    when x"3" =>
+                    if cycles < to_integer(unsigned(r3)) then
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                    when x"4" =>
+                    if cycles < to_integer(unsigned(r4)) then
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                    when x"5" =>
+                    if cycles < to_integer(unsigned(r5)) then
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                    when x"6" =>
+                    if cycles < to_integer(unsigned(r6)) then
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                    when x"7" =>
+                    if cycles < to_integer(unsigned(r7)) then
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                    when x"8" =>
+                    if cycles < to_integer(unsigned(sp)) then
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                    when x"9" =>
+                    if cycles < to_integer(unsigned(ip)) then
+                        cycles <= cycles + 1;
+                    else
+                        cycles <= 0;
+                    end if;
+                    when others =>
+                end case;
+
+            -- nop imm32
+            when x"DB" =>
+                if cycles < to_integer(unsigned(INS(39 DOWNTO 8))) then
+                    cycles <= cycles + 1;
+                else
+                    cycles <= 0;
+                end if;
             
             when others =>
 
