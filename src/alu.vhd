@@ -5,7 +5,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity alu is
     generic(
         N: integer := 32;  --how many bits width address is
-        M: integer := 8   --how many bits width element is
+        M: integer := 8    --how many bits width element is
     );
     port(
         SCL: in std_logic; 								--clock
@@ -47,6 +47,20 @@ process(SCL)
 begin
 
     if rising_edge(SCL) then
+
+        if RST='0' then
+            R0 <= x"00000000";
+            R1 <= x"00000000";
+            R2 <= x"00000000";
+            R3 <= x"00000000";
+            R4 <= x"00000000";
+            R5 <= x"00000000";
+            R6 <= x"00000000";
+            R7 <= x"00000000";
+            SP <= x"00000000";
+            IP <= x"00000000";
+            STATUS <= b"0000";
+        end if;
 
         case INS(47 DOWNTO 40) is
 

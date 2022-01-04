@@ -15,19 +15,6 @@ end entity cpu;
 
 architecture Behavioral of cpu is
 
---inner signals for registers
-signal R0: std_logic_vector(N-1 DOWNTO 0);
-signal R1: std_logic_vector(N-1 DOWNTO 0);
-signal R2: std_logic_vector(N-1 DOWNTO 0);
-signal R3: std_logic_vector(N-1 DOWNTO 0);
-signal R4: std_logic_vector(N-1 DOWNTO 0);
-signal R5: std_logic_vector(N-1 DOWNTO 0);
-signal R6: std_logic_vector(N-1 DOWNTO 0);
-signal R7: std_logic_vector(N-1 DOWNTO 0);
-signal SP: std_logic_vector(N-1 DOWNTO 0);
-signal IP: std_logic_vector(N-1 DOWNTO 0);
-signal STATUS: std_logic_vector(3 DOWNTO 0);
-
 --signals for ram
 signal RAM_IN: std_logic_vector(M-1 DOWNTO 0);
 signal RAM_OUT: std_logic_vector(M-1 DOWNTO 0);
@@ -101,17 +88,6 @@ ALU_C: alu port map(
 	RAM_OUT => RAM_OUT,
 	RAM_ADDR => RAM_ADDR,
 	RAM_RW => RAM_RW,
-	R0 => R0,
-	R1 => R1,
-	R2 => R2,
-	R3 => R3,
-	R4 => R4,
-	R5 => R5,
-	R6 => R6,
-	R7 => R7,
-	SP => SP,
-	IP => IP,
-	STATUS => STATUS,
 	INS => INS
 );
 --ALU MAP
@@ -147,17 +123,6 @@ if rising_edge(SCL) then
 		RAM_ADDR <= x"00000000";
 		RAM_IN <= x"00";
 		ROM_ADDR <= x"00000000";
-		R0 <= x"00000000";
-		R1 <= x"00000000";
-		R2 <= x"00000000";
-		R3 <= x"00000000";
-		R4 <= x"00000000";
-		R5 <= x"00000000";
-		R6 <= x"00000000";
-		R7 <= x"00000000";
-		SP <= x"00000000";
-		IP <= x"00000000";
-		STATUS <= b"0000";
 	end if;
 
 end if;

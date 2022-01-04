@@ -53,7 +53,7 @@ rul r0, r1
 C4
 
 //rotate unsigned right
-rul r0, r1
+rur r0, r1
 C5
 
 ----------------------------------
