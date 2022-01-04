@@ -6,7 +6,7 @@ entity ram is
 generic(
 	N: integer := 32;  --how many bits width address is
 	M: integer := 8;   --how many bits width one element is
-	S: integer := 4096 --ram size * M
+	S: integer := 16#FFFF# --ram size * M
 );
 port(
 	SCL: in std_logic; 								--clock
@@ -20,7 +20,7 @@ end entity ram;
 
 architecture Behavioral of ram is
 
-type RAM_ARRAY is array (0 to S-1) of std_logic_vector(M-1 downto 0); -- 0 to 0x1000-1
+type RAM_ARRAY is array (0 to S) of std_logic_vector(M-1 downto 0); -- 0 to 0x1000-1
 signal RAM: RAM_ARRAY;
 
 begin

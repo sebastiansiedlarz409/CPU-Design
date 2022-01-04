@@ -23,12 +23,7 @@ entity alu is
         IP: inout std_logic_vector(N-1 DOWNTO 0);
         STATUS: inout std_logic_vector(3 DOWNTO 0);
         --instruction
-        INS: in std_logic_vector(47 DOWNTO 0);
-        --ram
-        RAM_IN: out std_logic_vector(M-1 DOWNTO 0);
-        RAM_OUT: in std_logic_vector(M-1 DOWNTO 0);
-        RAM_ADDR: out std_logic_vector(N-1 DOWNTO 0);
-        RAM_RW: out std_logic
+        INS: in std_logic_vector(47 DOWNTO 0)
     );
 end entity alu;
 
@@ -41,7 +36,37 @@ alias S: std_logic is STATUS(1);
 alias C: std_logic is STATUS(2);
 alias O: std_logic is STATUS(3);
 
+--signals for ram
+signal RAM_IN: std_logic_vector(M-1 DOWNTO 0);
+signal RAM_OUT: std_logic_vector(M-1 DOWNTO 0);
+signal RAM_ADDR: std_logic_vector(N-1 DOWNTO 0);
+signal RAM_RW: std_logic;
+
+--RAM
+component ram is
+    port(
+        SCL: in std_logic; 				--clock
+        RST: in std_logic := '1'; 		--reset
+        RAM_IN: in std_logic_vector(M-1 DOWNTO 0);
+        RAM_OUT: out std_logic_vector(M-1 DOWNTO 0);
+        RAM_ADDR: in std_logic_vector(N-1 DOWNTO 0);
+        RAM_RW: in std_logic 			--1 means read, 0 means write
+    );
+end component ram;
+--RAM END
+
 begin
+
+--RAM MAP
+RAM_C: ram port map (
+	SCL => SCL,
+	RST => RST,
+	RAM_IN => RAM_IN,
+	RAM_OUT => RAM_OUT,
+	RAM_ADDR => RAM_ADDR,
+	RAM_RW => RAM_RW
+);
+--RAM MAP END
 
 process(SCL)
 begin
@@ -49,6 +74,10 @@ begin
     if rising_edge(SCL) then
 
         if RST='0' then
+            RAM_RW <= '1';
+            RAM_ADDR <= x"00000000";
+            RAM_IN <= x"00";
+            --ROM_ADDR <= x"00000000";
             R0 <= x"00000000";
             R1 <= x"00000000";
             R2 <= x"00000000";
@@ -614,7 +643,7 @@ begin
             when x"D0" =>
                 if cycles < 4 then
                     RAM_RW <= '0';
-                    RAM_ADDR <= SP;
+                    RAM_ADDR <= std_logic_vector(unsigned(sp) - to_unsigned(cycles+1,32));
                     case INS(39 DOWNTO 32) is
                         when x"0F" =>
                         RAM_IN <= R0(7+(cycles*8) DOWNTO 0+(cycles*8));
@@ -638,20 +667,18 @@ begin
                         RAM_IN <= IP(7+(cycles*8) DOWNTO 0+(cycles*8));
                         when others =>
                     end case;
-                    --decrement stack
-                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
                     cycles <= cycles + 1;
                 else
+                    --decrement stack
+                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 4,32));
                     cycles <= 0;
                 end if;
             
             --stack pop
             when x"D2" =>
                 if cycles < 4 then
-                    --increment stac
-                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 1,32));
                     RAM_RW <= '1';
-                    RAM_ADDR <= SP;
+                    RAM_ADDR <= std_logic_vector(unsigned(sp) + to_unsigned(cycles-1,32));
                     case INS(39 DOWNTO 32) is
                         when x"0F" =>
                         R0(31-(cycles*8) DOWNTO 24-(cycles*8)) <= RAM_OUT;
@@ -677,6 +704,8 @@ begin
                     end case;
                     cycles <= cycles + 1;
                 else
+                    --increment stac
+                    SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) + 4,32));
                     cycles <= 0;
                 end if;
             
