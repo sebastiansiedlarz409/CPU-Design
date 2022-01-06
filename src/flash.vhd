@@ -25,9 +25,18 @@ type FLASH_ARRAY is array (0 to S-1) of std_logic_vector(M-1 downto 0); -- 0 to 
 --signal FLASH: FLASH_ARRAY := (x"AA", x"AB", x"AC", x"AD", x"AE", x"AF", others=> x"99");
 
 --test program 1
-signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"00", x"05", --mov r0, 5
-							x"B0", x"1F", x"00", x"00", x"00", x"01", 	--mov r1, 1
-							x"A0",										--add r0, r1
+--signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"00", x"05", --mov r0, 5
+--							x"B0", x"1F", x"00", x"00", x"00", x"01", 	--mov r1, 1
+--							x"A0",										--add r0, r1
+--							others=> x"00");
+
+--test program 2
+signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"00", x"0A", --mov r0, 10
+							x"B0", x"1F", x"00", x"00", x"00", x"03", 	--mov r1, 3
+							x"A6",										--div r0, r1
+							x"D0", x"2F",								--push r2    //push rest
+							x"B1", x"38",								--move r3, sp
+							x"E0", x"34",								--ldr r3, r4
 							others=> x"00");
 
 begin

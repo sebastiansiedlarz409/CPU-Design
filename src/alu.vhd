@@ -20,7 +20,7 @@ entity alu is
         R5: inout std_logic_vector(N-1 DOWNTO 0);
         R6: inout std_logic_vector(N-1 DOWNTO 0);
         R7: inout std_logic_vector(N-1 DOWNTO 0);
-        SP: inout std_logic_vector(N-1 DOWNTO 0);
+        SP: inout std_logic_vector(N-1 DOWNTO 0) := x"0000F000";
         IP: inout std_logic_vector(N-1 DOWNTO 0) := x"00000000";
         STATUS: inout std_logic_vector(3 DOWNTO 0)
     );
@@ -112,7 +112,7 @@ begin
             R5 <= x"00000000";
             R6 <= x"00000000";
             R7 <= x"00000000";
-            SP <= x"00000000";
+            SP <= x"0000F000";
             IP <= x"00000000";
             STATUS <= b"0000";
         end if;
@@ -463,6 +463,8 @@ begin
                 else
                     S <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
             when x"A4" =>
                 r0 <= std_logic_vector(unsigned(r0) * unsigned(r1));
                 if std_logic_vector(unsigned(r0) * unsigned(r1)) = x"00000000" then
@@ -475,6 +477,8 @@ begin
                 else
                     S <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
             when x"A6" =>
                 r0 <= std_logic_vector(unsigned(r0) / unsigned(r1));
                 r2 <= std_logic_vector(unsigned(r0) mod unsigned(r1));
@@ -488,6 +492,8 @@ begin
                 else
                     S <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
                         
             when x"A8" =>
                 r0 <= r0 and r1;
@@ -501,6 +507,8 @@ begin
                 else
                     S <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
             when x"AA" =>
                 r0 <= r0 or r1;
                 if (r0 or r1) = x"00000000" then
@@ -513,6 +521,8 @@ begin
                 else
                     S <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
             when x"AC" =>
                 r0 <= r0 xor r1;
                 if (r0 xor r1) = x"00000000" then
@@ -525,6 +535,8 @@ begin
                 else
                     S <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
             when x"AE" =>
                 r0 <= not r0;
                 if (not r0) = x"00000000" then
@@ -537,6 +549,8 @@ begin
                 else
                     S <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
 
             --shifts unsigned
             when x"C0" =>
@@ -572,6 +586,8 @@ begin
                 else
                     S <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
             when x"C1" =>
                 r0 <= std_logic_vector(
                     shift_right(
@@ -605,6 +621,8 @@ begin
                 else
                     S <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
 
             --shifts signed
             when x"C2" =>
@@ -640,6 +658,9 @@ begin
                 else
                     S <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
+                
             when x"C3" =>
                 r0 <= std_logic_vector(
                     shift_right(
@@ -673,6 +694,8 @@ begin
                 else
                     S <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
 
             --rotate unsigned
             when x"C4" =>        
@@ -682,6 +705,8 @@ begin
                 else
                     Z <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
 
             when x"C5" =>
                 r0 <= r0(0+to_integer(unsigned(r1))-1 DOWNTO 0) & r0(31 DOWNTO 0+to_integer(unsigned(r1)));
@@ -690,6 +715,8 @@ begin
                 else
                     Z <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
 
             --stack push
             when x"D0" =>
@@ -724,6 +751,8 @@ begin
                     --decrement stack
                     SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) - 4,32));
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(2,32));
                 end if;
             
             --stack pop
@@ -762,6 +791,8 @@ begin
                     cycles <= 0;
                     --increment stac
                     SP <= std_logic_vector(to_unsigned(to_integer(unsigned(SP)) + 4,32));
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(2,32));
                 end if;
             
             when x"E0" => --ldr 32
@@ -841,6 +872,8 @@ begin
                     cycles <= cycles + 1;
                 else
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(2,32));
                 end if;
 
             when x"E2" => --str 32
@@ -895,6 +928,8 @@ begin
                     cycles <= cycles + 1;
                 else
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(2,32));
                 end if;
 
             --jmp
@@ -922,6 +957,8 @@ begin
                     IP <= IP;
                     when others =>
                 end case;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(2,32));
             
             --jmp imm32
             when x"F1" =>
@@ -931,6 +968,8 @@ begin
                 else
                     cycles <= 0;
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(5,32));
 
             --nop rX
             when x"DA" =>
@@ -997,6 +1036,8 @@ begin
                     end if;
                     when others =>
                 end case;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(2,32));
 
             -- nop imm32
             when x"DB" =>
@@ -1005,6 +1046,8 @@ begin
                 else
                     cycles <= 0;
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(5,32));
 
             --jz rX
             when x"F2" =>
@@ -1033,6 +1076,8 @@ begin
                         when others =>
                     end case;
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(2,32));
 
             --jnz rX
             when x"F3" =>
@@ -1061,6 +1106,8 @@ begin
                         when others =>
                     end case;
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(2,32));
             
             --jz imm32
             when x"F4" =>
@@ -1072,6 +1119,9 @@ begin
                         cycles <= 0;
                     end if;
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(5,32));
+
             --jnz imm32
             when x"F5" =>
                 if Z = '0' then
@@ -1082,6 +1132,8 @@ begin
                         cycles <= 0;
                     end if;
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(5,32));
 
             --js rX
             when x"F6" =>
@@ -1110,6 +1162,8 @@ begin
                         when others =>
                     end case;
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(2,32));
 
             --jns rX
             when x"F7" =>
@@ -1138,6 +1192,8 @@ begin
                         when others =>
                     end case;
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(2,32));
 
             --js imm32
             when x"F8" =>
@@ -1149,6 +1205,8 @@ begin
                         cycles <= 0;
                     end if;
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(5,32));
 
             --jns imm32
             when x"F9" =>
@@ -1160,6 +1218,8 @@ begin
                         cycles <= 0;
                     end if;
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(5,32));
             
             when others =>
 
