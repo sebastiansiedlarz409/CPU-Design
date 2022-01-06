@@ -4,6 +4,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity alu is
     generic(
+        P: integer := 48;
         N: integer := 32;  --how many bits width address is
         M: integer := 8    --how many bits width element is
     );
@@ -20,10 +21,8 @@ entity alu is
         R6: inout std_logic_vector(N-1 DOWNTO 0);
         R7: inout std_logic_vector(N-1 DOWNTO 0);
         SP: inout std_logic_vector(N-1 DOWNTO 0);
-        IP: inout std_logic_vector(N-1 DOWNTO 0);
-        STATUS: inout std_logic_vector(3 DOWNTO 0);
-        --instruction
-        INS: in std_logic_vector(47 DOWNTO 0)
+        IP: inout std_logic_vector(N-1 DOWNTO 0) := x"00000000";
+        STATUS: inout std_logic_vector(3 DOWNTO 0)
     );
 end entity alu;
 
@@ -36,6 +35,22 @@ alias Z: std_logic is STATUS(0);
 alias S: std_logic is STATUS(1);
 alias C: std_logic is STATUS(2);
 alias O: std_logic is STATUS(3);
+
+signal FLASH_OUT: std_logic_vector(P-1 DOWNTO 0);
+
+--instruction
+signal INS: std_logic_vector(P-1 DOWNTO 0);
+
+--ROM
+component FLASH is
+port(
+	SCL: in std_logic; 								--clock
+	RST: in std_logic := '1'; 						--reset
+	FLASH_OUT: out std_logic_vector(M-1 DOWNTO 0);
+	FLASH_ADDR: in std_logic_vector(N-1 DOWNTO 0)
+);
+end component FLASH;
+--ROM END
 
 --signals for ram
 signal RAM_IN: std_logic_vector(M-1 DOWNTO 0);
@@ -58,6 +73,15 @@ end component ram;
 
 begin
 
+--FLASH MAP
+FLASH_C: FLASH port map (
+	SCL => SCL,
+	RST => RST,
+	FLASH_OUT => FLASH_OUT,
+	FLASH_ADDR => IP
+);
+--FLASH MAP END
+
 --RAM MAP
 RAM_C: ram port map (
 	SCL => SCL,
@@ -78,7 +102,8 @@ begin
             RAM_RW <= '1';
             RAM_ADDR <= x"00000000";
             RAM_IN <= x"00";
-            --ROM_ADDR <= x"00000000";
+            --FLASH_ADDR <= x"00000000";
+            INS <= x"000000000000";
             R0 <= x"00000000";
             R1 <= x"00000000";
             R2 <= x"00000000";
@@ -103,6 +128,8 @@ begin
                     cycles <= cycles + 1;
                 else
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(6,32));
                 end if;
                 when x"1" =>
                 if cycles < 4 then
@@ -110,6 +137,8 @@ begin
                     cycles <= cycles + 1;
                 else
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(6,32));
                 end if;
                 when x"2" =>
                 if cycles < 4 then
@@ -117,6 +146,8 @@ begin
                     cycles <= cycles + 1;
                 else
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(6,32));
                 end if;
                 when x"3" =>
                 if cycles < 4 then
@@ -124,6 +155,8 @@ begin
                     cycles <= cycles + 1;
                 else
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(6,32));
                 end if;
                 when x"4" =>
                 if cycles < 4 then
@@ -131,6 +164,8 @@ begin
                     cycles <= cycles + 1;
                 else
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(6,32));
                 end if;
                 when x"5" =>
                 if cycles < 4 then
@@ -138,6 +173,8 @@ begin
                     cycles <= cycles + 1;
                 else
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(6,32));
                 end if;
                 when x"6" =>
                 if cycles < 4 then
@@ -145,6 +182,8 @@ begin
                     cycles <= cycles + 1;
                 else
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(6,32));
                 end if;
                 when x"7" =>
                 if cycles < 4 then
@@ -152,6 +191,8 @@ begin
                     cycles <= cycles + 1;
                 else
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(6,32));
                 end if;
                 when x"8" =>
                 if cycles < 4 then
@@ -159,6 +200,8 @@ begin
                     cycles <= cycles + 1;
                 else
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(6,32));
                 end if;
                 when x"9" =>
                 if cycles < 4 then
@@ -166,6 +209,8 @@ begin
                     cycles <= cycles + 1;
                 else
                     cycles <= 0;
+                    --increment IP
+                    IP <= std_logic_vector(unsigned(ip) + to_unsigned(6,32));
                 end if;
                 when others =>
                 end case;
@@ -386,6 +431,9 @@ begin
                     when others =>
 
                 end case;
+
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(2,32));
             
             --arithmetic
             when x"A0" =>
@@ -400,6 +448,9 @@ begin
                 else
                     S <= '0';
                 end if;
+                --increment IP
+                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
+
             when x"A2" =>
                 r0 <= std_logic_vector(unsigned(r0) - unsigned(r1));
                 if std_logic_vector(unsigned(r0) - unsigned(r1)) = x"00000000" then
@@ -1115,6 +1166,7 @@ begin
         end case;
 
     end if;
+    INS <= FLASH_OUT;
 
 end process;
 
