@@ -40,16 +40,23 @@ type FLASH_ARRAY is array (0 to S-1) of std_logic_vector(M-1 downto 0); -- 0 to 
 --							others=> x"00");
 
 --test program 3
-signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"00", x"0A", --mov r0, 10
-							x"B0", x"1F", x"00", x"00", x"00", x"05", 	--mov r1, 5
-							x"D0", x"0F",								--push r0
-							x"A2",										--sub r0, r1
-							x"F5", x"00", x"00",x"00",x"0C",			--jnz 0xC    //jump if not zero IP==0xC
-							x"B0", x"0F", x"00", x"00", x"F0", x"00",   --mov r0, 0xF000
-							x"B1", x"18",								--mov r1, sp //calc diff
-							x"A2",										--sub r0, r1
-							x"B0", x"1F", x"00", x"00", x"00", x"04",   --mov r1, 4 //count elements
-							x"A6", 										--div r0, r1
+--signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"00", x"0A", --mov r0, 10
+--							x"B0", x"1F", x"00", x"00", x"00", x"05", 	--mov r1, 5
+--							x"D0", x"0F",								--push r0
+--							x"A2",										--sub r0, r1
+--							x"F5", x"00", x"00",x"00",x"0C",			--jnz 0xC    //jump if not zero IP==0xC
+--							x"B0", x"0F", x"00", x"00", x"F0", x"00",   --mov r0, 0xF000
+--							x"B1", x"18",								--mov r1, sp //calc diff
+--							x"A2",										--sub r0, r1
+--							x"B0", x"1F", x"00", x"00", x"00", x"04",   --mov r1, 4 //count elements
+--							x"A6", 										--div r0, r1
+--							others=> x"00");
+
+--hardware program 4
+--just led on
+signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"00", x"01", --mov r0, 5
+							x"B0", x"1F", x"00", x"00", x"F0", x"00", 	--mov r1, 1
+							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
 							others=> x"00");
 
 begin

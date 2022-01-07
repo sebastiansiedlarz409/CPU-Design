@@ -22,7 +22,8 @@ entity alu is
         R7: inout std_logic_vector(N-1 DOWNTO 0);
         SP: inout std_logic_vector(N-1 DOWNTO 0) := x"0000F000";
         IP: inout std_logic_vector(N-1 DOWNTO 0) := x"00000000";
-        STATUS: inout std_logic_vector(3 DOWNTO 0)
+        STATUS: inout std_logic_vector(3 DOWNTO 0);
+        PINS: inout std_logic_vector(15 DOWNTO 0)
     );
 end entity alu;
 
@@ -66,10 +67,24 @@ component ram is
         RAM_IN: in std_logic_vector(M-1 DOWNTO 0);
         RAM_OUT: out std_logic_vector(M-1 DOWNTO 0);
         RAM_ADDR: in std_logic_vector(N-1 DOWNTO 0);
-        RAM_RW: in std_logic 			--1 means read, 0 means write
+        RAM_RW: in std_logic; 			--1 means read, 0 means write
+        RAM_GPIO: out std_logic_vector(31 DOWNTO 0)	--GPIO mode, GPIO value
     );
 end component ram;
 --RAM END
+
+--IO
+component io is
+    port(
+        SCL: in std_logic;
+        RST: in std_logic := '1';
+        GPIO: in std_logic_vector(31 DOWNTO 0);
+        PINS: inout std_logic_vector(15 DOWNTO 0)
+    );
+end component io;
+--IO END
+
+signal GPIO: std_logic_vector(31 DOWNTO 0);
 
 begin
 
@@ -89,9 +104,19 @@ RAM_C: ram port map (
 	RAM_IN => RAM_IN,
 	RAM_OUT => RAM_OUT,
 	RAM_ADDR => RAM_ADDR,
-	RAM_RW => RAM_RW
+	RAM_RW => RAM_RW,
+    RAM_GPIO => GPIO
 );
 --RAM MAP END
+
+--IO MAP
+IO_C: io port map(
+    SCL => SCL,
+    RST => RST,
+    GPIO => GPIO,
+    PINS => PINS
+);
+--IO MAP END
 
 process(SCL)
 begin
