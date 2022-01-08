@@ -53,9 +53,15 @@ type FLASH_ARRAY is array (0 to S-1) of std_logic_vector(M-1 downto 0); -- 0 to 
 --							others=> x"00");
 
 --hardware program 4
---just led on
-signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"00", x"01", --mov r0, 5
-							x"B0", x"1F", x"00", x"00", x"F0", x"00", 	--mov r1, 1
+--just led off
+--signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"00", x"04", --mov r0, 4
+--							x"B0", x"1F", x"00", x"00", x"0F", x"00", 	--mov r1, 1
+--							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
+--							others=> x"00");
+
+--7segments screen
+signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"16", x"DF", --mov r0, 0x16DF //digit 5
+							x"B0", x"1F", x"00", x"00", x"0F", x"00", 	--mov r1, 1
 							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
 							others=> x"00");
 

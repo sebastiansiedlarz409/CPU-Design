@@ -18,8 +18,8 @@ end entity io;
 
 --map
 --16 gpio
---0xF000 IN/OUT
---0xF002 VALUE/PULLUP/PULLDOWN
+--0xF00 IN/OUT
+--0xF02 VALUE/PULLUP/PULLDOWN
 
 architecture Behavioral of io is
 
@@ -29,15 +29,17 @@ begin
 process(SCL)
 begin
 
-    for I in 0 to 15 loop
+    if rising_edge(SCL) then
+        for I in 0 to 15 loop
 
-        --OUT
-        if GPIO(I+15) = '0' then
-            PINS(I) <= GPIO(I);
-        else
-        end if;
-
-    end loop;
+            --OUT
+            if GPIO(I+15) = '0' then
+                PINS(I) <= GPIO(I);
+            else
+            end if;
+    
+        end loop;
+    end if;
 
 end process;
 

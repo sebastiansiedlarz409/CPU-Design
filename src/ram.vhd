@@ -6,7 +6,7 @@ entity ram is
 generic(
 	N: integer := 32;  --how many bits width address is
 	M: integer := 8;   --how many bits width one element is
-	S: integer := 16#FFFF# --ram size * M
+	S: integer := 16#FFF# --ram size * M
 );
 port(
 	SCL: in std_logic; 								--clock
@@ -45,9 +45,9 @@ end if;
 
 end process;
 
-RAM_GPIO(31 DOWNTO 24) <= RAM(16#F000#);
-RAM_GPIO(23 DOWNTO 16) <= RAM(16#F001#);
-RAM_GPIO(15 DOWNTO 8) <= RAM(16#F002#);
-RAM_GPIO(7 DOWNTO 0) <= RAM(16#F003#);
+RAM_GPIO(31 DOWNTO 24) <= RAM(16#F00#);
+RAM_GPIO(23 DOWNTO 16) <= RAM(16#F01#);
+RAM_GPIO(15 DOWNTO 8) <= RAM(16#F02#);
+RAM_GPIO(7 DOWNTO 0) <= RAM(16#F03#);
 
 end architecture Behavioral;

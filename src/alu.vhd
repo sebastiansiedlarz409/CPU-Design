@@ -20,7 +20,7 @@ entity alu is
         R5: inout std_logic_vector(N-1 DOWNTO 0);
         R6: inout std_logic_vector(N-1 DOWNTO 0);
         R7: inout std_logic_vector(N-1 DOWNTO 0);
-        SP: inout std_logic_vector(N-1 DOWNTO 0) := x"0000F000";
+        SP: inout std_logic_vector(N-1 DOWNTO 0) := x"00000F00";
         IP: inout std_logic_vector(N-1 DOWNTO 0) := x"00000000";
         STATUS: inout std_logic_vector(3 DOWNTO 0);
         PINS: inout std_logic_vector(15 DOWNTO 0)
@@ -47,7 +47,7 @@ component FLASH is
 port(
 	SCL: in std_logic; 								--clock
 	RST: in std_logic := '1'; 						--reset
-	FLASH_OUT: out std_logic_vector(M-1 DOWNTO 0);
+	FLASH_OUT: out std_logic_vector(P-1 DOWNTO 0);
 	FLASH_ADDR: in std_logic_vector(N-1 DOWNTO 0)
 );
 end component FLASH;
@@ -491,19 +491,19 @@ begin
                 --increment IP
                 IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
             when x"A4" =>
-                r0 <= std_logic_vector(unsigned(r0) * unsigned(r1));
-                if std_logic_vector(unsigned(r0) * unsigned(r1)) = x"00000000" then
-                    Z <= '1';
-                else
-                    Z <= '0';
-                end if;
-                if (( std_logic_vector(unsigned(r0) * unsigned(r1)) ) and x"80000000") = x"80000000" then
-                    S <= '1';
-                else
-                    S <= '0';
-                end if;
+                --r0 <= std_logic_vector(unsigned(r0) * unsigned(r1))(31 DOWNTO 0);
+                --if std_logic_vector(unsigned(r0) * unsigned(r1))(31 DOWNTO 0) = x"00000000" then
+                --    Z <= '1';
+                --else
+                --    Z <= '0';
+                --end if;
+                --if (( std_logic_vector(unsigned(r0) * unsigned(r1)) ) and x"80000000") = x"80000000" then
+                --    S <= '1';
+                --else
+                --    S <= '0';
+                --end if;
                 --increment IP
-                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
+                --IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
             when x"A6" =>
                 r0 <= std_logic_vector(unsigned(r0) / unsigned(r1));
                 r2 <= std_logic_vector(unsigned(r0) mod unsigned(r1));
@@ -723,25 +723,25 @@ begin
                 IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
 
             --rotate unsigned
-            when x"C4" =>        
-                r0 <= r0(31-to_integer(unsigned(r1)) DOWNTO 0) & r0(31 DOWNTO 31-to_integer(unsigned(r1))+1);
-                if r0(31-to_integer(unsigned(r1)) DOWNTO 0) & r0(31 DOWNTO 31-to_integer(unsigned(r1))+1) = x"00000000" then
-                    Z <= '1';
-                else
-                    Z <= '0';
-                end if;
+            --when x"C4" =>        
+                --r0 <= r0(31-to_integer(unsigned(r1)) DOWNTO 0) & r0(31 DOWNTO 31-to_integer(unsigned(r1))+1);
+                --if r0(31-to_integer(unsigned(r1)) DOWNTO 0) & r0(31 DOWNTO 31-to_integer(unsigned(r1))+1) = x"00000000" then
+                --    Z <= '1';
+                --else
+                --    Z <= '0';
+                --end if;
                 --increment IP
-                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
+                --IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
 
-            when x"C5" =>
-                r0 <= r0(0+to_integer(unsigned(r1))-1 DOWNTO 0) & r0(31 DOWNTO 0+to_integer(unsigned(r1)));
-                if r0(0+to_integer(unsigned(r1))-1 DOWNTO 0) & r0(31 DOWNTO 0+to_integer(unsigned(r1))) = x"00000000" then
-                    Z <= '1';
-                else
-                    Z <= '0';
-                end if;
+            --when x"C5" =>
+                --r0 <= r0(0+to_integer(unsigned(r1))-1 DOWNTO 0) & r0(31 DOWNTO 0+to_integer(unsigned(r1)));
+                --if r0(0+to_integer(unsigned(r1))-1 DOWNTO 0) & r0(31 DOWNTO 0+to_integer(unsigned(r1))) = x"00000000" then
+                --    Z <= '1';
+                --else
+                --    Z <= '0';
+                --end if;
                 --increment IP
-                IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
+                --IP <= std_logic_vector(unsigned(ip) + to_unsigned(1,32));
 
             --stack push
             when x"D0" =>
