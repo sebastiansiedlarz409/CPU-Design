@@ -80,6 +80,22 @@
 					"strict" : false
 				},
 				{
+					"name" : "PINS[19]",
+					"strict" : false
+				},
+				{
+					"name" : "PINS[20]",
+					"strict" : false
+				},
+				{
+					"name" : "PINS[21]",
+					"strict" : false
+				},
+				{
+					"name" : "PINS[22]",
+					"strict" : false
+				},
+				{
 					"name" : "SCL",
 					"strict" : false
 				},

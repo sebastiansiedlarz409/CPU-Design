@@ -12,7 +12,7 @@ entity io is
         SCL: in std_logic;
         RST: in std_logic := '1';
         GPIO: inout std_logic_vector(63 DOWNTO 0);
-        PINS: inout std_logic_vector(18 DOWNTO 0)
+        PINS: inout std_logic_vector(22 DOWNTO 0)
     );
 end entity io;
 
@@ -30,7 +30,7 @@ process(SCL)
 begin
 
     if rising_edge(SCL) then
-        for I in 0 to 18 loop
+        for I in 0 to 22 loop
 
             if GPIO(I+32) = '0' then --OUT
                 PINS(I) <= GPIO(I);

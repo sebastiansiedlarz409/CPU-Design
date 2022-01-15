@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu
-Sat Jan 15 11:00:07 2022
+Sat Jan 15 13:29:02 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -14,26 +14,23 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Registers Added for RAM Pass-Through Logic
- 12. Registers Packed Into Inferred Megafunctions
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Source assignments for alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated
- 15. Parameter Settings for User Entity Instance: Top-level Entity: |cpu
- 16. Parameter Settings for User Entity Instance: alu:ALU_C
- 17. Parameter Settings for User Entity Instance: alu:ALU_C|FLASH:FLASH_C
- 18. Parameter Settings for User Entity Instance: alu:ALU_C|ram:RAM_C
- 19. Parameter Settings for User Entity Instance: alu:ALU_C|io:IO_C
- 20. Parameter Settings for Inferred Entity Instance: alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0
- 21. Parameter Settings for Inferred Entity Instance: alu:ALU_C|lpm_divide:Mod0
- 22. Parameter Settings for Inferred Entity Instance: alu:ALU_C|lpm_divide:Div0
- 23. altsyncram Parameter Settings by Entity Instance
- 24. Port Connectivity Checks: "alu:ALU_C|io:IO_C"
- 25. Port Connectivity Checks: "alu:ALU_C"
- 26. Post-Synthesis Netlist Statistics for Top Partition
- 27. Elapsed Time Per Partition
- 28. Analysis & Synthesis Messages
+  9. General Register Statistics
+ 10. Registers Added for RAM Pass-Through Logic
+ 11. Registers Packed Into Inferred Megafunctions
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |cpu
+ 15. Parameter Settings for User Entity Instance: alu:ALU_C
+ 16. Parameter Settings for User Entity Instance: alu:ALU_C|FLASH:FLASH_C
+ 17. Parameter Settings for User Entity Instance: alu:ALU_C|ram:RAM_C
+ 18. Parameter Settings for User Entity Instance: alu:ALU_C|io:IO_C
+ 19. Parameter Settings for Inferred Entity Instance: alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "alu:ALU_C|io:IO_C"
+ 22. Port Connectivity Checks: "alu:ALU_C"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
 
 
 
@@ -60,16 +57,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jan 15 11:00:07 2022       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jan 15 13:29:02 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu                                         ;
 ; Top-level Entity Name              ; cpu                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 3,598                                       ;
-;     Total combinational functions  ; 3,528                                       ;
-;     Dedicated logic registers      ; 377                                         ;
-; Total registers                    ; 377                                         ;
-; Total pins                         ; 21                                          ;
+; Total logic elements               ; 6,876                                       ;
+;     Total combinational functions  ; 6,798                                       ;
+;     Dedicated logic registers      ; 533                                         ;
+; Total registers                    ; 533                                         ;
+; Total pins                         ; 25                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 32,768                                      ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -178,9 +175,9 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -204,73 +201,55 @@ https://fpgasoftware.intel.com/eula.
 ; altram.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc            ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
 ; db/altsyncram_2eg1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/siedl/Desktop/FPGA-CPU/hw/db/altsyncram_2eg1.tdf                    ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
-; db/lpm_divide_anl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/siedl/Desktop/FPGA-CPU/hw/db/lpm_divide_anl.tdf                     ;         ;
-; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/siedl/Desktop/FPGA-CPU/hw/db/sign_div_unsign_9nh.tdf                ;         ;
-; db/alt_u_div_ske.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/siedl/Desktop/FPGA-CPU/hw/db/alt_u_div_ske.tdf                      ;         ;
-; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/siedl/Desktop/FPGA-CPU/hw/db/add_sub_t3c.tdf                        ;         ;
-; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/siedl/Desktop/FPGA-CPU/hw/db/add_sub_u3c.tdf                        ;         ;
-; db/lpm_divide_7vl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/siedl/Desktop/FPGA-CPU/hw/db/lpm_divide_7vl.tdf                     ;         ;
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 3,598     ;
-;                                             ;           ;
-; Total combinational functions               ; 3528      ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 1855      ;
-;     -- 3 input functions                    ; 1347      ;
-;     -- <=2 input functions                  ; 326       ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 2168      ;
-;     -- arithmetic mode                      ; 1360      ;
-;                                             ;           ;
-; Total registers                             ; 377       ;
-;     -- Dedicated logic registers            ; 377       ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 21        ;
-; Total memory bits                           ; 32768     ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; SCL~input ;
-; Maximum fan-out                             ; 385       ;
-; Total fan-out                               ; 13368     ;
-; Average fan-out                             ; 3.36      ;
-+---------------------------------------------+-----------+
++--------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                        ;
++---------------------------------------------+----------------------+
+; Resource                                    ; Usage                ;
++---------------------------------------------+----------------------+
+; Estimated Total logic elements              ; 6,876                ;
+;                                             ;                      ;
+; Total combinational functions               ; 6798                 ;
+; Logic element usage by number of LUT inputs ;                      ;
+;     -- 4 input functions                    ; 4880                 ;
+;     -- 3 input functions                    ; 1461                 ;
+;     -- <=2 input functions                  ; 457                  ;
+;                                             ;                      ;
+; Logic elements by mode                      ;                      ;
+;     -- normal mode                          ; 6074                 ;
+;     -- arithmetic mode                      ; 724                  ;
+;                                             ;                      ;
+; Total registers                             ; 533                  ;
+;     -- Dedicated logic registers            ; 533                  ;
+;     -- I/O registers                        ; 0                    ;
+;                                             ;                      ;
+; I/O pins                                    ; 25                   ;
+; Total memory bits                           ; 32768                ;
+;                                             ;                      ;
+; Embedded Multiplier 9-bit elements          ; 0                    ;
+;                                             ;                      ;
+; Maximum fan-out node                        ; alu:ALU_C|INS[45]~38 ;
+; Maximum fan-out                             ; 568                  ;
+; Total fan-out                               ; 26548                ;
+; Average fan-out                             ; 3.58                 ;
++---------------------------------------------+----------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                           ;
-+----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                  ; Entity Name         ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |cpu                                         ; 3528 (0)            ; 377 (0)                   ; 32768       ; 0          ; 0            ; 0       ; 0         ; 21   ; 0            ; 0          ; |cpu                                                                                                                                 ; cpu                 ; work         ;
-;    |alu:ALU_C|                               ; 3528 (1169)         ; 377 (279)                 ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C                                                                                                                       ; alu                 ; work         ;
-;       |FLASH:FLASH_C|                        ; 150 (150)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|FLASH:FLASH_C                                                                                                         ; FLASH               ; work         ;
-;       |io:IO_C|                              ; 19 (19)             ; 19 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|io:IO_C                                                                                                               ; io                  ; work         ;
-;       |lpm_divide:Div0|                      ; 1077 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|lpm_divide:Div0                                                                                                       ; lpm_divide          ; work         ;
-;          |lpm_divide_7vl:auto_generated|     ; 1077 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|lpm_divide:Div0|lpm_divide_7vl:auto_generated                                                                         ; lpm_divide_7vl      ; work         ;
-;             |sign_div_unsign_9nh:divider|    ; 1077 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|lpm_divide:Div0|lpm_divide_7vl:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
-;                |alt_u_div_ske:divider|       ; 1077 (1077)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|lpm_divide:Div0|lpm_divide_7vl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider                       ; alt_u_div_ske       ; work         ;
-;       |lpm_divide:Mod0|                      ; 1087 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|lpm_divide:Mod0                                                                                                       ; lpm_divide          ; work         ;
-;          |lpm_divide_anl:auto_generated|     ; 1087 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|lpm_divide:Mod0|lpm_divide_anl:auto_generated                                                                         ; lpm_divide_anl      ; work         ;
-;             |sign_div_unsign_9nh:divider|    ; 1087 (0)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|lpm_divide:Mod0|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
-;                |alt_u_div_ske:divider|       ; 1087 (1086)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|lpm_divide:Mod0|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider                       ; alt_u_div_ske       ; work         ;
-;                   |add_sub_u3c:add_sub_1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|lpm_divide:Mod0|lpm_divide_anl:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_ske:divider|add_sub_u3c:add_sub_1 ; add_sub_u3c         ; work         ;
-;       |ram:RAM_C|                            ; 26 (26)             ; 79 (79)                   ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|ram:RAM_C                                                                                                             ; ram                 ; work         ;
-;          |altsyncram:RAM_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0                                                                                        ; altsyncram          ; work         ;
-;             |altsyncram_2eg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated                                                         ; altsyncram_2eg1     ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                               ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                          ; Entity Name     ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------+-----------------+--------------+
+; |cpu                                         ; 6798 (0)            ; 533 (0)                   ; 32768       ; 0          ; 0            ; 0       ; 0         ; 25   ; 0            ; 0          ; |cpu                                                                         ; cpu             ; work         ;
+;    |alu:ALU_C|                               ; 6798 (6053)         ; 533 (423)                 ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C                                                               ; alu             ; work         ;
+;       |FLASH:FLASH_C|                        ; 696 (696)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|FLASH:FLASH_C                                                 ; FLASH           ; work         ;
+;       |io:IO_C|                              ; 23 (23)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|io:IO_C                                                       ; io              ; work         ;
+;       |ram:RAM_C|                            ; 26 (26)             ; 87 (87)                   ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|ram:RAM_C                                                     ; ram             ; work         ;
+;          |altsyncram:RAM_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0                                ; altsyncram      ; work         ;
+;             |altsyncram_2eg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 32768       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |cpu|alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated ; altsyncram_2eg1 ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -283,122 +262,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
 
 
-+-------------------------------------------------------------+
-; Registers Removed During Synthesis                          ;
-+----------------------------------------+--------------------+
-; Register name                          ; Reason for Removal ;
-+----------------------------------------+--------------------+
-; alu:ALU_C|R3[1]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R3[0]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R7[31]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[30]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[29]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[28]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[27]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[26]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[25]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[24]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[23]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[22]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[21]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[20]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[19]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[18]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[17]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[16]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[15]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[14]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[13]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[12]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[11]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[10]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R7[9]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R7[8]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R7[7]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R7[6]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R7[5]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R7[4]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R7[3]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R7[2]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R7[1]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R7[0]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|SP[31]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[30]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[29]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[28]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[27]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[26]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[25]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[24]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[23]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[22]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[21]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[20]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[19]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[18]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[17]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[16]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[15]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[14]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[13]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[12]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[11]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[10]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|SP[9]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|SP[8]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|SP[7]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|SP[6]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|SP[5]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|SP[4]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|SP[3]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|SP[2]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|SP[1]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|SP[0]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R3[2]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R3[3]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R3[4]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R3[5]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R3[6]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R3[7]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R3[8]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R3[9]~reg0                   ; Lost fanout        ;
-; alu:ALU_C|R3[10]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[11]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[12]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[13]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[14]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[15]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[16]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[17]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[18]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[19]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[20]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[21]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[22]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[23]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[24]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[25]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[26]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[27]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[28]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[29]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[30]~reg0                  ; Lost fanout        ;
-; alu:ALU_C|R3[31]~reg0                  ; Lost fanout        ;
-; Total Number of Removed Registers = 96 ;                    ;
-+----------------------------------------+--------------------+
-
-
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 377   ;
-; Number of registers using Synchronous Clear  ; 117   ;
-; Number of registers using Synchronous Load   ; 77    ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Total registers                              ; 533   ;
+; Number of registers using Synchronous Clear  ; 8     ;
+; Number of registers using Synchronous Load   ; 95    ;
+; Number of registers using Asynchronous Clear ; 48    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 86    ;
+; Number of registers using Clock Enable       ; 142   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -450,7 +324,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Register Name                                          ; Megafunction                  ; Type ;
 +--------------------------------------------------------+-------------------------------+------+
 ; alu:ALU_C|ram:RAM_C|RAM[0..3840,3844,3848..4095][0..7] ; alu:ALU_C|ram:RAM_C|RAM_rtl_0 ; RAM  ;
-; alu:ALU_C|ram:RAM_C|RAM[3841,3845][3..7]               ; alu:ALU_C|ram:RAM_C|RAM_rtl_0 ; RAM  ;
+; alu:ALU_C|ram:RAM_C|RAM[3841,3845][7]                  ; alu:ALU_C|ram:RAM_C|RAM_rtl_0 ; RAM  ;
 +--------------------------------------------------------+-------------------------------+------+
 
 
@@ -459,42 +333,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|ram:RAM_C|RAM_OUT[3] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R1[9]~reg0           ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R5[11]~reg0          ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R1[0]~reg0           ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R5[0]~reg0           ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R1[31]~reg0          ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R5[30]~reg0          ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R1[23]~reg0          ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R5[23]~reg0          ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R6[13]~reg0          ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R6[1]~reg0           ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R6[24]~reg0          ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R6[19]~reg0          ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R2[10]~reg0          ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R2[7]~reg0           ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R2[30]~reg0          ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R2[22]~reg0          ;
-; 66:1               ; 32 bits   ; 1408 LEs      ; 32 LEs               ; 1376 LEs               ; Yes        ; |cpu|alu:ALU_C|cycles[6]            ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R0[15]~reg0          ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R4[9]~reg0           ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R0[6]~reg0           ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R4[3]~reg0           ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R0[24]~reg0          ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R4[24]~reg0          ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R0[19]~reg0          ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|R4[16]~reg0          ;
-; 22:1               ; 8 bits    ; 112 LEs       ; 112 LEs              ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|RAM_IN[4]            ;
-; 19:1               ; 8 bits    ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |cpu|alu:ALU_C|IP[13]~reg0          ;
-; 19:1               ; 7 bits    ; 84 LEs        ; 56 LEs               ; 28 LEs                 ; Yes        ; |cpu|alu:ALU_C|IP[4]~reg0           ;
-; 19:1               ; 8 bits    ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |cpu|alu:ALU_C|IP[26]~reg0          ;
-; 19:1               ; 8 bits    ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |cpu|alu:ALU_C|IP[21]~reg0          ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|Mux2                 ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|Mux1560              ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|Mux3                 ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|Mux1563              ;
-; 6:1                ; 12 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|Mux1954              ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |cpu|alu:ALU_C|ram:RAM_C|RAM_OUT[4] ;
+; 280:1              ; 32 bits   ; 5952 LEs      ; 32 LEs               ; 5920 LEs               ; Yes        ; |cpu|alu:ALU_C|cycles[11]           ;
+; 82:1               ; 8 bits    ; 432 LEs       ; 216 LEs              ; 216 LEs                ; Yes        ; |cpu|alu:ALU_C|RAM_IN[0]            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|ShiftRight0          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |cpu|alu:ALU_C|ShiftRight0          ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|ShiftRight0          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |cpu|alu:ALU_C|ShiftRight1          ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|ShiftRight1          ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|Mux1                 ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|Mux1599              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|ShiftRight0          ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|ShiftLeft0           ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|ShiftLeft0           ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|ShiftLeft0           ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|ShiftLeft0           ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |cpu|alu:ALU_C|Mux375               ;
+; 14:1               ; 12 bits   ; 108 LEs       ; 96 LEs               ; 12 LEs                 ; No         ; |cpu|alu:ALU_C|Mux1975              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
 
 
@@ -628,52 +483,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: alu:ALU_C|lpm_divide:Mod0 ;
-+------------------------+----------------+----------------------------------+
-; Parameter Name         ; Value          ; Type                             ;
-+------------------------+----------------+----------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                          ;
-; LPM_WIDTHD             ; 32             ; Untyped                          ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
-; LPM_PIPELINE           ; 0              ; Untyped                          ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                          ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                          ;
-; CBXI_PARAMETER         ; lpm_divide_anl ; Untyped                          ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                          ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                          ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                       ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                     ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                     ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                   ;
-+------------------------+----------------+----------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: alu:ALU_C|lpm_divide:Div0 ;
-+------------------------+----------------+----------------------------------+
-; Parameter Name         ; Value          ; Type                             ;
-+------------------------+----------------+----------------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                          ;
-; LPM_WIDTHD             ; 32             ; Untyped                          ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                          ;
-; LPM_PIPELINE           ; 0              ; Untyped                          ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                          ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                          ;
-; CBXI_PARAMETER         ; lpm_divide_7vl ; Untyped                          ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                          ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                          ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                       ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                     ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                     ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                   ;
-+------------------------+----------------+----------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +--------------------------------------------------------------------------------------+
 ; altsyncram Parameter Settings by Entity Instance                                     ;
 +-------------------------------------------+------------------------------------------+
@@ -727,27 +536,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 21                          ;
-; cycloneiii_ff         ; 377                         ;
-;     ENA               ; 46                          ;
-;     ENA SCLR          ; 40                          ;
-;     SCLR SLD          ; 77                          ;
-;     plain             ; 214                         ;
-; cycloneiii_io_obuf    ; 19                          ;
-; cycloneiii_lcell_comb ; 3528                        ;
-;     arith             ; 1360                        ;
-;         2 data inputs ; 203                         ;
-;         3 data inputs ; 1157                        ;
-;     normal            ; 2168                        ;
-;         0 data inputs ; 60                          ;
-;         1 data inputs ; 11                          ;
-;         2 data inputs ; 52                          ;
-;         3 data inputs ; 190                         ;
-;         4 data inputs ; 1855                        ;
+; boundary_port         ; 25                          ;
+; cycloneiii_ff         ; 533                         ;
+;     ENA               ; 86                          ;
+;     ENA CLR           ; 48                          ;
+;     ENA SCLR          ; 8                           ;
+;     SLD               ; 95                          ;
+;     plain             ; 296                         ;
+; cycloneiii_io_obuf    ; 23                          ;
+; cycloneiii_lcell_comb ; 6798                        ;
+;     arith             ; 724                         ;
+;         2 data inputs ; 211                         ;
+;         3 data inputs ; 513                         ;
+;     normal            ; 6074                        ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 238                         ;
+;         3 data inputs ; 948                         ;
+;         4 data inputs ; 4880                        ;
 ; cycloneiii_ram_block  ; 8                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 122.50                      ;
-; Average LUT depth     ; 77.41                       ;
+; Max LUT depth         ; 21.00                       ;
+; Average LUT depth     ; 13.76                       ;
 +-----------------------+-----------------------------+
 
 
@@ -756,7 +566,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:18     ;
+; Top            ; 00:01:01     ;
 +----------------+--------------+
 
 
@@ -766,7 +576,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Jan 15 10:59:37 2022
+    Info: Processing started: Sat Jan 15 13:27:50 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu -c cpu
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -787,9 +597,10 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: alu File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 5
 Info (12127): Elaborating entity "cpu" for the top level hierarchy
 Info (12128): Elaborating entity "alu" for hierarchy "alu:ALU_C" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 43
-Warning (10492): VHDL Process Statement warning at alu.vhd(1262): signal "FLASH_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 1262
+Warning (10492): VHDL Process Statement warning at alu.vhd(1277): signal "cycles" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 1277
+Warning (10492): VHDL Process Statement warning at alu.vhd(1278): signal "FLASH_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 1278
 Info (12128): Elaborating entity "FLASH" for hierarchy "alu:ALU_C|FLASH:FLASH_C" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 92
-Warning (10540): VHDL Signal Declaration warning at flash.vhd(57): used explicit default value for signal "FLASH" because signal was never assigned a value File: C:/Users/siedl/Desktop/FPGA-CPU/src/flash.vhd Line: 57
+Warning (10540): VHDL Signal Declaration warning at flash.vhd(79): used explicit default value for signal "FLASH" because signal was never assigned a value File: C:/Users/siedl/Desktop/FPGA-CPU/src/flash.vhd Line: 79
 Info (12128): Elaborating entity "ram" for hierarchy "alu:ALU_C|ram:RAM_C" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 101
 Info (12128): Elaborating entity "io" for hierarchy "alu:ALU_C|io:IO_C" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 113
 Warning (276020): Inferred RAM node "alu:ALU_C|ram:RAM_C|RAM_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
@@ -810,9 +621,6 @@ Info (19000): Inferred 1 megafunctions from design logic
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
         Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
-Info (278001): Inferred 2 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "alu:ALU_C|Mod0" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 509
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "alu:ALU_C|Div0" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 508
 Info (12130): Elaborated megafunction instantiation "alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0"
 Info (12133): Instantiated megafunction "alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -832,30 +640,6 @@ Info (12133): Instantiated megafunction "alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_2eg1.tdf
     Info (12023): Found entity 1: altsyncram_2eg1 File: C:/Users/siedl/Desktop/FPGA-CPU/hw/db/altsyncram_2eg1.tdf Line: 28
-Info (12130): Elaborated megafunction instantiation "alu:ALU_C|lpm_divide:Mod0" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 509
-Info (12133): Instantiated megafunction "alu:ALU_C|lpm_divide:Mod0" with the following parameter: File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 509
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "32"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_anl.tdf
-    Info (12023): Found entity 1: lpm_divide_anl File: C:/Users/siedl/Desktop/FPGA-CPU/hw/db/lpm_divide_anl.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/siedl/Desktop/FPGA-CPU/hw/db/sign_div_unsign_9nh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ske.tdf
-    Info (12023): Found entity 1: alt_u_div_ske File: C:/Users/siedl/Desktop/FPGA-CPU/hw/db/alt_u_div_ske.tdf Line: 27
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
-    Info (12023): Found entity 1: add_sub_t3c File: C:/Users/siedl/Desktop/FPGA-CPU/hw/db/add_sub_t3c.tdf Line: 23
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
-    Info (12023): Found entity 1: add_sub_u3c File: C:/Users/siedl/Desktop/FPGA-CPU/hw/db/add_sub_u3c.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "alu:ALU_C|lpm_divide:Div0" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 508
-Info (12133): Instantiated megafunction "alu:ALU_C|lpm_divide:Div0" with the following parameter: File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 508
-    Info (12134): Parameter "LPM_WIDTHN" = "32"
-    Info (12134): Parameter "LPM_WIDTHD" = "32"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_7vl.tdf
-    Info (12023): Found entity 1: lpm_divide_7vl File: C:/Users/siedl/Desktop/FPGA-CPU/hw/db/lpm_divide_7vl.tdf Line: 25
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "PINS[0]" and its non-tri-state driver. File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
@@ -877,6 +661,10 @@ Warning (13034): The following nodes have both tri-state and non-tri-state drive
     Warning (13035): Inserted always-enabled tri-state buffer between "PINS[16]" and its non-tri-state driver. File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
     Warning (13035): Inserted always-enabled tri-state buffer between "PINS[17]" and its non-tri-state driver. File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
     Warning (13035): Inserted always-enabled tri-state buffer between "PINS[18]" and its non-tri-state driver. File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+    Warning (13035): Inserted always-enabled tri-state buffer between "PINS[19]" and its non-tri-state driver. File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+    Warning (13035): Inserted always-enabled tri-state buffer between "PINS[20]" and its non-tri-state driver. File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+    Warning (13035): Inserted always-enabled tri-state buffer between "PINS[21]" and its non-tri-state driver. File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+    Warning (13035): Inserted always-enabled tri-state buffer between "PINS[22]" and its non-tri-state driver. File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
 Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
     Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "PINS[0]" is moved to its source File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
     Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "PINS[1]" is moved to its source File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
@@ -897,6 +685,59 @@ Info (13060): One or more bidirectional pins are fed by always enabled tri-state
     Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "PINS[16]" is moved to its source File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
     Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "PINS[17]" is moved to its source File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
     Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "PINS[18]" is moved to its source File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "PINS[19]" is moved to its source File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "PINS[20]" is moved to its source File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "PINS[21]" is moved to its source File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "PINS[22]" is moved to its source File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "alu:ALU_C|INS[43]" is converted into an equivalent circuit using register "alu:ALU_C|INS[43]~_emulated" and latch "alu:ALU_C|INS[43]~1" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[42]" is converted into an equivalent circuit using register "alu:ALU_C|INS[42]~_emulated" and latch "alu:ALU_C|INS[42]~5" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[40]" is converted into an equivalent circuit using register "alu:ALU_C|INS[40]~_emulated" and latch "alu:ALU_C|INS[40]~9" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[47]" is converted into an equivalent circuit using register "alu:ALU_C|INS[47]~_emulated" and latch "alu:ALU_C|INS[47]~13" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[46]" is converted into an equivalent circuit using register "alu:ALU_C|INS[46]~_emulated" and latch "alu:ALU_C|INS[46]~17" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[44]" is converted into an equivalent circuit using register "alu:ALU_C|INS[44]~_emulated" and latch "alu:ALU_C|INS[44]~21" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[41]" is converted into an equivalent circuit using register "alu:ALU_C|INS[41]~_emulated" and latch "alu:ALU_C|INS[41]~25" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[35]" is converted into an equivalent circuit using register "alu:ALU_C|INS[35]~_emulated" and latch "alu:ALU_C|INS[35]~29" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[34]" is converted into an equivalent circuit using register "alu:ALU_C|INS[34]~_emulated" and latch "alu:ALU_C|INS[34]~33" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[45]" is converted into an equivalent circuit using register "alu:ALU_C|INS[45]~_emulated" and latch "alu:ALU_C|INS[45]~37" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[32]" is converted into an equivalent circuit using register "alu:ALU_C|INS[32]~_emulated" and latch "alu:ALU_C|INS[32]~41" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[33]" is converted into an equivalent circuit using register "alu:ALU_C|INS[33]~_emulated" and latch "alu:ALU_C|INS[33]~45" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[38]" is converted into an equivalent circuit using register "alu:ALU_C|INS[38]~_emulated" and latch "alu:ALU_C|INS[38]~49" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[37]" is converted into an equivalent circuit using register "alu:ALU_C|INS[37]~_emulated" and latch "alu:ALU_C|INS[37]~53" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[39]" is converted into an equivalent circuit using register "alu:ALU_C|INS[39]~_emulated" and latch "alu:ALU_C|INS[39]~57" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[36]" is converted into an equivalent circuit using register "alu:ALU_C|INS[36]~_emulated" and latch "alu:ALU_C|INS[36]~61" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[31]" is converted into an equivalent circuit using register "alu:ALU_C|INS[31]~_emulated" and latch "alu:ALU_C|INS[31]~65" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[30]" is converted into an equivalent circuit using register "alu:ALU_C|INS[30]~_emulated" and latch "alu:ALU_C|INS[30]~69" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[29]" is converted into an equivalent circuit using register "alu:ALU_C|INS[29]~_emulated" and latch "alu:ALU_C|INS[29]~73" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[28]" is converted into an equivalent circuit using register "alu:ALU_C|INS[28]~_emulated" and latch "alu:ALU_C|INS[28]~77" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[27]" is converted into an equivalent circuit using register "alu:ALU_C|INS[27]~_emulated" and latch "alu:ALU_C|INS[27]~81" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[26]" is converted into an equivalent circuit using register "alu:ALU_C|INS[26]~_emulated" and latch "alu:ALU_C|INS[26]~85" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[25]" is converted into an equivalent circuit using register "alu:ALU_C|INS[25]~_emulated" and latch "alu:ALU_C|INS[25]~89" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[24]" is converted into an equivalent circuit using register "alu:ALU_C|INS[24]~_emulated" and latch "alu:ALU_C|INS[24]~93" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[23]" is converted into an equivalent circuit using register "alu:ALU_C|INS[23]~_emulated" and latch "alu:ALU_C|INS[23]~97" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[22]" is converted into an equivalent circuit using register "alu:ALU_C|INS[22]~_emulated" and latch "alu:ALU_C|INS[22]~101" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[21]" is converted into an equivalent circuit using register "alu:ALU_C|INS[21]~_emulated" and latch "alu:ALU_C|INS[21]~105" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[20]" is converted into an equivalent circuit using register "alu:ALU_C|INS[20]~_emulated" and latch "alu:ALU_C|INS[20]~109" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[19]" is converted into an equivalent circuit using register "alu:ALU_C|INS[19]~_emulated" and latch "alu:ALU_C|INS[19]~113" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[18]" is converted into an equivalent circuit using register "alu:ALU_C|INS[18]~_emulated" and latch "alu:ALU_C|INS[18]~117" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[17]" is converted into an equivalent circuit using register "alu:ALU_C|INS[17]~_emulated" and latch "alu:ALU_C|INS[17]~121" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[16]" is converted into an equivalent circuit using register "alu:ALU_C|INS[16]~_emulated" and latch "alu:ALU_C|INS[16]~125" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[15]" is converted into an equivalent circuit using register "alu:ALU_C|INS[15]~_emulated" and latch "alu:ALU_C|INS[15]~129" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[14]" is converted into an equivalent circuit using register "alu:ALU_C|INS[14]~_emulated" and latch "alu:ALU_C|INS[14]~133" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[13]" is converted into an equivalent circuit using register "alu:ALU_C|INS[13]~_emulated" and latch "alu:ALU_C|INS[13]~137" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[12]" is converted into an equivalent circuit using register "alu:ALU_C|INS[12]~_emulated" and latch "alu:ALU_C|INS[12]~141" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[11]" is converted into an equivalent circuit using register "alu:ALU_C|INS[11]~_emulated" and latch "alu:ALU_C|INS[11]~145" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[10]" is converted into an equivalent circuit using register "alu:ALU_C|INS[10]~_emulated" and latch "alu:ALU_C|INS[10]~149" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[9]" is converted into an equivalent circuit using register "alu:ALU_C|INS[9]~_emulated" and latch "alu:ALU_C|INS[9]~153" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[8]" is converted into an equivalent circuit using register "alu:ALU_C|INS[8]~_emulated" and latch "alu:ALU_C|INS[8]~157" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[0]" is converted into an equivalent circuit using register "alu:ALU_C|INS[0]~_emulated" and latch "alu:ALU_C|INS[0]~161" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[1]" is converted into an equivalent circuit using register "alu:ALU_C|INS[1]~_emulated" and latch "alu:ALU_C|INS[1]~165" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[2]" is converted into an equivalent circuit using register "alu:ALU_C|INS[2]~_emulated" and latch "alu:ALU_C|INS[2]~169" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[3]" is converted into an equivalent circuit using register "alu:ALU_C|INS[3]~_emulated" and latch "alu:ALU_C|INS[3]~173" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[4]" is converted into an equivalent circuit using register "alu:ALU_C|INS[4]~_emulated" and latch "alu:ALU_C|INS[4]~177" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[5]" is converted into an equivalent circuit using register "alu:ALU_C|INS[5]~_emulated" and latch "alu:ALU_C|INS[5]~181" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[6]" is converted into an equivalent circuit using register "alu:ALU_C|INS[6]~_emulated" and latch "alu:ALU_C|INS[6]~185" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[7]" is converted into an equivalent circuit using register "alu:ALU_C|INS[7]~_emulated" and latch "alu:ALU_C|INS[7]~189" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
 Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "PINS[0]~synth" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
     Warning (13010): Node "PINS[1]~synth" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
@@ -917,20 +758,23 @@ Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "PINS[16]~synth" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
     Warning (13010): Node "PINS[17]~synth" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
     Warning (13010): Node "PINS[18]~synth" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+    Warning (13010): Node "PINS[19]~synth" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+    Warning (13010): Node "PINS[20]~synth" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+    Warning (13010): Node "PINS[21]~synth" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
+    Warning (13010): Node "PINS[22]~synth" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 96 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 3653 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6969 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 0 output pins
-    Info (21060): Implemented 19 bidirectional pins
-    Info (21061): Implemented 3624 logic cells
+    Info (21060): Implemented 23 bidirectional pins
+    Info (21061): Implemented 6936 logic cells
     Info (21064): Implemented 8 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 45 warnings
-    Info: Peak virtual memory: 5075 megabytes
-    Info: Processing ended: Sat Jan 15 11:00:07 2022
-    Info: Elapsed time: 00:00:30
-    Info: Total CPU time (on all processors): 00:00:40
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 103 warnings
+    Info: Peak virtual memory: 5078 megabytes
+    Info: Processing ended: Sat Jan 15 13:29:02 2022
+    Info: Elapsed time: 00:01:12
+    Info: Total CPU time (on all processors): 00:01:23
 
 

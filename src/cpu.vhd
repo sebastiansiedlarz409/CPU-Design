@@ -10,7 +10,7 @@ generic(
 port(
 	SCL: in std_logic; 			--clock
 	RST: in std_logic := '1'; 	--reset
-    PINS: inout std_logic_vector(18 DOWNTO 0)
+    PINS: inout std_logic_vector(22 DOWNTO 0)
 );
 end entity cpu;
 
@@ -32,8 +32,8 @@ component alu is
         R7: inout std_logic_vector(N-1 DOWNTO 0);
         SP: inout std_logic_vector(N-1 DOWNTO 0);
         IP: inout std_logic_vector(N-1 DOWNTO 0);
-        STATUS: inout std_logic_vector(3 DOWNTO 0);
-        PINS: inout std_logic_vector(18 DOWNTO 0)
+        STATUS: inout std_logic_vector(1 DOWNTO 0);
+        PINS: inout std_logic_vector(22 DOWNTO 0)
     );
 end component alu;
 

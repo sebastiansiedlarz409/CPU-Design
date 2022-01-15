@@ -60,9 +60,54 @@ type FLASH_ARRAY is array (0 to S-1) of std_logic_vector(M-1 downto 0); -- 0 to 
 --							others=> x"00");
 
 --7segments screen
-signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"16", x"DF", --mov r0, 0x16DF //digit 5
+--signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"16", x"DF", --mov r0, 0x16DF //digit 5
+--							x"B0", x"1F", x"00", x"00", x"0F", x"04", 	--mov r1, 0x0F04
+--							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
+--							others=> x"00");
+
+--7segments screen loop
+--9 0x16FF
+--8 0x17FF
+--7 0x107F
+--6 0x17DF
+--5 0x16DF
+--4 0x166F
+--3 0x14FF
+--2 0x15BF
+--1 0x106F
+--0 0xF3FF all 4
+signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"16", x"FF", --mov r0, 0x16DF //digit 9
 							x"B0", x"1F", x"00", x"00", x"0F", x"04", 	--mov r1, 0x0F04
 							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
+							x"DB", x"00", x"98", x"96", x"80",			--nop 10 000 000 //sleep 1s
+							x"B0", x"0F", x"00", x"00", x"17", x"FF",   --mov r0, 0x16DF //digit 8
+							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
+							x"DB", x"00", x"98", x"96", x"80",			--nop 10 000 000 //sleep 1s
+							x"B0", x"0F", x"00", x"00", x"10", x"7F",   --mov r0, 0x16DF //digit 7
+							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
+							x"DB", x"00", x"98", x"96", x"80",			--nop 10 000 000 //sleep 1s
+							x"B0", x"0F", x"00", x"00", x"17", x"DF",   --mov r0, 0x16DF //digit 6
+							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
+							x"DB", x"00", x"98", x"96", x"80",			--nop 10 000 000 //sleep 1s
+							x"B0", x"0F", x"00", x"00", x"16", x"DF",   --mov r0, 0x16DF //digit 5
+							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
+							x"DB", x"00", x"98", x"96", x"80",			--nop 10 000 000 //sleep 1s
+							x"B0", x"0F", x"00", x"00", x"16", x"6F",   --mov r0, 0x16DF //digit 4
+							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
+							x"DB", x"00", x"98", x"96", x"80",			--nop 10 000 000 //sleep 1s
+							x"B0", x"0F", x"00", x"00", x"14", x"FF",   --mov r0, 0x16DF //digit 3
+							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
+							x"DB", x"00", x"98", x"96", x"80",			--nop 10 000 000 //sleep 1s
+							x"B0", x"0F", x"00", x"00", x"15", x"BF",   --mov r0, 0x16DF //digit 2
+							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
+							x"DB", x"00", x"98", x"96", x"80",			--nop 10 000 000 //sleep 1s
+							x"B0", x"0F", x"00", x"00", x"10", x"6F",   --mov r0, 0x16DF //digit 1
+							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
+							x"DB", x"00", x"98", x"96", x"80",			--nop 10 000 000 //sleep 1s
+							x"B0", x"0F", x"00", x"00", x"F3", x"FF",   --mov r0, 0x16DF //digit 0
+							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
+							x"DB", x"00", x"98", x"96", x"80",			--nop 10 000 000 //sleep 1s
+							x"F1", x"00", x"00", x"00", x"00",			--jump to IP = 0
 							others=> x"00");
 
 begin
