@@ -1,5 +1,5 @@
 Fitter report for cpu
-Sat Jan 15 13:29:52 2022
+Sat Jan 15 14:09:11 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -70,14 +70,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Sat Jan 15 13:29:52 2022       ;
+; Fitter Status                      ; Successful - Sat Jan 15 14:09:11 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu                                         ;
 ; Top-level Entity Name              ; cpu                                         ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M08DAF256C8G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 6,872 / 8,064 ( 85 % )                      ;
+; Total logic elements               ; 6,870 / 8,064 ( 85 % )                      ;
 ;     Total combinational functions  ; 6,799 / 8,064 ( 84 % )                      ;
 ;     Dedicated logic registers      ; 533 / 8,064 ( 7 % )                         ;
 ; Total registers                    ; 533                                         ;
@@ -156,14 +156,14 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.51        ;
+; Average used               ; 1.47        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  18.4%      ;
-;     Processor 3            ;  16.6%      ;
-;     Processor 4            ;  16.4%      ;
+;     Processor 2            ;  16.9%      ;
+;     Processor 3            ;  15.3%      ;
+;     Processor 4            ;  15.1%      ;
 +----------------------------+-------------+
 
 
@@ -213,16 +213,16 @@ The pin-out file can be found in C:/Users/siedl/Desktop/FPGA-CPU/hw/output_files
 +---------------------------------------------+---------------------------+
 ; Resource                                    ; Usage                     ;
 +---------------------------------------------+---------------------------+
-; Total logic elements                        ; 6,872 / 8,064 ( 85 % )    ;
-;     -- Combinational with no register       ; 6339                      ;
-;     -- Register only                        ; 73                        ;
-;     -- Combinational with a register        ; 460                       ;
+; Total logic elements                        ; 6,870 / 8,064 ( 85 % )    ;
+;     -- Combinational with no register       ; 6337                      ;
+;     -- Register only                        ; 71                        ;
+;     -- Combinational with a register        ; 462                       ;
 ;                                             ;                           ;
 ; Logic element usage by number of LUT inputs ;                           ;
 ;     -- 4 input functions                    ; 4880                      ;
 ;     -- 3 input functions                    ; 1461                      ;
 ;     -- <=2 input functions                  ; 458                       ;
-;     -- Register only                        ; 73                        ;
+;     -- Register only                        ; 71                        ;
 ;                                             ;                           ;
 ; Logic elements by mode                      ;                           ;
 ;     -- normal mode                          ; 6075                      ;
@@ -232,7 +232,7 @@ The pin-out file can be found in C:/Users/siedl/Desktop/FPGA-CPU/hw/output_files
 ;     -- Dedicated logic registers            ; 533 / 8,064 ( 7 % )       ;
 ;     -- I/O registers                        ; 0 / 863 ( 0 % )           ;
 ;                                             ;                           ;
-; Total LABs:  partially or completely used   ; 467 / 504 ( 93 % )        ;
+; Total LABs:  partially or completely used   ; 470 / 504 ( 93 % )        ;
 ; Virtual pins                                ; 0                         ;
 ; I/O pins                                    ; 25 / 178 ( 14 % )         ;
 ;     -- Clock pins                           ; 2 / 4 ( 50 % )            ;
@@ -251,11 +251,11 @@ The pin-out file can be found in C:/Users/siedl/Desktop/FPGA-CPU/hw/output_files
 ; CRC blocks                                  ; 0 / 1 ( 0 % )             ;
 ; Remote update blocks                        ; 0 / 1 ( 0 % )             ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )             ;
-; Average interconnect usage (total/H/V)      ; 33.0% / 30.0% / 37.3%     ;
-; Peak interconnect usage (total/H/V)         ; 51.9% / 47.0% / 58.7%     ;
+; Average interconnect usage (total/H/V)      ; 35.9% / 33.0% / 40.1%     ;
+; Peak interconnect usage (total/H/V)         ; 59.0% / 55.1% / 64.4%     ;
 ; Maximum fan-out                             ; 568                       ;
 ; Highest non-global fan-out                  ; 568                       ;
-; Total fan-out                               ; 26508                     ;
+; Total fan-out                               ; 26510                     ;
 ; Average fan-out                             ; 3.54                      ;
 +---------------------------------------------+---------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
@@ -269,16 +269,16 @@ The pin-out file can be found in C:/Users/siedl/Desktop/FPGA-CPU/hw/output_files
 +---------------------------------------------+----------------------+--------------------------------+
 ; Difficulty Clustering Region                ; Low                  ; Low                            ;
 ;                                             ;                      ;                                ;
-; Total logic elements                        ; 6872 / 8064 ( 85 % ) ; 0 / 8064 ( 0 % )               ;
-;     -- Combinational with no register       ; 6339                 ; 0                              ;
-;     -- Register only                        ; 73                   ; 0                              ;
-;     -- Combinational with a register        ; 460                  ; 0                              ;
+; Total logic elements                        ; 6870 / 8064 ( 85 % ) ; 0 / 8064 ( 0 % )               ;
+;     -- Combinational with no register       ; 6337                 ; 0                              ;
+;     -- Register only                        ; 71                   ; 0                              ;
+;     -- Combinational with a register        ; 462                  ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic element usage by number of LUT inputs ;                      ;                                ;
 ;     -- 4 input functions                    ; 4880                 ; 0                              ;
 ;     -- 3 input functions                    ; 1461                 ; 0                              ;
 ;     -- <=2 input functions                  ; 458                  ; 0                              ;
-;     -- Register only                        ; 73                   ; 0                              ;
+;     -- Register only                        ; 71                   ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Logic elements by mode                      ;                      ;                                ;
 ;     -- normal mode                          ; 6075                 ; 0                              ;
@@ -288,7 +288,7 @@ The pin-out file can be found in C:/Users/siedl/Desktop/FPGA-CPU/hw/output_files
 ;     -- Dedicated logic registers            ; 533 / 8064 ( 7 % )   ; 0 / 8064 ( 0 % )               ;
 ;     -- I/O registers                        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
-; Total LABs:  partially or completely used   ; 467 / 504 ( 93 % )   ; 0 / 504 ( 0 % )                ;
+; Total LABs:  partially or completely used   ; 470 / 504 ( 93 % )   ; 0 / 504 ( 0 % )                ;
 ;                                             ;                      ;                                ;
 ; Virtual pins                                ; 0                    ; 0                              ;
 ; I/O pins                                    ; 25                   ; 0                              ;
@@ -307,7 +307,7 @@ The pin-out file can be found in C:/Users/siedl/Desktop/FPGA-CPU/hw/output_files
 ;     -- Registered Output Connections        ; 0                    ; 0                              ;
 ;                                             ;                      ;                                ;
 ; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 26508                ; 8                              ;
+;     -- Total Connections                    ; 26510                ; 8                              ;
 ;     -- Registered Connections               ; 6898                 ; 0                              ;
 ;                                             ;                      ;                                ;
 ; External Connections                        ;                      ;                                ;
@@ -713,11 +713,11 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                   ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                          ; Entity Name     ; Library Name ;
 +----------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------+-----------------+--------------+
-; |cpu                                         ; 6872 (1)    ; 533 (0)                   ; 0 (0)         ; 32768       ; 4    ; 1          ; 0            ; 0       ; 0         ; 25   ; 0            ; 6339 (1)     ; 73 (0)            ; 460 (0)          ; 0          ; |cpu                                                                         ; cpu             ; work         ;
-;    |alu:ALU_C|                               ; 6871 (6068) ; 533 (423)                 ; 0 (0)         ; 32768       ; 4    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6338 (5631)  ; 73 (15)           ; 460 (422)        ; 0          ; |cpu|alu:ALU_C                                                               ; alu             ; work         ;
+; |cpu                                         ; 6870 (1)    ; 533 (0)                   ; 0 (0)         ; 32768       ; 4    ; 1          ; 0            ; 0       ; 0         ; 25   ; 0            ; 6337 (1)     ; 71 (0)            ; 462 (0)          ; 0          ; |cpu                                                                         ; cpu             ; work         ;
+;    |alu:ALU_C|                               ; 6869 (6069) ; 533 (423)                 ; 0 (0)         ; 32768       ; 4    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 6336 (5631)  ; 71 (15)           ; 462 (422)        ; 0          ; |cpu|alu:ALU_C                                                               ; alu             ; work         ;
 ;       |FLASH:FLASH_C|                        ; 696 (696)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 696 (696)    ; 0 (0)             ; 0 (0)            ; 0          ; |cpu|alu:ALU_C|FLASH:FLASH_C                                                 ; FLASH           ; work         ;
 ;       |io:IO_C|                              ; 23 (23)     ; 23 (23)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 23 (23)          ; 0          ; |cpu|alu:ALU_C|io:IO_C                                                       ; io              ; work         ;
-;       |ram:RAM_C|                            ; 98 (98)     ; 87 (87)                   ; 0 (0)         ; 32768       ; 4    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 11 (11)      ; 58 (58)           ; 29 (29)          ; 0          ; |cpu|alu:ALU_C|ram:RAM_C                                                     ; ram             ; work         ;
+;       |ram:RAM_C|                            ; 97 (97)     ; 87 (87)                   ; 0 (0)         ; 32768       ; 4    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 9 (9)        ; 56 (56)           ; 32 (32)          ; 0          ; |cpu|alu:ALU_C|ram:RAM_C                                                     ; ram             ; work         ;
 ;          |altsyncram:RAM_rtl_0|              ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 32768       ; 4    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |cpu|alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0                                ; altsyncram      ; work         ;
 ;             |altsyncram_2eg1:auto_generated| ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 32768       ; 4    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |cpu|alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated ; altsyncram_2eg1 ; work         ;
 +----------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------+-----------------+--------------+
@@ -1338,19 +1338,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; RST                                ; PIN_B10            ; 540     ; Clock enable, Sync. clear  ; no     ; --                   ; --               ; --                        ;
 ; SCL                                ; PIN_L3             ; 32      ; Clock                      ; no     ; --                   ; --               ; --                        ;
 ; SCL                                ; PIN_L3             ; 506     ; Clock                      ; yes    ; Global Clock         ; GCLK4            ; --                        ;
-; alu:ALU_C|Equal9~12                ; LCCOMB_X27_Y10_N24 ; 96      ; Async. clear, Latch enable ; yes    ; Global Clock         ; GCLK8            ; --                        ;
-; alu:ALU_C|INS[47]~14               ; LCCOMB_X17_Y21_N0  ; 73      ; Sync. load                 ; no     ; --                   ; --               ; --                        ;
-; alu:ALU_C|Mux1951~4                ; LCCOMB_X15_Y8_N22  ; 39      ; Sync. load                 ; no     ; --                   ; --               ; --                        ;
-; alu:ALU_C|RAM_IN[0]~92             ; LCCOMB_X16_Y9_N20  ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; alu:ALU_C|RAM_RW                   ; FF_X16_Y4_N29      ; 7       ; Write enable               ; no     ; --                   ; --               ; --                        ;
-; alu:ALU_C|RAM_RW~0                 ; LCCOMB_X16_Y4_N20  ; 10      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; alu:ALU_C|cycles[11]~92            ; LCCOMB_X30_Y23_N12 ; 32      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; alu:ALU_C|ram:RAM_C|RAM[3841][0]~8 ; LCCOMB_X28_Y4_N6   ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; alu:ALU_C|ram:RAM_C|RAM[3842][0]~6 ; LCCOMB_X28_Y4_N10  ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; alu:ALU_C|ram:RAM_C|RAM[3843][0]~4 ; LCCOMB_X28_Y4_N14  ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; alu:ALU_C|ram:RAM_C|RAM[3845][0]~7 ; LCCOMB_X28_Y4_N0   ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; alu:ALU_C|ram:RAM_C|RAM[3846][0]~5 ; LCCOMB_X28_Y4_N8   ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
-; alu:ALU_C|ram:RAM_C|RAM[3847][0]~3 ; LCCOMB_X28_Y4_N24  ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; alu:ALU_C|Equal9~12                ; LCCOMB_X19_Y10_N16 ; 96      ; Async. clear, Latch enable ; yes    ; Global Clock         ; GCLK6            ; --                        ;
+; alu:ALU_C|INS[47]~14               ; LCCOMB_X15_Y21_N24 ; 73      ; Sync. load                 ; no     ; --                   ; --               ; --                        ;
+; alu:ALU_C|Mux1951~4                ; LCCOMB_X19_Y9_N16  ; 39      ; Sync. load                 ; no     ; --                   ; --               ; --                        ;
+; alu:ALU_C|RAM_IN[0]~92             ; LCCOMB_X14_Y13_N16 ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; alu:ALU_C|RAM_RW                   ; FF_X27_Y16_N29     ; 7       ; Write enable               ; no     ; --                   ; --               ; --                        ;
+; alu:ALU_C|RAM_RW~0                 ; LCCOMB_X27_Y16_N18 ; 10      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; alu:ALU_C|cycles[11]~92            ; LCCOMB_X19_Y9_N20  ; 32      ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; alu:ALU_C|ram:RAM_C|RAM[3841][0]~8 ; LCCOMB_X30_Y10_N22 ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; alu:ALU_C|ram:RAM_C|RAM[3842][0]~6 ; LCCOMB_X30_Y10_N10 ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; alu:ALU_C|ram:RAM_C|RAM[3843][0]~4 ; LCCOMB_X30_Y10_N18 ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; alu:ALU_C|ram:RAM_C|RAM[3845][0]~7 ; LCCOMB_X30_Y10_N12 ; 7       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; alu:ALU_C|ram:RAM_C|RAM[3846][0]~5 ; LCCOMB_X30_Y10_N4  ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
+; alu:ALU_C|ram:RAM_C|RAM[3847][0]~3 ; LCCOMB_X30_Y10_N0  ; 8       ; Clock enable               ; no     ; --                   ; --               ; --                        ;
 +------------------------------------+--------------------+---------+----------------------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -1359,8 +1359,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------+--------------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 ; Name                ; Location           ; Fan-Out ; Fan-Out Using Intentional Clock Skew ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +---------------------+--------------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
-; SCL                 ; PIN_L3             ; 506     ; 37                                   ; Global Clock         ; GCLK4            ; --                        ;
-; alu:ALU_C|Equal9~12 ; LCCOMB_X27_Y10_N24 ; 96      ; 0                                    ; Global Clock         ; GCLK8            ; --                        ;
+; SCL                 ; PIN_L3             ; 506     ; 18                                   ; Global Clock         ; GCLK4            ; --                        ;
+; alu:ALU_C|Equal9~12 ; LCCOMB_X19_Y10_N16 ; 96      ; 0                                    ; Global Clock         ; GCLK6            ; --                        ;
 +---------------------+--------------------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
@@ -1376,13 +1376,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------+----------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ;
-+------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+-------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
-; Name                                                                               ; Type ; Mode             ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size  ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M9Ks ; MIF  ; Location                                                   ; Mixed Width RDW Mode ; Port A RDW Mode        ; Port B RDW Mode        ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs ;
-+------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+-------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
-; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Single Clock ; 4096         ; 8            ; 4096         ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 32768 ; 4096                        ; 8                           ; 4096                        ; 8                           ; 32768               ; 4    ; None ; M9K_X26_Y7_N0, M9K_X26_Y6_N0, M9K_X26_Y4_N0, M9K_X26_Y5_N0 ; Old data             ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
-+------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+-------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+-------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+-------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
+; Name                                                                               ; Type ; Mode             ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size  ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M9Ks ; MIF  ; Location                                                    ; Mixed Width RDW Mode ; Port A RDW Mode        ; Port B RDW Mode        ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs ;
++------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+-------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+-------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
+; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; Single Clock ; 4096         ; 8            ; 4096         ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 32768 ; 4096                        ; 8                           ; 4096                        ; 8                           ; 32768               ; 4    ; None ; M9K_X26_Y10_N0, M9K_X26_Y9_N0, M9K_X26_Y7_N0, M9K_X26_Y8_N0 ; Old data             ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
++------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+-------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+------+-------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
 
 
@@ -1391,51 +1391,51 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +-----------------------+--------------------------+
 ; Routing Resource Type ; Usage                    ;
 +-----------------------+--------------------------+
-; Block interconnects   ; 11,873 / 27,275 ( 44 % ) ;
-; C16 interconnects     ; 214 / 1,240 ( 17 % )     ;
-; C4 interconnects      ; 7,430 / 20,832 ( 36 % )  ;
-; Direct links          ; 851 / 27,275 ( 3 % )     ;
+; Block interconnects   ; 12,156 / 27,275 ( 45 % ) ;
+; C16 interconnects     ; 256 / 1,240 ( 21 % )     ;
+; C4 interconnects      ; 7,910 / 20,832 ( 38 % )  ;
+; Direct links          ; 894 / 27,275 ( 3 % )     ;
 ; Global clocks         ; 2 / 10 ( 20 % )          ;
-; Local interconnects   ; 4,475 / 8,064 ( 55 % )   ;
-; R24 interconnects     ; 224 / 1,320 ( 17 % )     ;
-; R4 interconnects      ; 8,239 / 28,560 ( 29 % )  ;
+; Local interconnects   ; 4,417 / 8,064 ( 55 % )   ;
+; R24 interconnects     ; 241 / 1,320 ( 18 % )     ;
+; R4 interconnects      ; 9,070 / 28,560 ( 32 % )  ;
 +-----------------------+--------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                          ;
 +---------------------------------------------+-------------------------------+
-; Number of Logic Elements  (Average = 14.72) ; Number of LABs  (Total = 467) ;
+; Number of Logic Elements  (Average = 14.62) ; Number of LABs  (Total = 470) ;
 +---------------------------------------------+-------------------------------+
-; 1                                           ; 11                            ;
-; 2                                           ; 2                             ;
-; 3                                           ; 2                             ;
-; 4                                           ; 2                             ;
-; 5                                           ; 2                             ;
+; 1                                           ; 6                             ;
+; 2                                           ; 6                             ;
+; 3                                           ; 4                             ;
+; 4                                           ; 4                             ;
+; 5                                           ; 1                             ;
 ; 6                                           ; 1                             ;
-; 7                                           ; 2                             ;
-; 8                                           ; 2                             ;
-; 9                                           ; 5                             ;
-; 10                                          ; 1                             ;
-; 11                                          ; 4                             ;
-; 12                                          ; 15                            ;
+; 7                                           ; 1                             ;
+; 8                                           ; 3                             ;
+; 9                                           ; 0                             ;
+; 10                                          ; 4                             ;
+; 11                                          ; 11                            ;
+; 12                                          ; 17                            ;
 ; 13                                          ; 20                            ;
-; 14                                          ; 25                            ;
-; 15                                          ; 60                            ;
-; 16                                          ; 313                           ;
+; 14                                          ; 32                            ;
+; 15                                          ; 51                            ;
+; 16                                          ; 309                           ;
 +---------------------------------------------+-------------------------------+
 
 
 +--------------------------------------------------------------------+
 ; LAB-wide Signals                                                   ;
 +------------------------------------+-------------------------------+
-; LAB-wide Signals  (Average = 0.78) ; Number of LABs  (Total = 467) ;
+; LAB-wide Signals  (Average = 0.84) ; Number of LABs  (Total = 470) ;
 +------------------------------------+-------------------------------+
-; 1 Async. clear                     ; 13                            ;
-; 1 Clock                            ; 218                           ;
-; 1 Clock enable                     ; 42                            ;
-; 1 Sync. clear                      ; 3                             ;
-; 1 Sync. load                       ; 83                            ;
+; 1 Async. clear                     ; 18                            ;
+; 1 Clock                            ; 231                           ;
+; 1 Clock enable                     ; 50                            ;
+; 1 Sync. clear                      ; 4                             ;
+; 1 Sync. load                       ; 85                            ;
 ; 2 Clock enables                    ; 4                             ;
 ; 2 Clocks                           ; 1                             ;
 +------------------------------------+-------------------------------+
@@ -1444,108 +1444,110 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +------------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Signals Sourced  (Average = 15.10) ; Number of LABs  (Total = 467) ;
+; Number of Signals Sourced  (Average = 15.01) ; Number of LABs  (Total = 470) ;
 +----------------------------------------------+-------------------------------+
-; 0                                            ; 6                             ;
-; 1                                            ; 20                            ;
-; 2                                            ; 9                             ;
-; 3                                            ; 1                             ;
-; 4                                            ; 1                             ;
+; 0                                            ; 3                             ;
+; 1                                            ; 16                            ;
+; 2                                            ; 12                            ;
+; 3                                            ; 3                             ;
+; 4                                            ; 5                             ;
 ; 5                                            ; 0                             ;
-; 6                                            ; 2                             ;
+; 6                                            ; 3                             ;
 ; 7                                            ; 1                             ;
-; 8                                            ; 2                             ;
-; 9                                            ; 4                             ;
-; 10                                           ; 2                             ;
-; 11                                           ; 5                             ;
-; 12                                           ; 13                            ;
+; 8                                            ; 5                             ;
+; 9                                            ; 0                             ;
+; 10                                           ; 4                             ;
+; 11                                           ; 8                             ;
+; 12                                           ; 11                            ;
 ; 13                                           ; 12                            ;
-; 14                                           ; 20                            ;
-; 15                                           ; 34                            ;
-; 16                                           ; 162                           ;
-; 17                                           ; 88                            ;
+; 14                                           ; 28                            ;
+; 15                                           ; 35                            ;
+; 16                                           ; 148                           ;
+; 17                                           ; 91                            ;
 ; 18                                           ; 27                            ;
-; 19                                           ; 15                            ;
-; 20                                           ; 34                            ;
-; 21                                           ; 1                             ;
-; 22                                           ; 1                             ;
-; 23                                           ; 1                             ;
+; 19                                           ; 17                            ;
+; 20                                           ; 31                            ;
+; 21                                           ; 2                             ;
+; 22                                           ; 2                             ;
+; 23                                           ; 0                             ;
 ; 24                                           ; 1                             ;
 ; 25                                           ; 1                             ;
 ; 26                                           ; 2                             ;
-; 27                                           ; 1                             ;
+; 27                                           ; 0                             ;
 ; 28                                           ; 1                             ;
+; 29                                           ; 0                             ;
+; 30                                           ; 1                             ;
 +----------------------------------------------+-------------------------------+
 
 
 +---------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                         ;
 +-------------------------------------------------+-------------------------------+
-; Number of Signals Sourced Out  (Average = 5.59) ; Number of LABs  (Total = 467) ;
+; Number of Signals Sourced Out  (Average = 5.50) ; Number of LABs  (Total = 470) ;
 +-------------------------------------------------+-------------------------------+
-; 0                                               ; 6                             ;
-; 1                                               ; 63                            ;
-; 2                                               ; 40                            ;
-; 3                                               ; 37                            ;
-; 4                                               ; 68                            ;
-; 5                                               ; 61                            ;
-; 6                                               ; 44                            ;
-; 7                                               ; 35                            ;
-; 8                                               ; 23                            ;
-; 9                                               ; 16                            ;
-; 10                                              ; 18                            ;
-; 11                                              ; 7                             ;
-; 12                                              ; 17                            ;
-; 13                                              ; 7                             ;
-; 14                                              ; 4                             ;
+; 0                                               ; 3                             ;
+; 1                                               ; 55                            ;
+; 2                                               ; 46                            ;
+; 3                                               ; 52                            ;
+; 4                                               ; 72                            ;
+; 5                                               ; 54                            ;
+; 6                                               ; 53                            ;
+; 7                                               ; 26                            ;
+; 8                                               ; 18                            ;
+; 9                                               ; 20                            ;
+; 10                                              ; 16                            ;
+; 11                                              ; 11                            ;
+; 12                                              ; 15                            ;
+; 13                                              ; 6                             ;
+; 14                                              ; 1                             ;
 ; 15                                              ; 3                             ;
-; 16                                              ; 18                            ;
+; 16                                              ; 19                            ;
 +-------------------------------------------------+-------------------------------+
 
 
 +------------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Distinct Inputs  (Average = 23.18) ; Number of LABs  (Total = 467) ;
+; Number of Distinct Inputs  (Average = 23.01) ; Number of LABs  (Total = 470) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 0                             ;
 ; 1                                            ; 0                             ;
-; 2                                            ; 0                             ;
-; 3                                            ; 5                             ;
-; 4                                            ; 7                             ;
-; 5                                            ; 1                             ;
-; 6                                            ; 0                             ;
+; 2                                            ; 1                             ;
+; 3                                            ; 4                             ;
+; 4                                            ; 0                             ;
+; 5                                            ; 3                             ;
+; 6                                            ; 1                             ;
 ; 7                                            ; 4                             ;
-; 8                                            ; 4                             ;
-; 9                                            ; 5                             ;
-; 10                                           ; 9                             ;
+; 8                                            ; 5                             ;
+; 9                                            ; 7                             ;
+; 10                                           ; 10                            ;
 ; 11                                           ; 6                             ;
-; 12                                           ; 5                             ;
-; 13                                           ; 7                             ;
-; 14                                           ; 0                             ;
-; 15                                           ; 8                             ;
-; 16                                           ; 31                            ;
-; 17                                           ; 30                            ;
-; 18                                           ; 19                            ;
-; 19                                           ; 20                            ;
-; 20                                           ; 14                            ;
-; 21                                           ; 16                            ;
-; 22                                           ; 14                            ;
-; 23                                           ; 15                            ;
-; 24                                           ; 24                            ;
-; 25                                           ; 26                            ;
+; 12                                           ; 6                             ;
+; 13                                           ; 3                             ;
+; 14                                           ; 2                             ;
+; 15                                           ; 11                            ;
+; 16                                           ; 30                            ;
+; 17                                           ; 27                            ;
+; 18                                           ; 15                            ;
+; 19                                           ; 19                            ;
+; 20                                           ; 23                            ;
+; 21                                           ; 12                            ;
+; 22                                           ; 22                            ;
+; 23                                           ; 17                            ;
+; 24                                           ; 34                            ;
+; 25                                           ; 22                            ;
 ; 26                                           ; 19                            ;
-; 27                                           ; 19                            ;
-; 28                                           ; 13                            ;
-; 29                                           ; 20                            ;
-; 30                                           ; 20                            ;
-; 31                                           ; 22                            ;
-; 32                                           ; 19                            ;
-; 33                                           ; 25                            ;
-; 34                                           ; 20                            ;
-; 35                                           ; 12                            ;
-; 36                                           ; 5                             ;
-; 37                                           ; 2                             ;
+; 27                                           ; 22                            ;
+; 28                                           ; 15                            ;
+; 29                                           ; 16                            ;
+; 30                                           ; 17                            ;
+; 31                                           ; 17                            ;
+; 32                                           ; 17                            ;
+; 33                                           ; 32                            ;
+; 34                                           ; 14                            ;
+; 35                                           ; 6                             ;
+; 36                                           ; 7                             ;
+; 37                                           ; 3                             ;
 +----------------------------------------------+-------------------------------+
 
 
@@ -1675,16 +1677,16 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +---------------------------+--------+
 
 
-+------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Summary                          ;
-+-----------------------------+----------------------+-------------------+
-; Source Clock(s)             ; Destination Clock(s) ; Delay Added in ns ;
-+-----------------------------+----------------------+-------------------+
-; SCL                         ; SCL                  ; 198.1             ;
-; SCL,alu:ALU_C|cycles[0]     ; SCL                  ; 38.4              ;
-; SCL,alu:ALU_C|cycles[0],I/O ; SCL                  ; 26.1              ;
-; alu:ALU_C|cycles[0]         ; SCL                  ; 8.5               ;
-+-----------------------------+----------------------+-------------------+
++---------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary                             ;
++-----------------------------+-------------------------+-------------------+
+; Source Clock(s)             ; Destination Clock(s)    ; Delay Added in ns ;
++-----------------------------+-------------------------+-------------------+
+; SCL,alu:ALU_C|cycles[0]     ; SCL                     ; 395.8             ;
+; SCL                         ; SCL                     ; 216.7             ;
+; SCL,alu:ALU_C|cycles[0],I/O ; SCL                     ; 109.7             ;
+; SCL                         ; SCL,alu:ALU_C|cycles[0] ; 22.1              ;
++-----------------------------+-------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
@@ -1694,106 +1696,106 @@ This will disable optimization of problematic paths and expose them for further 
 +--------------------------------+---------------------------------------------------------------------------------------------------------+-------------------+
 ; Source Register                ; Destination Register                                                                                    ; Delay Added in ns ;
 +--------------------------------+---------------------------------------------------------------------------------------------------------+-------------------+
-; alu:ALU_C|cycles[0]            ; alu:ALU_C|R5[20]~reg0                                                                                   ; 2.008             ;
-; alu:ALU_C|cycles[1]            ; alu:ALU_C|cycles[1]                                                                                     ; 1.474             ;
-; alu:ALU_C|ram:RAM_C|RAM_OUT[4] ; alu:ALU_C|R5[20]~reg0                                                                                   ; 1.464             ;
-; alu:ALU_C|ram:RAM_C|RAM_OUT[6] ; alu:ALU_C|R3[22]~reg0                                                                                   ; 1.385             ;
-; alu:ALU_C|ram:RAM_C|RAM_OUT[1] ; alu:ALU_C|R6[1]~reg0                                                                                    ; 1.370             ;
-; alu:ALU_C|ram:RAM_C|RAM_OUT[3] ; alu:ALU_C|R6[19]~reg0                                                                                   ; 1.321             ;
-; alu:ALU_C|ram:RAM_C|RAM_OUT[0] ; alu:ALU_C|R2[0]~reg0                                                                                    ; 1.247             ;
-; alu:ALU_C|SP[0]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 1.203             ;
-; alu:ALU_C|cycles[2]            ; alu:ALU_C|cycles[2]                                                                                     ; 1.130             ;
-; alu:ALU_C|ram:RAM_C|RAM_OUT[5] ; alu:ALU_C|R7[13]~reg0                                                                                   ; 1.101             ;
-; alu:ALU_C|ram:RAM_C|RAM_OUT[7] ; alu:ALU_C|R1[23]~reg0                                                                                   ; 1.062             ;
-; alu:ALU_C|cycles[29]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[28]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[27]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[26]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[25]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[24]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[23]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[22]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[21]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[20]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[30]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[19]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[18]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[17]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[16]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[15]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[14]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[13]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[12]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[11]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[10]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[9]            ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[8]            ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[7]            ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[6]            ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[5]            ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[4]            ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[3]            ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|cycles[31]           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 1.055             ;
-; alu:ALU_C|INS[42]~_emulated    ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|INS[42]~5            ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|IP[10]~reg0          ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|IP[9]~reg0           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|IP[8]~reg0           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|IP[11]~reg0          ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|IP[5]~reg0           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|IP[7]~reg0           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|IP[4]~reg0           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|IP[6]~reg0           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|IP[0]~reg0           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|IP[1]~reg0           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|IP[2]~reg0           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|IP[3]~reg0           ; alu:ALU_C|R0[26]~reg0                                                                                   ; 0.960             ;
-; alu:ALU_C|INS[40]~9            ; alu:ALU_C|SP[1]~reg0                                                                                    ; 0.905             ;
-; alu:ALU_C|INS[40]~_emulated    ; alu:ALU_C|SP[1]~reg0                                                                                    ; 0.905             ;
-; alu:ALU_C|ram:RAM_C|RAM_OUT[2] ; alu:ALU_C|R5[18]~reg0                                                                                   ; 0.902             ;
-; alu:ALU_C|SP[7]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.872             ;
-; alu:ALU_C|SP[6]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.872             ;
-; alu:ALU_C|SP[5]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.872             ;
-; alu:ALU_C|SP[1]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.872             ;
-; alu:ALU_C|SP[3]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.872             ;
-; alu:ALU_C|SP[4]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.872             ;
-; alu:ALU_C|SP[2]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.872             ;
-; alu:ALU_C|SP[8]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.872             ;
-; alu:ALU_C|INS[44]~_emulated    ; alu:ALU_C|SP[1]~reg0                                                                                    ; 0.872             ;
-; alu:ALU_C|INS[44]~21           ; alu:ALU_C|SP[1]~reg0                                                                                    ; 0.872             ;
-; alu:ALU_C|SP[10]~reg0          ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.720             ;
-; alu:ALU_C|SP[9]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.720             ;
-; alu:ALU_C|INS[45]~37           ; alu:ALU_C|RAM_IN[3]                                                                                     ; 0.691             ;
-; alu:ALU_C|INS[45]~_emulated    ; alu:ALU_C|RAM_IN[3]                                                                                     ; 0.691             ;
-; alu:ALU_C|R5[0]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.628             ;
-; alu:ALU_C|INS[41]~_emulated    ; alu:ALU_C|SP[29]~reg0                                                                                   ; 0.599             ;
-; alu:ALU_C|INS[41]~25           ; alu:ALU_C|SP[29]~reg0                                                                                   ; 0.599             ;
-; alu:ALU_C|SP[11]~reg0          ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a6~portb_address_reg0 ; 0.594             ;
-; alu:ALU_C|INS[37]~_emulated    ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|R6[0]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|R4[0]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|R7[0]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|R2[0]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|R1[0]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|INS[38]~49           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|R0[0]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|R3[0]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|INS[39]~_emulated    ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|INS[36]~61           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|INS[36]~_emulated    ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|INS[37]~53           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|INS[38]~_emulated    ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|INS[39]~57           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a3~portb_address_reg0 ; 0.575             ;
-; alu:ALU_C|INS[35]~29           ; alu:ALU_C|RAM_IN[2]                                                                                     ; 0.568             ;
-; alu:ALU_C|INS[35]~_emulated    ; alu:ALU_C|RAM_IN[2]                                                                                     ; 0.568             ;
-; alu:ALU_C|INS[32]~_emulated    ; alu:ALU_C|RAM_IN[2]                                                                                     ; 0.568             ;
-; alu:ALU_C|INS[33]~_emulated    ; alu:ALU_C|RAM_IN[2]                                                                                     ; 0.568             ;
-; alu:ALU_C|INS[34]~_emulated    ; alu:ALU_C|RAM_IN[2]                                                                                     ; 0.568             ;
-; alu:ALU_C|INS[34]~33           ; alu:ALU_C|RAM_IN[2]                                                                                     ; 0.568             ;
-; alu:ALU_C|INS[33]~45           ; alu:ALU_C|RAM_IN[2]                                                                                     ; 0.568             ;
-; alu:ALU_C|INS[32]~41           ; alu:ALU_C|RAM_IN[2]                                                                                     ; 0.568             ;
-; alu:ALU_C|R0[29]~reg0          ; alu:ALU_C|R0[29]~reg0                                                                                   ; 0.565             ;
-; alu:ALU_C|R1[29]~reg0          ; alu:ALU_C|R0[29]~reg0                                                                                   ; 0.565             ;
+; alu:ALU_C|IP[10]~reg0          ; alu:ALU_C|R2[8]~reg0                                                                                    ; 2.795             ;
+; alu:ALU_C|cycles[0]            ; alu:ALU_C|R7[4]~reg0                                                                                    ; 2.715             ;
+; alu:ALU_C|IP[11]~reg0          ; alu:ALU_C|R2[8]~reg0                                                                                    ; 2.563             ;
+; alu:ALU_C|ram:RAM_C|RAM_OUT[4] ; alu:ALU_C|R7[4]~reg0                                                                                    ; 2.267             ;
+; alu:ALU_C|cycles[1]            ; alu:ALU_C|R7[4]~reg0                                                                                    ; 2.267             ;
+; alu:ALU_C|cycles[29]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[28]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[27]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[26]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[25]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[24]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[23]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[22]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[21]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[20]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[30]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[19]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[18]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[17]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[16]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[15]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[14]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[13]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[12]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[11]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[10]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[9]            ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[8]            ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[7]            ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[6]            ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[5]            ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[4]            ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[2]            ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[3]            ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|cycles[31]           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 2.008             ;
+; alu:ALU_C|INS[42]~_emulated    ; alu:ALU_C|IP[25]~reg0                                                                                   ; 1.850             ;
+; alu:ALU_C|INS[42]~5            ; alu:ALU_C|IP[25]~reg0                                                                                   ; 1.850             ;
+; alu:ALU_C|IP[9]~reg0           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 1.850             ;
+; alu:ALU_C|IP[8]~reg0           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 1.850             ;
+; alu:ALU_C|IP[5]~reg0           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 1.850             ;
+; alu:ALU_C|IP[7]~reg0           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 1.850             ;
+; alu:ALU_C|IP[4]~reg0           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 1.850             ;
+; alu:ALU_C|IP[6]~reg0           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 1.850             ;
+; alu:ALU_C|IP[0]~reg0           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 1.850             ;
+; alu:ALU_C|IP[1]~reg0           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 1.850             ;
+; alu:ALU_C|IP[2]~reg0           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 1.850             ;
+; alu:ALU_C|IP[3]~reg0           ; alu:ALU_C|IP[25]~reg0                                                                                   ; 1.850             ;
+; alu:ALU_C|INS[43]~_emulated    ; alu:ALU_C|IP[11]~reg0                                                                                   ; 1.660             ;
+; alu:ALU_C|INS[43]~1            ; alu:ALU_C|IP[11]~reg0                                                                                   ; 1.660             ;
+; alu:ALU_C|ram:RAM_C|RAM_OUT[6] ; alu:ALU_C|R7[22]~reg0                                                                                   ; 1.589             ;
+; alu:ALU_C|INS[45]~37           ; alu:ALU_C|RAM_IN[1]                                                                                     ; 1.506             ;
+; alu:ALU_C|INS[45]~_emulated    ; alu:ALU_C|RAM_IN[1]                                                                                     ; 1.506             ;
+; alu:ALU_C|ram:RAM_C|RAM_OUT[0] ; alu:ALU_C|R4[16]~reg0                                                                                   ; 1.416             ;
+; alu:ALU_C|ram:RAM_C|RAM_OUT[1] ; alu:ALU_C|R2[1]~reg0                                                                                    ; 1.412             ;
+; alu:ALU_C|INS[46]~_emulated    ; alu:ALU_C|R2[8]~reg0                                                                                    ; 1.341             ;
+; alu:ALU_C|INS[46]~17           ; alu:ALU_C|R2[8]~reg0                                                                                    ; 1.341             ;
+; alu:ALU_C|INS[40]~9            ; alu:ALU_C|SP[11]~reg0                                                                                   ; 1.332             ;
+; alu:ALU_C|INS[40]~_emulated    ; alu:ALU_C|SP[11]~reg0                                                                                   ; 1.332             ;
+; alu:ALU_C|ram:RAM_C|RAM_OUT[3] ; alu:ALU_C|R5[3]~reg0                                                                                    ; 1.282             ;
+; alu:ALU_C|ram:RAM_C|RAM_OUT[7] ; alu:ALU_C|R6[23]~reg0                                                                                   ; 1.232             ;
+; alu:ALU_C|INS[47]~_emulated    ; alu:ALU_C|IP[11]~reg0                                                                                   ; 1.185             ;
+; alu:ALU_C|INS[47]~13           ; alu:ALU_C|IP[11]~reg0                                                                                   ; 1.185             ;
+; alu:ALU_C|INS[35]~29           ; alu:ALU_C|RAM_IN[1]                                                                                     ; 1.167             ;
+; alu:ALU_C|INS[35]~_emulated    ; alu:ALU_C|RAM_IN[1]                                                                                     ; 1.167             ;
+; alu:ALU_C|INS[33]~_emulated    ; alu:ALU_C|RAM_IN[1]                                                                                     ; 1.167             ;
+; alu:ALU_C|INS[34]~_emulated    ; alu:ALU_C|RAM_IN[1]                                                                                     ; 1.167             ;
+; alu:ALU_C|INS[34]~33           ; alu:ALU_C|RAM_IN[1]                                                                                     ; 1.167             ;
+; alu:ALU_C|INS[33]~45           ; alu:ALU_C|RAM_IN[1]                                                                                     ; 1.167             ;
+; alu:ALU_C|ram:RAM_C|RAM_OUT[2] ; alu:ALU_C|R4[2]~reg0                                                                                    ; 1.087             ;
+; alu:ALU_C|INS[37]~_emulated    ; alu:ALU_C|RAM_IN[0]                                                                                     ; 1.055             ;
+; alu:ALU_C|INS[37]~53           ; alu:ALU_C|RAM_IN[0]                                                                                     ; 1.055             ;
+; alu:ALU_C|INS[32]~_emulated    ; alu:ALU_C|RAM_IN[0]                                                                                     ; 1.039             ;
+; alu:ALU_C|INS[39]~_emulated    ; alu:ALU_C|RAM_IN[0]                                                                                     ; 1.039             ;
+; alu:ALU_C|INS[36]~61           ; alu:ALU_C|RAM_IN[0]                                                                                     ; 1.039             ;
+; alu:ALU_C|INS[36]~_emulated    ; alu:ALU_C|RAM_IN[0]                                                                                     ; 1.039             ;
+; alu:ALU_C|INS[39]~57           ; alu:ALU_C|RAM_IN[0]                                                                                     ; 1.039             ;
+; alu:ALU_C|INS[32]~41           ; alu:ALU_C|RAM_IN[0]                                                                                     ; 1.039             ;
+; alu:ALU_C|R6[0]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.997             ;
+; alu:ALU_C|INS[44]~_emulated    ; alu:ALU_C|SP[5]~reg0                                                                                    ; 0.976             ;
+; alu:ALU_C|INS[44]~21           ; alu:ALU_C|SP[5]~reg0                                                                                    ; 0.976             ;
+; alu:ALU_C|INS[38]~49           ; alu:ALU_C|RAM_IN[4]                                                                                     ; 0.957             ;
+; alu:ALU_C|INS[38]~_emulated    ; alu:ALU_C|RAM_IN[4]                                                                                     ; 0.957             ;
+; alu:ALU_C|ram:RAM_C|RAM_OUT[5] ; alu:ALU_C|R7[5]~reg0                                                                                    ; 0.949             ;
+; alu:ALU_C|INS[41]~_emulated    ; alu:ALU_C|RAM_IN[1]                                                                                     ; 0.927             ;
+; alu:ALU_C|INS[41]~25           ; alu:ALU_C|RAM_IN[1]                                                                                     ; 0.927             ;
+; alu:ALU_C|R4[0]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.912             ;
+; RST                            ; alu:ALU_C|R6[16]~reg0                                                                                   ; 0.827             ;
+; alu:ALU_C|R6[6]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.799             ;
+; alu:ALU_C|R6[4]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.799             ;
+; alu:ALU_C|R6[3]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.799             ;
+; alu:ALU_C|R6[2]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.799             ;
+; alu:ALU_C|R6[1]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.799             ;
+; alu:ALU_C|R4[6]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.799             ;
+; alu:ALU_C|R4[4]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.799             ;
+; alu:ALU_C|R4[3]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.799             ;
+; alu:ALU_C|R4[2]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.799             ;
+; alu:ALU_C|R4[1]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.799             ;
+; alu:ALU_C|R6[5]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.799             ;
+; alu:ALU_C|R4[5]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a1~portb_address_reg0 ; 0.799             ;
+; alu:ALU_C|R5[0]~reg0           ; alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0|altsyncram_2eg1:auto_generated|ram_block1a0~portb_address_reg0 ; 0.799             ;
 +--------------------------------+---------------------------------------------------------------------------------------------------------+-------------------+
 Note: This table only shows the top 100 path(s) that have the largest delay added for hold.
 
@@ -1840,30 +1842,30 @@ Info (332130): Timing requirements not specified -- quality metrics such as perf
 Info (176353): Automatically promoted node SCL~input (placed in PIN L3 (CLK0p, DIFFIO_RX_L18p, DIFFOUT_L18p, High_Speed)) File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 11
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G4
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node alu:ALU_C|cycles[1] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|cycles[31] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|cycles[29] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|cycles[28] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|cycles[27] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|cycles[26] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|cycles[25] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|cycles[24] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|cycles[23] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|cycles[22] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+        Info (176357): Destination node alu:ALU_C|cycles[1] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|cycles[31] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|cycles[29] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|cycles[28] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|cycles[27] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|cycles[26] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|cycles[25] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|cycles[24] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|cycles[23] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|cycles[22] File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
         Info (176358): Non-global destination nodes limited to 10 nodes
-Info (176353): Automatically promoted node alu:ALU_C|Equal9~12  File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 1277
+Info (176353): Automatically promoted node alu:ALU_C|Equal9~12  File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 1287
     Info (176355): Automatically promoted destinations to use location or clock signal Global Clock
     Info (176356): Following destination nodes may be non-global or may not use global or regional clocks
-        Info (176357): Destination node alu:ALU_C|INS[43]~2 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|INS[42]~6 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|INS[40]~10 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|INS[47]~14 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|INS[46]~18 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|INS[44]~22 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|INS[41]~26 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|INS[35]~30 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|INS[34]~34 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-        Info (176357): Destination node alu:ALU_C|INS[45]~38 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+        Info (176357): Destination node alu:ALU_C|INS[43]~2 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|INS[42]~6 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|INS[40]~10 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|INS[47]~14 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|INS[46]~18 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|INS[44]~22 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|INS[41]~26 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|INS[35]~30 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|INS[34]~34 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+        Info (176357): Destination node alu:ALU_C|INS[45]~38 File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
         Info (176358): Non-global destination nodes limited to 10 nodes
 Info (176233): Starting register packing
 Info (176235): Finished register packing
@@ -1876,13 +1878,13 @@ Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:10
 Info (170193): Fitter routing operations beginning
-Info (170089): 3e+02 ns of routing delay (approximately 1.2% of available device routing delay) has been added to meet hold timing. For more information, refer to the Estimated Delay Added for Hold Timing section in the Fitter report.
-Info (170195): Router estimated average interconnect usage is 26% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 42% of the available device resources in the region that extends from location X10_Y0 to location X20_Y12
+Info (170089): 8e+02 ns of routing delay (approximately 3.3% of available device routing delay) has been added to meet hold timing. For more information, refer to the Estimated Delay Added for Hold Timing section in the Fitter report.
+Info (170195): Router estimated average interconnect usage is 27% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 46% of the available device resources in the region that extends from location X10_Y0 to location X20_Y12
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:23
-Info (11888): Total time spent on timing analysis during the Fitter is 6.28 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:30
+Info (11888): Total time spent on timing analysis during the Fitter is 6.92 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1914,10 +1916,10 @@ Warning (169064): Following 23 pins have no output enable or a GND or VCC output
     Info (169065): Pin PINS[22] has a permanently enabled output enable File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
 Info (144001): Generated suppressed messages file C:/Users/siedl/Desktop/FPGA-CPU/hw/output_files/cpu.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 5638 megabytes
-    Info: Processing ended: Sat Jan 15 13:29:53 2022
-    Info: Elapsed time: 00:00:50
-    Info: Total CPU time (on all processors): 00:01:33
+    Info: Peak virtual memory: 5639 megabytes
+    Info: Processing ended: Sat Jan 15 14:09:12 2022
+    Info: Elapsed time: 00:00:57
+    Info: Total CPU time (on all processors): 00:01:41
 
 
 +----------------------------+

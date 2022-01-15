@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu
-Sat Jan 15 13:29:02 2022
+Sat Jan 15 14:08:14 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -26,11 +26,10 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  18. Parameter Settings for User Entity Instance: alu:ALU_C|io:IO_C
  19. Parameter Settings for Inferred Entity Instance: alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_0
  20. altsyncram Parameter Settings by Entity Instance
- 21. Port Connectivity Checks: "alu:ALU_C|io:IO_C"
- 22. Port Connectivity Checks: "alu:ALU_C"
- 23. Post-Synthesis Netlist Statistics for Top Partition
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
+ 21. Port Connectivity Checks: "alu:ALU_C"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
 
 
 
@@ -57,7 +56,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jan 15 13:29:02 2022       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jan 15 14:08:14 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; cpu                                         ;
 ; Top-level Entity Name              ; cpu                                         ;
@@ -503,15 +502,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "alu:ALU_C|io:IO_C"                                                                 ;
-+------+-------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                             ;
-+------+-------+----------+-------------------------------------------------------------------------------------+
-; gpio ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+-------+----------+-------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "alu:ALU_C"                                                                           ;
 +--------+-------+----------+-------------------------------------------------------------------------------------+
@@ -576,15 +566,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Jan 15 13:27:50 2022
+    Info: Processing started: Sat Jan 15 14:06:56 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu -c cpu
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file /users/siedl/desktop/fpga-cpu/src/ram.vhd
-    Info (12022): Found design unit 1: ram-Behavioral File: C:/Users/siedl/Desktop/FPGA-CPU/src/ram.vhd Line: 22
+    Info (12022): Found design unit 1: ram-Behavioral File: C:/Users/siedl/Desktop/FPGA-CPU/src/ram.vhd Line: 24
     Info (12023): Found entity 1: ram File: C:/Users/siedl/Desktop/FPGA-CPU/src/ram.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file /users/siedl/desktop/fpga-cpu/src/io.vhd
-    Info (12022): Found design unit 1: io-Behavioral File: C:/Users/siedl/Desktop/FPGA-CPU/src/io.vhd Line: 24
+    Info (12022): Found design unit 1: io-Behavioral File: C:/Users/siedl/Desktop/FPGA-CPU/src/io.vhd Line: 26
     Info (12023): Found entity 1: io File: C:/Users/siedl/Desktop/FPGA-CPU/src/io.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file /users/siedl/desktop/fpga-cpu/src/flash.vhd
     Info (12022): Found design unit 1: FLASH-Behavioral File: C:/Users/siedl/Desktop/FPGA-CPU/src/flash.vhd Line: 20
@@ -597,12 +587,13 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: alu File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 5
 Info (12127): Elaborating entity "cpu" for the top level hierarchy
 Info (12128): Elaborating entity "alu" for hierarchy "alu:ALU_C" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 43
-Warning (10492): VHDL Process Statement warning at alu.vhd(1277): signal "cycles" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 1277
-Warning (10492): VHDL Process Statement warning at alu.vhd(1278): signal "FLASH_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 1278
-Info (12128): Elaborating entity "FLASH" for hierarchy "alu:ALU_C|FLASH:FLASH_C" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at alu.vhd(1287): signal "cycles" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 1287
+Warning (10492): VHDL Process Statement warning at alu.vhd(1288): signal "FLASH_OUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 1288
+Info (12128): Elaborating entity "FLASH" for hierarchy "alu:ALU_C|FLASH:FLASH_C" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 98
 Warning (10540): VHDL Signal Declaration warning at flash.vhd(79): used explicit default value for signal "FLASH" because signal was never assigned a value File: C:/Users/siedl/Desktop/FPGA-CPU/src/flash.vhd Line: 79
-Info (12128): Elaborating entity "ram" for hierarchy "alu:ALU_C|ram:RAM_C" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 101
-Info (12128): Elaborating entity "io" for hierarchy "alu:ALU_C|io:IO_C" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 113
+Info (12128): Elaborating entity "ram" for hierarchy "alu:ALU_C|ram:RAM_C" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 107
+Info (12128): Elaborating entity "io" for hierarchy "alu:ALU_C|io:IO_C" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 121
+Warning (10873): Using initial value X (don't care) for net "GPIO_IN[31..23]" at io.vhd(16) File: C:/Users/siedl/Desktop/FPGA-CPU/src/io.vhd Line: 16
 Warning (276020): Inferred RAM node "alu:ALU_C|ram:RAM_C|RAM_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "alu:ALU_C|ram:RAM_C|RAM_rtl_0" 
@@ -640,7 +631,7 @@ Info (12133): Instantiated megafunction "alu:ALU_C|ram:RAM_C|altsyncram:RAM_rtl_
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_2eg1.tdf
     Info (12023): Found entity 1: altsyncram_2eg1 File: C:/Users/siedl/Desktop/FPGA-CPU/hw/db/altsyncram_2eg1.tdf Line: 28
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "PINS[0]" and its non-tri-state driver. File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
     Warning (13035): Inserted always-enabled tri-state buffer between "PINS[1]" and its non-tri-state driver. File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
@@ -690,54 +681,54 @@ Info (13060): One or more bidirectional pins are fed by always enabled tri-state
     Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "PINS[21]" is moved to its source File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
     Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "PINS[22]" is moved to its source File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
-    Warning (13310): Register "alu:ALU_C|INS[43]" is converted into an equivalent circuit using register "alu:ALU_C|INS[43]~_emulated" and latch "alu:ALU_C|INS[43]~1" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[42]" is converted into an equivalent circuit using register "alu:ALU_C|INS[42]~_emulated" and latch "alu:ALU_C|INS[42]~5" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[40]" is converted into an equivalent circuit using register "alu:ALU_C|INS[40]~_emulated" and latch "alu:ALU_C|INS[40]~9" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[47]" is converted into an equivalent circuit using register "alu:ALU_C|INS[47]~_emulated" and latch "alu:ALU_C|INS[47]~13" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[46]" is converted into an equivalent circuit using register "alu:ALU_C|INS[46]~_emulated" and latch "alu:ALU_C|INS[46]~17" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[44]" is converted into an equivalent circuit using register "alu:ALU_C|INS[44]~_emulated" and latch "alu:ALU_C|INS[44]~21" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[41]" is converted into an equivalent circuit using register "alu:ALU_C|INS[41]~_emulated" and latch "alu:ALU_C|INS[41]~25" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[35]" is converted into an equivalent circuit using register "alu:ALU_C|INS[35]~_emulated" and latch "alu:ALU_C|INS[35]~29" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[34]" is converted into an equivalent circuit using register "alu:ALU_C|INS[34]~_emulated" and latch "alu:ALU_C|INS[34]~33" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[45]" is converted into an equivalent circuit using register "alu:ALU_C|INS[45]~_emulated" and latch "alu:ALU_C|INS[45]~37" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[32]" is converted into an equivalent circuit using register "alu:ALU_C|INS[32]~_emulated" and latch "alu:ALU_C|INS[32]~41" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[33]" is converted into an equivalent circuit using register "alu:ALU_C|INS[33]~_emulated" and latch "alu:ALU_C|INS[33]~45" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[38]" is converted into an equivalent circuit using register "alu:ALU_C|INS[38]~_emulated" and latch "alu:ALU_C|INS[38]~49" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[37]" is converted into an equivalent circuit using register "alu:ALU_C|INS[37]~_emulated" and latch "alu:ALU_C|INS[37]~53" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[39]" is converted into an equivalent circuit using register "alu:ALU_C|INS[39]~_emulated" and latch "alu:ALU_C|INS[39]~57" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[36]" is converted into an equivalent circuit using register "alu:ALU_C|INS[36]~_emulated" and latch "alu:ALU_C|INS[36]~61" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[31]" is converted into an equivalent circuit using register "alu:ALU_C|INS[31]~_emulated" and latch "alu:ALU_C|INS[31]~65" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[30]" is converted into an equivalent circuit using register "alu:ALU_C|INS[30]~_emulated" and latch "alu:ALU_C|INS[30]~69" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[29]" is converted into an equivalent circuit using register "alu:ALU_C|INS[29]~_emulated" and latch "alu:ALU_C|INS[29]~73" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[28]" is converted into an equivalent circuit using register "alu:ALU_C|INS[28]~_emulated" and latch "alu:ALU_C|INS[28]~77" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[27]" is converted into an equivalent circuit using register "alu:ALU_C|INS[27]~_emulated" and latch "alu:ALU_C|INS[27]~81" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[26]" is converted into an equivalent circuit using register "alu:ALU_C|INS[26]~_emulated" and latch "alu:ALU_C|INS[26]~85" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[25]" is converted into an equivalent circuit using register "alu:ALU_C|INS[25]~_emulated" and latch "alu:ALU_C|INS[25]~89" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[24]" is converted into an equivalent circuit using register "alu:ALU_C|INS[24]~_emulated" and latch "alu:ALU_C|INS[24]~93" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[23]" is converted into an equivalent circuit using register "alu:ALU_C|INS[23]~_emulated" and latch "alu:ALU_C|INS[23]~97" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[22]" is converted into an equivalent circuit using register "alu:ALU_C|INS[22]~_emulated" and latch "alu:ALU_C|INS[22]~101" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[21]" is converted into an equivalent circuit using register "alu:ALU_C|INS[21]~_emulated" and latch "alu:ALU_C|INS[21]~105" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[20]" is converted into an equivalent circuit using register "alu:ALU_C|INS[20]~_emulated" and latch "alu:ALU_C|INS[20]~109" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[19]" is converted into an equivalent circuit using register "alu:ALU_C|INS[19]~_emulated" and latch "alu:ALU_C|INS[19]~113" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[18]" is converted into an equivalent circuit using register "alu:ALU_C|INS[18]~_emulated" and latch "alu:ALU_C|INS[18]~117" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[17]" is converted into an equivalent circuit using register "alu:ALU_C|INS[17]~_emulated" and latch "alu:ALU_C|INS[17]~121" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[16]" is converted into an equivalent circuit using register "alu:ALU_C|INS[16]~_emulated" and latch "alu:ALU_C|INS[16]~125" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[15]" is converted into an equivalent circuit using register "alu:ALU_C|INS[15]~_emulated" and latch "alu:ALU_C|INS[15]~129" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[14]" is converted into an equivalent circuit using register "alu:ALU_C|INS[14]~_emulated" and latch "alu:ALU_C|INS[14]~133" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[13]" is converted into an equivalent circuit using register "alu:ALU_C|INS[13]~_emulated" and latch "alu:ALU_C|INS[13]~137" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[12]" is converted into an equivalent circuit using register "alu:ALU_C|INS[12]~_emulated" and latch "alu:ALU_C|INS[12]~141" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[11]" is converted into an equivalent circuit using register "alu:ALU_C|INS[11]~_emulated" and latch "alu:ALU_C|INS[11]~145" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[10]" is converted into an equivalent circuit using register "alu:ALU_C|INS[10]~_emulated" and latch "alu:ALU_C|INS[10]~149" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[9]" is converted into an equivalent circuit using register "alu:ALU_C|INS[9]~_emulated" and latch "alu:ALU_C|INS[9]~153" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[8]" is converted into an equivalent circuit using register "alu:ALU_C|INS[8]~_emulated" and latch "alu:ALU_C|INS[8]~157" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[0]" is converted into an equivalent circuit using register "alu:ALU_C|INS[0]~_emulated" and latch "alu:ALU_C|INS[0]~161" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[1]" is converted into an equivalent circuit using register "alu:ALU_C|INS[1]~_emulated" and latch "alu:ALU_C|INS[1]~165" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[2]" is converted into an equivalent circuit using register "alu:ALU_C|INS[2]~_emulated" and latch "alu:ALU_C|INS[2]~169" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[3]" is converted into an equivalent circuit using register "alu:ALU_C|INS[3]~_emulated" and latch "alu:ALU_C|INS[3]~173" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[4]" is converted into an equivalent circuit using register "alu:ALU_C|INS[4]~_emulated" and latch "alu:ALU_C|INS[4]~177" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[5]" is converted into an equivalent circuit using register "alu:ALU_C|INS[5]~_emulated" and latch "alu:ALU_C|INS[5]~181" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[6]" is converted into an equivalent circuit using register "alu:ALU_C|INS[6]~_emulated" and latch "alu:ALU_C|INS[6]~185" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
-    Warning (13310): Register "alu:ALU_C|INS[7]" is converted into an equivalent circuit using register "alu:ALU_C|INS[7]~_emulated" and latch "alu:ALU_C|INS[7]~189" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 124
+    Warning (13310): Register "alu:ALU_C|INS[43]" is converted into an equivalent circuit using register "alu:ALU_C|INS[43]~_emulated" and latch "alu:ALU_C|INS[43]~1" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[42]" is converted into an equivalent circuit using register "alu:ALU_C|INS[42]~_emulated" and latch "alu:ALU_C|INS[42]~5" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[40]" is converted into an equivalent circuit using register "alu:ALU_C|INS[40]~_emulated" and latch "alu:ALU_C|INS[40]~9" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[47]" is converted into an equivalent circuit using register "alu:ALU_C|INS[47]~_emulated" and latch "alu:ALU_C|INS[47]~13" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[46]" is converted into an equivalent circuit using register "alu:ALU_C|INS[46]~_emulated" and latch "alu:ALU_C|INS[46]~17" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[44]" is converted into an equivalent circuit using register "alu:ALU_C|INS[44]~_emulated" and latch "alu:ALU_C|INS[44]~21" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[41]" is converted into an equivalent circuit using register "alu:ALU_C|INS[41]~_emulated" and latch "alu:ALU_C|INS[41]~25" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[35]" is converted into an equivalent circuit using register "alu:ALU_C|INS[35]~_emulated" and latch "alu:ALU_C|INS[35]~29" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[34]" is converted into an equivalent circuit using register "alu:ALU_C|INS[34]~_emulated" and latch "alu:ALU_C|INS[34]~33" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[45]" is converted into an equivalent circuit using register "alu:ALU_C|INS[45]~_emulated" and latch "alu:ALU_C|INS[45]~37" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[32]" is converted into an equivalent circuit using register "alu:ALU_C|INS[32]~_emulated" and latch "alu:ALU_C|INS[32]~41" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[33]" is converted into an equivalent circuit using register "alu:ALU_C|INS[33]~_emulated" and latch "alu:ALU_C|INS[33]~45" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[38]" is converted into an equivalent circuit using register "alu:ALU_C|INS[38]~_emulated" and latch "alu:ALU_C|INS[38]~49" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[37]" is converted into an equivalent circuit using register "alu:ALU_C|INS[37]~_emulated" and latch "alu:ALU_C|INS[37]~53" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[39]" is converted into an equivalent circuit using register "alu:ALU_C|INS[39]~_emulated" and latch "alu:ALU_C|INS[39]~57" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[36]" is converted into an equivalent circuit using register "alu:ALU_C|INS[36]~_emulated" and latch "alu:ALU_C|INS[36]~61" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[31]" is converted into an equivalent circuit using register "alu:ALU_C|INS[31]~_emulated" and latch "alu:ALU_C|INS[31]~65" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[30]" is converted into an equivalent circuit using register "alu:ALU_C|INS[30]~_emulated" and latch "alu:ALU_C|INS[30]~69" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[29]" is converted into an equivalent circuit using register "alu:ALU_C|INS[29]~_emulated" and latch "alu:ALU_C|INS[29]~73" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[28]" is converted into an equivalent circuit using register "alu:ALU_C|INS[28]~_emulated" and latch "alu:ALU_C|INS[28]~77" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[27]" is converted into an equivalent circuit using register "alu:ALU_C|INS[27]~_emulated" and latch "alu:ALU_C|INS[27]~81" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[26]" is converted into an equivalent circuit using register "alu:ALU_C|INS[26]~_emulated" and latch "alu:ALU_C|INS[26]~85" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[25]" is converted into an equivalent circuit using register "alu:ALU_C|INS[25]~_emulated" and latch "alu:ALU_C|INS[25]~89" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[24]" is converted into an equivalent circuit using register "alu:ALU_C|INS[24]~_emulated" and latch "alu:ALU_C|INS[24]~93" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[23]" is converted into an equivalent circuit using register "alu:ALU_C|INS[23]~_emulated" and latch "alu:ALU_C|INS[23]~97" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[22]" is converted into an equivalent circuit using register "alu:ALU_C|INS[22]~_emulated" and latch "alu:ALU_C|INS[22]~101" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[21]" is converted into an equivalent circuit using register "alu:ALU_C|INS[21]~_emulated" and latch "alu:ALU_C|INS[21]~105" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[20]" is converted into an equivalent circuit using register "alu:ALU_C|INS[20]~_emulated" and latch "alu:ALU_C|INS[20]~109" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[19]" is converted into an equivalent circuit using register "alu:ALU_C|INS[19]~_emulated" and latch "alu:ALU_C|INS[19]~113" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[18]" is converted into an equivalent circuit using register "alu:ALU_C|INS[18]~_emulated" and latch "alu:ALU_C|INS[18]~117" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[17]" is converted into an equivalent circuit using register "alu:ALU_C|INS[17]~_emulated" and latch "alu:ALU_C|INS[17]~121" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[16]" is converted into an equivalent circuit using register "alu:ALU_C|INS[16]~_emulated" and latch "alu:ALU_C|INS[16]~125" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[15]" is converted into an equivalent circuit using register "alu:ALU_C|INS[15]~_emulated" and latch "alu:ALU_C|INS[15]~129" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[14]" is converted into an equivalent circuit using register "alu:ALU_C|INS[14]~_emulated" and latch "alu:ALU_C|INS[14]~133" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[13]" is converted into an equivalent circuit using register "alu:ALU_C|INS[13]~_emulated" and latch "alu:ALU_C|INS[13]~137" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[12]" is converted into an equivalent circuit using register "alu:ALU_C|INS[12]~_emulated" and latch "alu:ALU_C|INS[12]~141" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[11]" is converted into an equivalent circuit using register "alu:ALU_C|INS[11]~_emulated" and latch "alu:ALU_C|INS[11]~145" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[10]" is converted into an equivalent circuit using register "alu:ALU_C|INS[10]~_emulated" and latch "alu:ALU_C|INS[10]~149" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[9]" is converted into an equivalent circuit using register "alu:ALU_C|INS[9]~_emulated" and latch "alu:ALU_C|INS[9]~153" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[8]" is converted into an equivalent circuit using register "alu:ALU_C|INS[8]~_emulated" and latch "alu:ALU_C|INS[8]~157" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[0]" is converted into an equivalent circuit using register "alu:ALU_C|INS[0]~_emulated" and latch "alu:ALU_C|INS[0]~161" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[1]" is converted into an equivalent circuit using register "alu:ALU_C|INS[1]~_emulated" and latch "alu:ALU_C|INS[1]~165" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[2]" is converted into an equivalent circuit using register "alu:ALU_C|INS[2]~_emulated" and latch "alu:ALU_C|INS[2]~169" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[3]" is converted into an equivalent circuit using register "alu:ALU_C|INS[3]~_emulated" and latch "alu:ALU_C|INS[3]~173" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[4]" is converted into an equivalent circuit using register "alu:ALU_C|INS[4]~_emulated" and latch "alu:ALU_C|INS[4]~177" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[5]" is converted into an equivalent circuit using register "alu:ALU_C|INS[5]~_emulated" and latch "alu:ALU_C|INS[5]~181" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[6]" is converted into an equivalent circuit using register "alu:ALU_C|INS[6]~_emulated" and latch "alu:ALU_C|INS[6]~185" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
+    Warning (13310): Register "alu:ALU_C|INS[7]" is converted into an equivalent circuit using register "alu:ALU_C|INS[7]~_emulated" and latch "alu:ALU_C|INS[7]~189" File: C:/Users/siedl/Desktop/FPGA-CPU/src/alu.vhd Line: 134
 Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "PINS[0]~synth" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
     Warning (13010): Node "PINS[1]~synth" File: C:/Users/siedl/Desktop/FPGA-CPU/src/cpu.vhd Line: 13
@@ -771,10 +762,10 @@ Info (21057): Implemented 6969 device resources after synthesis - the final reso
     Info (21060): Implemented 23 bidirectional pins
     Info (21061): Implemented 6936 logic cells
     Info (21064): Implemented 8 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 103 warnings
-    Info: Peak virtual memory: 5078 megabytes
-    Info: Processing ended: Sat Jan 15 13:29:02 2022
-    Info: Elapsed time: 00:01:12
-    Info: Total CPU time (on all processors): 00:01:23
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 104 warnings
+    Info: Peak virtual memory: 5073 megabytes
+    Info: Processing ended: Sat Jan 15 14:08:14 2022
+    Info: Elapsed time: 00:01:18
+    Info: Total CPU time (on all processors): 00:01:33
 
 

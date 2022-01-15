@@ -68,7 +68,9 @@ component ram is
         RAM_OUT: out std_logic_vector(M-1 DOWNTO 0);
         RAM_ADDR: in std_logic_vector(N-1 DOWNTO 0);
         RAM_RW: in std_logic; 			            --1 means read, 0 means write
-        RAM_GPIO: out std_logic_vector(63 DOWNTO 0)	--GPIO mode, GPIO value
+        RAM_GPIO: out std_logic_vector(31 DOWNTO 0);
+        RAM_GPIO_IN: in std_logic_vector(31 DOWNTO 0);		--GPIO INPUT
+        RAM_GPIO_OUT: out std_logic_vector(31 DOWNTO 0)		--GPIO OUTPUT
     );
 end component ram;
 --RAM END
@@ -78,13 +80,17 @@ component io is
     port(
         SCL: in std_logic;
         RST: in std_logic := '1';
-        GPIO: inout std_logic_vector(63 DOWNTO 0);
+        GPIO: in std_logic_vector(31 DOWNTO 0); --mode
+        GPIO_OUT: in std_logic_vector(31 DOWNTO 0); --to set OUTPUT
+        GPIO_IN: out std_logic_vector(31 DOWNTO 0); --to read INPUT
         PINS: inout std_logic_vector(22 DOWNTO 0)
     );
 end component io;
 --IO END
 
-signal GPIO: std_logic_vector(63 DOWNTO 0);
+signal GPIO: std_logic_vector(31 DOWNTO 0);
+signal GPIO_IN: std_logic_vector(31 DOWNTO 0);
+signal GPIO_OUT: std_logic_vector(31 DOWNTO 0);
 
 begin
 
@@ -105,7 +111,9 @@ RAM_C: ram port map (
 	RAM_OUT => RAM_OUT,
 	RAM_ADDR => RAM_ADDR,
 	RAM_RW => RAM_RW,
-    RAM_GPIO => GPIO
+    RAM_GPIO => GPIO,
+    RAM_GPIO_IN => GPIO_IN,
+    RAM_GPIO_OUT => GPIO_OUT
 );
 --RAM MAP END
 
@@ -113,6 +121,8 @@ RAM_C: ram port map (
 IO_C: io port map(
     SCL => SCL,
     RST => RST,
+    GPIO_OUT => GPIO_OUT,
+    GPIO_IN => GPIO_IN,
     GPIO => GPIO,
     PINS => PINS
 );

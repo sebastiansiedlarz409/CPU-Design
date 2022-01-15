@@ -11,7 +11,9 @@ entity io is
     port(
         SCL: in std_logic;
         RST: in std_logic := '1';
-        GPIO: inout std_logic_vector(63 DOWNTO 0);
+        GPIO: in std_logic_vector(31 DOWNTO 0); --mode
+        GPIO_OUT: in std_logic_vector(31 DOWNTO 0); --to set OUTPUT
+        GPIO_IN: out std_logic_vector(31 DOWNTO 0); --to read INPUT
         PINS: inout std_logic_vector(22 DOWNTO 0)
     );
 end entity io;
@@ -32,10 +34,10 @@ begin
     if rising_edge(SCL) then
         for I in 0 to 22 loop
 
-            if GPIO(I+32) = '0' then --OUT
-                PINS(I) <= GPIO(I);
+            if GPIO(I) = '0' then --OUT
+                PINS(I) <= GPIO_OUT(I);
             else --IN
-                --GPIO(I) <= PINS(I);
+                GPIO_IN(I) <= PINS(I);
             end if;
     
         end loop;
