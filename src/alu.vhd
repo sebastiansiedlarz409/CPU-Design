@@ -23,7 +23,7 @@ entity alu is
         SP: inout std_logic_vector(N-1 DOWNTO 0) := x"00000F00";
         IP: inout std_logic_vector(N-1 DOWNTO 0) := x"00000000";
         STATUS: inout std_logic_vector(3 DOWNTO 0);
-        PINS: inout std_logic_vector(15 DOWNTO 0)
+        PINS: inout std_logic_vector(18 DOWNTO 0)
     );
 end entity alu;
 
@@ -62,13 +62,13 @@ signal RAM_RW: std_logic;
 --RAM
 component ram is
     port(
-        SCL: in std_logic; 				--clock
-        RST: in std_logic := '1'; 		--reset
+        SCL: in std_logic; 				            --clock
+        RST: in std_logic := '1'; 		            --reset
         RAM_IN: in std_logic_vector(M-1 DOWNTO 0);
         RAM_OUT: out std_logic_vector(M-1 DOWNTO 0);
         RAM_ADDR: in std_logic_vector(N-1 DOWNTO 0);
-        RAM_RW: in std_logic; 			--1 means read, 0 means write
-        RAM_GPIO: out std_logic_vector(31 DOWNTO 0)	--GPIO mode, GPIO value
+        RAM_RW: in std_logic; 			            --1 means read, 0 means write
+        RAM_GPIO: out std_logic_vector(63 DOWNTO 0)	--GPIO mode, GPIO value
     );
 end component ram;
 --RAM END
@@ -78,13 +78,13 @@ component io is
     port(
         SCL: in std_logic;
         RST: in std_logic := '1';
-        GPIO: in std_logic_vector(31 DOWNTO 0);
-        PINS: inout std_logic_vector(15 DOWNTO 0)
+        GPIO: inout std_logic_vector(63 DOWNTO 0);
+        PINS: inout std_logic_vector(18 DOWNTO 0)
     );
 end component io;
 --IO END
 
-signal GPIO: std_logic_vector(31 DOWNTO 0);
+signal GPIO: std_logic_vector(63 DOWNTO 0);
 
 begin
 

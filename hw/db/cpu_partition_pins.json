@@ -68,6 +68,18 @@
 					"strict" : false
 				},
 				{
+					"name" : "PINS[16]",
+					"strict" : false
+				},
+				{
+					"name" : "PINS[17]",
+					"strict" : false
+				},
+				{
+					"name" : "PINS[18]",
+					"strict" : false
+				},
+				{
 					"name" : "SCL",
 					"strict" : false
 				},

@@ -11,15 +11,15 @@ entity io is
     port(
         SCL: in std_logic;
         RST: in std_logic := '1';
-        GPIO: in std_logic_vector(31 DOWNTO 0);
-        PINS: inout std_logic_vector(15 DOWNTO 0)
+        GPIO: inout std_logic_vector(63 DOWNTO 0);
+        PINS: inout std_logic_vector(18 DOWNTO 0)
     );
 end entity io;
 
 --map
 --16 gpio
 --0xF00 IN/OUT
---0xF02 VALUE/PULLUP/PULLDOWN
+--0xF04 VALUE/PULLUP/PULLDOWN
 
 architecture Behavioral of io is
 
@@ -30,12 +30,12 @@ process(SCL)
 begin
 
     if rising_edge(SCL) then
-        for I in 0 to 15 loop
+        for I in 0 to 18 loop
 
-            --OUT
-            if GPIO(I+15) = '0' then
+            if GPIO(I+32) = '0' then --OUT
                 PINS(I) <= GPIO(I);
-            else
+            else --IN
+                --GPIO(I) <= PINS(I);
             end if;
     
         end loop;

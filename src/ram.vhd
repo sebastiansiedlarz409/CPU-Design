@@ -15,7 +15,7 @@ port(
 	RAM_OUT: out std_logic_vector(M-1 DOWNTO 0);
 	RAM_ADDR: in std_logic_vector(N-1 DOWNTO 0);
 	RAM_RW: in std_logic; 							--1 means read, 0 means write
-	RAM_GPIO: out std_logic_vector(31 DOWNTO 0)		--GPIO mode, GPIO value
+	RAM_GPIO: out std_logic_vector(63 DOWNTO 0)		--GPIO mode, GPIO value
 );
 end entity ram;
 
@@ -45,9 +45,13 @@ end if;
 
 end process;
 
-RAM_GPIO(31 DOWNTO 24) <= RAM(16#F00#);
-RAM_GPIO(23 DOWNTO 16) <= RAM(16#F01#);
-RAM_GPIO(15 DOWNTO 8) <= RAM(16#F02#);
-RAM_GPIO(7 DOWNTO 0) <= RAM(16#F03#);
+RAM_GPIO(63 DOWNTO 56) <= RAM(16#F00#);
+RAM_GPIO(55 DOWNTO 48) <= RAM(16#F01#);
+RAM_GPIO(47 DOWNTO 40) <= RAM(16#F02#);
+RAM_GPIO(39 DOWNTO 32) <= RAM(16#F03#);
+RAM_GPIO(31 DOWNTO 24) <= RAM(16#F04#);
+RAM_GPIO(23 DOWNTO 16) <= RAM(16#F05#);
+RAM_GPIO(15 DOWNTO 8) <= RAM(16#F06#);
+RAM_GPIO(7 DOWNTO 0) <= RAM(16#F07#);
 
 end architecture Behavioral;
