@@ -3,99 +3,99 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'SCL'
-Slack : -14.045
-TNS   : -5405.594
+Slack : -13.796
+TNS   : -5687.813
 
 Type  : Slow 1200mV 85C Model Setup 'alu:ALU_C|cycles[0]'
-Slack : -5.284
-TNS   : -227.403
+Slack : -4.749
+TNS   : -208.775
 
 Type  : Slow 1200mV 85C Model Hold 'SCL'
-Slack : 0.320
+Slack : 0.341
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'alu:ALU_C|cycles[0]'
-Slack : 1.307
+Slack : 1.089
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'SCL'
-Slack : -6.631
-TNS   : -299.810
+Slack : -6.276
+TNS   : -283.190
 
 Type  : Slow 1200mV 85C Model Removal 'SCL'
-Slack : 0.562
+Slack : 0.966
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SCL'
 Slack : -3.000
-TNS   : -843.571
+TNS   : -907.512
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'alu:ALU_C|cycles[0]'
-Slack : 0.276
+Slack : 0.305
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'SCL'
-Slack : -13.346
-TNS   : -5119.757
+Slack : -13.158
+TNS   : -5393.341
 
 Type  : Slow 1200mV 0C Model Setup 'alu:ALU_C|cycles[0]'
-Slack : -5.110
-TNS   : -218.046
+Slack : -4.558
+TNS   : -199.446
 
 Type  : Slow 1200mV 0C Model Hold 'SCL'
-Slack : 0.290
+Slack : 0.305
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'alu:ALU_C|cycles[0]'
-Slack : 1.247
+Slack : 0.962
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'SCL'
-Slack : -6.125
-TNS   : -276.358
+Slack : -5.777
+TNS   : -260.161
 
 Type  : Slow 1200mV 0C Model Removal 'SCL'
-Slack : 0.469
+Slack : 0.873
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SCL'
 Slack : -3.000
-TNS   : -843.571
+TNS   : -907.512
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'alu:ALU_C|cycles[0]'
-Slack : 0.199
+Slack : 0.268
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'SCL'
-Slack : -5.011
-TNS   : -1854.219
+Slack : -5.194
+TNS   : -1941.842
 
 Type  : Fast 1200mV 0C Model Setup 'alu:ALU_C|cycles[0]'
-Slack : -1.404
-TNS   : -54.634
+Slack : -1.279
+TNS   : -50.075
 
 Type  : Fast 1200mV 0C Model Hold 'SCL'
-Slack : 0.105
+Slack : 0.143
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'alu:ALU_C|cycles[0]'
-Slack : 0.318
+Slack : 0.315
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'SCL'
-Slack : -2.261
-TNS   : -100.210
+Slack : -2.061
+TNS   : -90.805
 
 Type  : Fast 1200mV 0C Model Removal 'SCL'
-Slack : 0.294
+Slack : 0.422
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SCL'
 Slack : -3.000
-TNS   : -571.709
+TNS   : -616.310
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'alu:ALU_C|cycles[0]'
-Slack : 0.429
+Slack : 0.445
 TNS   : 0.000
 
 ------------------------------------------------------------

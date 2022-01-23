@@ -23,7 +23,7 @@ end entity ram;
 
 architecture Behavioral of ram is
 
-type RAM_ARRAY is array (0 to S) of std_logic_vector(M-1 downto 0); -- 0 to 0x1000-1
+type RAM_ARRAY is array (0 to S) of std_logic_vector(M-1 downto 0);
 signal RAM: RAM_ARRAY;
 
 begin
@@ -33,10 +33,20 @@ begin
 
 if rising_edge(SCL) then
 
-	if RAM_RW = '0' then --write
+	if RAM_RW = '0' then --write	
 		RAM(to_integer(unsigned(RAM_ADDR))) <= RAM_IN;
 	else
-		RAM_OUT <= RAM(to_integer(unsigned(RAM_ADDR)));
+		if RAM_ADDR = x"00000F04" then
+			RAM_OUT <= RAM_GPIO_IN(31 DOWNTO 24);
+		elsif RAM_ADDR = x"00000F05" then
+			RAM_OUT <= RAM_GPIO_IN(23 DOWNTO 16);
+		elsif RAM_ADDR = x"00000F06" then
+			RAM_OUT <= RAM_GPIO_IN(15 DOWNTO 8);
+		elsif RAM_ADDR = x"00000F07" then
+			RAM_OUT <= RAM_GPIO_IN(7 DOWNTO 0);
+		else
+			RAM_OUT <= RAM(to_integer(unsigned(RAM_ADDR)));
+		end if;
 	end if;
 
 	if RST='0' then

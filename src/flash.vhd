@@ -104,11 +104,28 @@ signal FLASH: FLASH_ARRAY := (x"B0", x"0F", x"00", x"00", x"16", x"FF", --mov r0
 							x"B0", x"0F", x"00", x"00", x"10", x"6F",   --mov r0, 0x16DF //digit 1
 							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
 							x"DB", x"00", x"98", x"96", x"80",			--nop 10 000 000 //sleep 1s
-							x"B0", x"0F", x"00", x"00", x"F3", x"FF",   --mov r0, 0x16DF //digit 0
+							x"B0", x"0F", x"00", x"00", x"F3", x"FF",   --mov r0, 0xF3FF //digit 0
 							x"E2", x"10",								--str r1, r0 //r1 address, r0 value
 							x"DB", x"00", x"98", x"96", x"80",			--nop 10 000 000 //sleep 1s
 							x"F1", x"00", x"00", x"00", x"00",			--jump to IP = 0
 							others=> x"00");
+
+--test input
+--signal FLASH: FLASH_ARRAY := (x"B0", x"2F", x"00", x"00", x"0F", x"00", 	--mov r2, 0x0F00
+--							x"B0", x"1F", x"00", x"01", x"00", x"00", 		--mov r1, 0x00010000
+--							x"E2", x"21",									--str r2, r1 //set input pins(16)
+--							x"B0", x"2F", x"00", x"00", x"0F", x"04", 		--mov r2, 0x0F04
+--							x"E0", x"20",									--ldr r2, r0 //r2 address, r0 value
+--							x"B0", x"1F", x"00", x"01", x"00", x"00",		--mov r1, 0x00010000 //R button mask
+--							x"A8",											--and r0, r1
+--							x"F5", x"00", x"00", x"00", x"2f",				--jnz 0x2f //if not pressed (bit is set then and Z is aswell)
+--							x"B0", x"0F", x"00", x"00", x"10", x"6F",   	--mov r0, 0x16DF //digit 1
+--							x"E2", x"20",									--str r2, r0 //r2 address, r0 value
+--							x"F1", x"00", x"00", x"00", x"0E",				--jump 0xE
+--							x"B0", x"0F", x"00", x"00", x"13", x"FF",   	--mov r0, 0x13FF //digit 0
+--							x"E2", x"20",									--str r2, r0 //r2 address, r0 value
+--							x"F1", x"00", x"00", x"00", x"0E",				--jump 0xE
+--							others=> x"00");
 
 begin
 

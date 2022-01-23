@@ -19,7 +19,6 @@ entity io is
 end entity io;
 
 --map
---16 gpio
 --0xF00 IN/OUT
 --0xF04 VALUE/PULLUP/PULLDOWN
 
@@ -38,6 +37,9 @@ begin
                 PINS(I) <= GPIO_OUT(I);
             else --IN
                 GPIO_IN(I) <= PINS(I);
+                if I = 16 then
+                    PINS(I-1) <= PINS(I);
+                end if;
             end if;
     
         end loop;
