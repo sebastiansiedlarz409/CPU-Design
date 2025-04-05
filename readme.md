@@ -1,6 +1,6 @@
 # FPGA base CPU project
 
-My first attempt to project microprocessor on FPGA device. Details:
+My first attempt to design microprocessor on FPGA board. Details:
 
 - 32 bits architecture
 - Harvard architecture
